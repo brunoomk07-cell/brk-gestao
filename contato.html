@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | BRK Gestão Financeira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #050505;
+            --gold-primary: #D4AF37;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+        }
+
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 550px;
+            background: #0d0d0d;
+            padding: 50px 40px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+
+        /* LOGO NO TOPO */
+        .logo-top {
+            height: 80px;
+            width: auto;
+            margin-bottom: 30px;
+            filter: brightness(1.2);
+        }
+
+        /* CITAÇÃO INTELECTUAL */
+        .quote-box {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .quote-text {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        form { display: flex; flex-direction: column; gap: 20px; text-align: left; }
+
+        .field-group { display: flex; flex-direction: column; gap: 8px; }
+
+        label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        input, textarea {
+            background: #050505;
+            border: 1px solid #222;
+            padding: 14px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--gold-primary);
+            outline: none;
+            background: #0a0a0a;
+        }
+
+        .submit-btn {
+            background: var(--gold-primary);
+            color: #000;
+            border: none;
+            padding: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 35px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { color: var(--gold-primary); border-bottom-color: var(--gold-primary); }
+
+        @media (max-width: 480px) {
+            .contact-container { padding: 40px 20px; }
+            .logo-top { height: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-container">
+        <img src="logo.png" alt="BRK Logo" class="logo-top">
+
+        <div class="quote-box">
+            <span class="quote-text">"O conhecimento é a única luz capaz de dissipar as trevas da incerteza financeira."</span>
+            <span class="quote-author">— Adaptado de Francis Bacon</span>
+        </div>
+
+        <h1>Formulário de contato inicial</h1>
+
+        <form action="https://formspree.io/f/xaqllykq" method="POST">
+            
+            <div class="field-group">
+                <label>Nome ou Razão Social</label>
+                <input type="text" name="nome" required placeholder="Como devemos chamá-lo?">
+            </div>
+
+            <div class="field-group">
+                <label>WhatsApp Direto</label>
+                <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000">
+            </div>
+
+            <div class="field-group">
+                <label>E-mail</label>
+                <input type="email" name="email" required placeholder="seu@email.com">
+            </div>
+
+            <div class="field-group">
+                <label>Qual é o seu maior desafio hoje?</label>
+                <textarea name="mensagem" rows="4" required placeholder="Ex: Gestão de fluxo, redução de custos fixos, análise de margem..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar Dados para Análise</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Retornar à Base</a>
+    </div>
+
+</body>
+</html>
