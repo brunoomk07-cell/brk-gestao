@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
     <title>Contato | BRK Gestão Financeira</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -88,15 +89,24 @@
             font-weight: 600;
         }
 
+        * { box-sizing: border-box; }
+
         input, textarea {
+            width: 100%;
             background: #050505;
-            border: 1px solid #222;
-            padding: 14px;
+            border: 1px solid #2a2a2a;
+            padding: 15px 14px;
             color: #fff;
             font-family: 'Montserrat', sans-serif;
+            font-size: 16px; /* evita o zoom automático no iPhone */
+            -webkit-appearance: none;
+            appearance: none;
             transition: 0.3s;
             border-radius: 2px;
         }
+
+        textarea { resize: vertical; min-height: 120px; }
+        ::placeholder { color: #5f5f5f; }
 
         input:focus, textarea:focus {
             border-color: var(--gold-primary);
@@ -138,8 +148,21 @@
         .back-link:hover { color: var(--gold-primary); border-bottom-color: var(--gold-primary); }
 
         @media (max-width: 480px) {
-            .contact-container { padding: 40px 20px; }
-            .logo-top { height: 60px; }
+            body { padding: 0; align-items: stretch; }
+            .contact-container {
+                padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
+                border: none;
+                box-shadow: none;
+                min-height: 100vh;
+            }
+            .logo-top { height: 56px; margin-bottom: 20px; }
+            .quote-box { margin-bottom: 28px; padding: 16px 0; }
+            .quote-text { font-size: 0.98rem; }
+            h1 { font-size: 1.25rem; letter-spacing: 1px; margin-bottom: 20px; }
+            form { gap: 18px; }
+            .submit-btn { padding: 18px; letter-spacing: 2px; font-size: 0.82rem; }
+            .submit-btn:hover { transform: none; }
+            .back-link { margin-top: 28px; padding: 10px 0; }
         }
     </style>
 </head>
@@ -158,23 +181,23 @@
         <form action="https://formspree.io/f/xaqllykq" method="POST">
             
             <div class="field-group">
-                <label>Nome ou Razão Social</label>
-                <input type="text" name="nome" required placeholder="Como devemos chamá-lo?">
+                <label for="nome">Nome ou Razão Social</label>
+                <input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Como devemos chamá-lo?">
             </div>
 
             <div class="field-group">
-                <label>WhatsApp Direto</label>
-                <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000">
+                <label for="whatsapp">WhatsApp Direto</label>
+                <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" required placeholder="(00) 00000-0000">
             </div>
 
             <div class="field-group">
-                <label>E-mail</label>
-                <input type="email" name="email" required placeholder="seu@email.com">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required placeholder="seu@email.com">
             </div>
 
             <div class="field-group">
-                <label>Qual é o seu maior desafio hoje?</label>
-                <textarea name="mensagem" rows="4" required placeholder="Ex: Gestão de fluxo, redução de custos fixos, análise de margem..."></textarea>
+                <label for="mensagem">Qual é o seu maior desafio hoje?</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Ex: Gestão de fluxo, redução de custos fixos, análise de margem..."></textarea>
             </div>
 
             <button type="submit" class="submit-btn">Enviar Dados para Análise</button>
