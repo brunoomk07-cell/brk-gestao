@@ -237,32 +237,91 @@
         .manifesto p { font-size: 1.1rem; color: var(--text-muted); line-height: 2; }
         .manifesto .btn { margin-top: 40px; }
 
-        /* ---------- MATERIAIS ---------- */
-        .library-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
-        .material-card {
+        /* ---------- MATERIAIS (E-BOOKS) ---------- */
+        .section-intro { max-width: 720px; margin: 20px auto 0; color: var(--text-muted); font-size: 1.02rem; }
+        .library-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; max-width: 1040px; margin: 0 auto; }
+        .ebook {
             background: var(--bg-body);
-            padding: 32px;
             border: 1px solid var(--gold-line);
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            text-decoration: none;
             transition: var(--transition);
         }
-        .material-card:hover { border-color: var(--gold-line-strong); }
-        .lock-status { font-size: 0.68rem; color: var(--gold-secondary); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        .material-card h3 { color: var(--white); font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600; line-height: 1.35; }
-        .unlock-btn {
-            margin-top: 8px;
-            align-self: flex-start;
-            color: var(--gold-primary);
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--gold-primary);
-            padding-bottom: 2px;
+        .ebook:hover { border-color: var(--gold-line-strong); }
+
+        .ebook-cover {
+            position: relative;
+            padding: 36px 32px 30px;
+            background:
+                radial-gradient(120% 90% at 100% 0%, rgba(212,175,55,0.16) 0%, transparent 60%),
+                linear-gradient(160deg, #151515 0%, #080808 100%);
+            border-bottom: 1px solid var(--gold-line);
+            overflow: hidden;
         }
+        .ebook-cover::after {
+            content: attr(data-tag);
+            position: absolute;
+            right: -6px; bottom: -34px;
+            font-family: 'Cinzel', serif;
+            font-size: 7.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(212,175,55,0.07);
+            pointer-events: none;
+        }
+        .ebook-badge {
+            display: inline-block;
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-line-strong);
+            padding: 5px 10px;
+            margin-bottom: 18px;
+        }
+        .ebook-cover h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            line-height: 1.25;
+            color: var(--white);
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .ebook-cover p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; position: relative; max-width: 90%; }
+
+        .ebook-body { padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 22px; flex: 1; }
+
+        .ebook-stat { display: flex; gap: 16px; align-items: baseline; }
+        .ebook-stat strong { font-family: 'Cinzel', serif; font-size: 1.9rem; color: var(--gold-primary); line-height: 1; white-space: nowrap; }
+        .ebook-stat span { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        .ebook-stat small { display: block; font-size: 0.7rem; color: #6b6b6b; margin-top: 2px; }
+
+        .ebook-list-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-secondary); margin-bottom: 10px; }
+        .ebook-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+        .ebook-list li { position: relative; padding-left: 22px; font-size: 0.92rem; color: var(--text-main); line-height: 1.55; }
+        .ebook-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 10px; height: 1px; background: var(--gold-primary); }
+
+        .ebook-question {
+            background: rgba(212,175,55,0.05);
+            border-left: 2px solid var(--gold-secondary);
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        .ebook-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+        .ebook-actions .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 20px; font-size: 0.78rem; letter-spacing: 2px; cursor: pointer; font-family: inherit; background: none; }
+        .ebook-actions .btn svg { width: 18px; height: 18px; flex: none; }
+        .ebook-actions .btn-solid { background: var(--gold-primary); }
+        .ebook-hint { font-size: 0.75rem; color: #6b6b6b; text-align: center; }
+        .ebook-download { display: none !important; }
+        .ebook.unlocked .ebook-download { display: flex !important; background: var(--gold-primary); color: var(--bg-body); }
+        .ebook.unlocked .ebook-follow { background: none; color: var(--text-muted); border-color: var(--gold-line); }
+        .ebook.unlocked .ebook-hint-locked { display: none; }
+        .ebook-hint-unlocked { display: none; }
+        .ebook.unlocked .ebook-hint-unlocked { display: block; }
 
         /* ---------- ARTIGOS ---------- */
         .article-item { max-width: 850px; margin: 0 auto; background: var(--bg-card); padding: 40px 44px; border-left: 3px solid var(--gold-secondary); }
@@ -354,7 +413,13 @@
             .manifesto p { font-size: 1rem; line-height: 1.85; }
             .manifesto .btn { margin-top: 28px; }
 
-            .material-card { padding: 24px; }
+            .section-intro { font-size: 0.97rem; margin-top: 14px; }
+            .ebook-cover { padding: 28px 22px 24px; }
+            .ebook-cover h3 { font-size: 1.3rem; }
+            .ebook-cover p { max-width: 100%; }
+            .ebook-cover::after { font-size: 6rem; bottom: -26px; }
+            .ebook-body { padding: 22px 22px 26px; gap: 20px; }
+            .ebook-stat strong { font-size: 1.6rem; }
             .article-item { padding: 28px 22px; border-left-width: 2px; }
             .article-item p { font-size: 1rem; }
 
@@ -464,20 +529,71 @@
         <section id="materiais" class="section section-alt">
             <div class="container">
                 <div class="section-head">
-                    <span class="eyebrow">Gratuito</span>
-                    <h2 class="section-title">Biblioteca de Materiais</h2>
+                    <span class="eyebrow">Materiais gratuitos</span>
+                    <h2 class="section-title">Antes de Contratar</h2>
+                    <p class="section-intro">Consultoria só funciona sobre uma base consciente. Estes guias trazem as noções iniciais, a mentalidade e as boas práticas para você chegar preparado — seja no CPF ou no CNPJ.</p>
                 </div>
                 <div class="library-grid">
-                    <a href="https://instagram.com/SEU_USER" target="_blank" rel="noopener" class="material-card">
-                        <span class="lock-status">🔒 Desbloqueie via Instagram</span>
-                        <h3>Planilha de Fluxo de Caixa</h3>
-                        <span class="unlock-btn">Seguir para acessar →</span>
-                    </a>
-                    <a href="https://instagram.com/SEU_USER" target="_blank" rel="noopener" class="material-card">
-                        <span class="lock-status">🔒 Desbloqueie via Instagram</span>
-                        <h3>Checklist Saúde do Negócio</h3>
-                        <span class="unlock-btn">Seguir para acessar →</span>
-                    </a>
+                    <article class="ebook" data-ebook="pf">
+                        <div class="ebook-cover" data-tag="PF">
+                            <span class="ebook-badge">E-book · Pessoa Física</span>
+                            <h3>Finanças Pessoais: a base antes da consultoria</h3>
+                            <p>Noções iniciais, mentalidade e boas práticas para que o trabalho de organização financeira realmente funcione.</p>
+                        </div>
+                        <div class="ebook-body">
+                            <div class="ebook-stat">
+                                <strong>84 mi</strong>
+                                <span>de brasileiros com o nome negativado.<small>Fonte: Serasa, 2026</small></span>
+                            </div>
+                            <div>
+                                <p class="ebook-list-title">O que você vai encontrar</p>
+                                <ul class="ebook-list">
+                                <li>A mentalidade certa antes de pedir ajuda</li>
+                                <li>Os erros mais comuns com cartão, crédito e orçamento</li>
+                                <li>Primeiros passos: reserva, controle de gastos e metas</li>
+                                <li>Guia de boas práticas para o dia a dia</li>
+                                <li>Livros recomendados para mudar a relação com o dinheiro</li>
+                                </ul>
+                            </div>
+                            <p class="ebook-question">“Estou disposto a olhar meus números reais e mudar hábitos — ou quero só uma solução rápida?”</p>
+                            <div class="ebook-actions">
+                                <a href="#" class="btn btn-solid ebook-follow js-follow" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg> Seguir e liberar</a>
+                                <a href="ebook-pf.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar e-book (PDF)</a>
+                                <p class="ebook-hint ebook-hint-locked">Material gratuito, liberado para quem segue o perfil.</p>
+                                <p class="ebook-hint ebook-hint-unlocked">Obrigado por seguir! Seu download está liberado.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="ebook" data-ebook="pj">
+                        <div class="ebook-cover" data-tag="PJ">
+                            <span class="ebook-badge">E-book · Pessoa Jurídica</span>
+                            <h3>Gestão Empresarial: o que preparar antes de contratar</h3>
+                            <p>O que o empresário precisa entender e organizar para que a consultoria gere resultado de verdade.</p>
+                        </div>
+                        <div class="ebook-body">
+                            <div class="ebook-stat">
+                                <strong>6 em 10</strong>
+                                <span>empresas fecham antes de completar 5 anos.<small>Fonte: IBGE, Demografia das Empresas</small></span>
+                            </div>
+                            <div>
+                                <p class="ebook-list-title">O que você vai encontrar</p>
+                                <ul class="ebook-list">
+                                <li>A postura do gestor que colhe resultado da consultoria</li>
+                                <li>Erros clássicos: faturamento x lucro e CPF misturado com CNPJ</li>
+                                <li>Noções iniciais de fluxo de caixa, DRE e margem</li>
+                                <li>Boas práticas de rotina financeira na empresa</li>
+                                <li>Leituras recomendadas para gestores</li>
+                                </ul>
+                            </div>
+                            <p class="ebook-question">“Estou disposto a ouvir um diagnóstico duro e agir sobre ele?”</p>
+                            <div class="ebook-actions">
+                                <a href="#" class="btn btn-solid ebook-follow js-follow" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg> Seguir e liberar</a>
+                                <a href="ebook-pj.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar e-book (PDF)</a>
+                                <p class="ebook-hint ebook-hint-locked">Material gratuito, liberado para quem segue o perfil.</p>
+                                <p class="ebook-hint ebook-hint-unlocked">Obrigado por seguir! Seu download está liberado.</p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -527,6 +643,21 @@
                     cta.classList.toggle('visible', !entries[0].isIntersecting && entries[0].boundingClientRect.top < 0);
                 }).observe(heroBtn);
             }
+
+            // ===== E-BOOKS: troque pelo seu @ do Instagram (sem o @) =====
+            var INSTAGRAM_USER = 'SEU_USER';
+            var igUrl = 'https://instagram.com/' + INSTAGRAM_USER;
+            function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } }
+            document.querySelectorAll('.ebook').forEach(function (card) {
+                var key = 'brk-ebook-' + card.getAttribute('data-ebook');
+                var follow = card.querySelector('.js-follow');
+                follow.href = igUrl;
+                if (store(key) === '1') card.classList.add('unlocked');
+                follow.addEventListener('click', function () {
+                    // libera o download alguns segundos depois de abrir o Instagram
+                    setTimeout(function () { card.classList.add('unlocked'); store(key, '1'); }, 1500);
+                });
+            });
         })();
     </script>
 </body>
