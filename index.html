@@ -317,11 +317,81 @@
         .ebook-actions .btn-solid { background: var(--gold-primary); }
         .ebook-hint { font-size: 0.75rem; color: #6b6b6b; text-align: center; }
         .ebook-download { display: none !important; }
-        .ebook.unlocked .ebook-download { display: flex !important; background: var(--gold-primary); color: var(--bg-body); }
-        .ebook.unlocked .ebook-follow { background: none; color: var(--text-muted); border-color: var(--gold-line); }
-        .ebook.unlocked .ebook-hint-locked { display: none; }
+        .guides-unlocked .ebook-download { display: flex !important; background: var(--gold-primary); color: var(--bg-body); }
+        .guides-unlocked .js-unlock, .guides-unlocked .ebook-hint-locked { display: none !important; }
         .ebook-hint-unlocked { display: none; }
-        .ebook.unlocked .ebook-hint-unlocked { display: block; }
+        .guides-unlocked .ebook-hint-unlocked { display: block; }
+
+        /* ---------- TELA DE DESBLOQUEIO ---------- */
+        .gate {
+            position: fixed; inset: 0; z-index: 2000;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.72);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s;
+        }
+        .gate.open { opacity: 1; visibility: visible; }
+        .gate-panel {
+            position: relative;
+            width: 100%; max-width: 480px;
+            max-height: calc(100vh - 40px); overflow-y: auto;
+            background: var(--bg-card);
+            border: 1px solid var(--gold-line-strong);
+            padding: 36px 32px 28px;
+            transform: translateY(16px);
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .gate.open .gate-panel { transform: none; }
+        .gate-close {
+            position: absolute; top: 10px; right: 10px;
+            width: 44px; height: 44px;
+            background: none; border: none; cursor: pointer;
+            color: var(--text-muted); font-size: 1.6rem; line-height: 1;
+        }
+        .gate-close:hover { color: var(--gold-primary); }
+        .gate h3 { font-family: 'Cinzel', serif; font-size: 1.45rem; line-height: 1.25; color: var(--white); margin-bottom: 10px; }
+        .gate-intro { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 22px; }
+        .gate-progress { height: 3px; background: rgba(212,175,55,0.15); margin-bottom: 8px; }
+        .gate-progress span { display: block; height: 100%; width: 0; background: var(--gold-primary); transition: width 0.4s ease; }
+        .gate-count { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-secondary); font-weight: 600; margin-bottom: 18px; }
+
+        .gate-step {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px; margin-bottom: 12px;
+            border: 1px solid var(--gold-line);
+            background: var(--bg-body);
+            text-decoration: none; color: var(--text-main);
+            transition: var(--transition);
+        }
+        .gate-step:hover { border-color: var(--gold-line-strong); }
+        .gate-step .ic {
+            width: 44px; height: 44px; flex: none;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--gold-line-strong); color: var(--gold-primary);
+        }
+        .gate-step .ic svg { width: 20px; height: 20px; }
+        .gate-step .tx { flex: 1; min-width: 0; }
+        .gate-step .tx b { display: block; font-size: 0.95rem; font-weight: 600; color: var(--white); }
+        .gate-step .tx small { display: block; font-size: 0.78rem; color: var(--text-muted); }
+        .gate-step .st {
+            flex: none; font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--bg-body); background: var(--gold-primary); padding: 8px 12px;
+        }
+        .gate-step.done { border-color: rgba(212,175,55,0.5); }
+        .gate-step.done .ic { background: var(--gold-primary); color: var(--bg-body); }
+        .gate-step.done .st { background: none; color: var(--gold-primary); padding: 8px 0; }
+
+        .gate-downloads { display: none; flex-direction: column; gap: 10px; margin-top: 18px; }
+        .gate.complete .gate-downloads { display: flex; }
+        .gate-downloads .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; font-size: 0.76rem; letter-spacing: 1.5px; }
+        .gate-downloads .btn svg { width: 18px; height: 18px; }
+        .gate-note { font-size: 0.72rem; color: #6b6b6b; text-align: center; margin-top: 16px; }
+        .gate.complete .gate-note-pending { display: none; }
+        .gate-note-done { display: none; color: var(--gold-primary); font-weight: 500; }
+        .gate.complete .gate-note-done { display: block; }
+        body.gate-open { overflow: hidden; }
 
         /* ---------- ARTIGOS ---------- */
         .article-item { max-width: 850px; margin: 0 auto; background: var(--bg-card); padding: 40px 44px; border-left: 3px solid var(--gold-secondary); }
@@ -420,6 +490,16 @@
             .ebook-cover::after { font-size: 6rem; bottom: -26px; }
             .ebook-body { padding: 22px 22px 26px; gap: 20px; }
             .ebook-stat strong { font-size: 1.6rem; }
+            .gate { align-items: flex-end; padding: 0; }
+            .gate-panel {
+                max-width: none; max-height: 92vh;
+                border-left: none; border-right: none; border-bottom: none;
+                padding: 30px 20px calc(24px + env(safe-area-inset-bottom));
+                transform: translateY(100%);
+            }
+            .gate-panel::before { content: ""; position: absolute; top: 10px; left: 50%; width: 40px; height: 4px; margin-left: -20px; background: rgba(255,255,255,0.15); border-radius: 2px; }
+            .gate h3 { font-size: 1.3rem; padding-right: 30px; }
+            .gate-step { padding: 14px 12px; gap: 12px; }
             .article-item { padding: 28px 22px; border-left-width: 2px; }
             .article-item p { font-size: 1rem; }
 
@@ -557,9 +637,9 @@
                             </div>
                             <p class="ebook-question">“Estou disposto a olhar meus números reais e mudar hábitos — ou quero só uma solução rápida?”</p>
                             <div class="ebook-actions">
-                                <a href="#" class="btn btn-solid ebook-follow js-follow" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg> Seguir e liberar acesso</a>
+                                <button type="button" class="btn btn-solid js-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Liberar acesso gratuito</button>
                                 <a href="guia-preparacao-financeira-pf.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar o guia (PDF)</a>
-                                <p class="ebook-hint ebook-hint-locked">Acesso gratuito mediante acompanhamento do perfil no Instagram.</p>
+                                <p class="ebook-hint ebook-hint-locked">Liberado ao seguir o perfil no Instagram e no LinkedIn.</p>
                                 <p class="ebook-hint ebook-hint-unlocked">Acesso liberado. Bom estudo.</p>
                             </div>
                         </div>
@@ -587,9 +667,9 @@
                             </div>
                             <p class="ebook-question">“Estou disposto a ouvir um diagnóstico duro e agir sobre ele?”</p>
                             <div class="ebook-actions">
-                                <a href="#" class="btn btn-solid ebook-follow js-follow" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg> Seguir e liberar acesso</a>
+                                <button type="button" class="btn btn-solid js-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Liberar acesso gratuito</button>
                                 <a href="guia-preparacao-gestao-pj.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar o guia (PDF)</a>
-                                <p class="ebook-hint ebook-hint-locked">Acesso gratuito mediante acompanhamento do perfil no Instagram.</p>
+                                <p class="ebook-hint ebook-hint-locked">Liberado ao seguir o perfil no Instagram e no LinkedIn.</p>
                                 <p class="ebook-hint ebook-hint-unlocked">Acesso liberado. Bom estudo.</p>
                             </div>
                         </div>
@@ -620,6 +700,35 @@
         <a href="contato.html" class="btn btn-solid" tabindex="-1">Agendar diagnóstico grátis</a>
     </div>
 
+    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-hidden="true">
+        <div class="gate-panel">
+            <button type="button" class="gate-close js-gate-close" aria-label="Fechar">&times;</button>
+            <span class="eyebrow">Biblioteca BRK</span>
+            <h3 id="gate-title">Libere seus Guias Fundamentais</h3>
+            <p class="gate-intro">Os dois guias são gratuitos. Para liberar o acesso, acompanhe meu trabalho nas duas redes — é onde publico conteúdo técnico sobre finanças.</p>
+            <div class="gate-progress"><span></span></div>
+            <p class="gate-count"><span class="js-count">0</span> de 2 etapas concluídas</p>
+
+            <a class="gate-step" data-step="instagram" href="https://instagram.com/brunomagalhaesadm" target="_blank" rel="noopener">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+                <span class="tx"><b>Seguir no Instagram</b><small>@brunomagalhaesadm</small></span>
+                <span class="st">Seguir</span>
+            </a>
+            <a class="gate-step" data-step="linkedin" href="https://www.linkedin.com/in/brunomagalhaes1" target="_blank" rel="noopener">
+                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></svg></span>
+                <span class="tx"><b>Seguir no LinkedIn</b><small>Bruno Magalhães</small></span>
+                <span class="st">Seguir</span>
+            </a>
+
+            <div class="gate-downloads">
+                <a href="guia-preparacao-financeira-pf.pdf" class="btn btn-solid" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Guia Pessoa Física (PDF)</a>
+                <a href="guia-preparacao-gestao-pj.pdf" class="btn" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Guia Pessoa Jurídica (PDF)</a>
+            </div>
+            <p class="gate-note gate-note-pending">Siga nas duas redes e volte para esta tela. O download é liberado em seguida.</p>
+            <p class="gate-note gate-note-done">Acesso liberado. Obrigado por acompanhar — bom estudo!</p>
+        </div>
+    </div>
+
     <script>
         (function () {
             var toggle = document.querySelector('.menu-toggle');
@@ -644,20 +753,67 @@
                 }).observe(heroBtn);
             }
 
-            // ===== E-BOOKS: troque pelo seu @ do Instagram (sem o @) =====
-            var INSTAGRAM_USER = 'brunomagalhaesadm';
-            var igUrl = 'https://instagram.com/' + INSTAGRAM_USER;
-            function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } }
-            document.querySelectorAll('.ebook').forEach(function (card) {
-                var key = 'brk-ebook-' + card.getAttribute('data-ebook');
-                var follow = card.querySelector('.js-follow');
-                follow.href = igUrl;
-                if (store(key) === '1') card.classList.add('unlocked');
-                follow.addEventListener('click', function () {
-                    // libera o download alguns segundos depois de abrir o Instagram
-                    setTimeout(function () { card.classList.add('unlocked'); store(key, '1'); }, 1500);
+            // ===== GUIAS: desbloqueio após seguir no Instagram e no LinkedIn =====
+            var STORE_KEY = 'brk-guias-v1';
+            var state = { instagram: false, linkedin: false };
+            try { var saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); state.instagram = !!saved.instagram; state.linkedin = !!saved.linkedin; } catch (e) {}
+            function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+
+            var gate = document.getElementById('gate');
+            var steps = gate.querySelectorAll('.gate-step');
+            var bar = gate.querySelector('.gate-progress span');
+            var count = gate.querySelector('.js-count');
+            var lastFocus = null;
+
+            function render() {
+                var done = 0;
+                steps.forEach(function (el) {
+                    var ok = state[el.getAttribute('data-step')];
+                    el.classList.toggle('done', ok);
+                    el.querySelector('.st').textContent = ok ? '✓ Feito' : 'Seguir';
+                    if (ok) done++;
+                });
+                count.textContent = done;
+                bar.style.width = (done / steps.length * 100) + '%';
+                var complete = done === steps.length;
+                gate.classList.toggle('complete', complete);
+                body.classList.toggle('guides-unlocked', complete);
+            }
+            function openGate() {
+                lastFocus = document.activeElement;
+                gate.classList.add('open'); gate.setAttribute('aria-hidden', 'false');
+                body.classList.add('gate-open');
+                setTimeout(function () { gate.querySelector('.gate-close').focus(); }, 50);
+            }
+            function closeGate() {
+                gate.classList.remove('open'); gate.setAttribute('aria-hidden', 'true');
+                body.classList.remove('gate-open');
+                if (lastFocus) lastFocus.focus();
+            }
+            document.querySelectorAll('.js-unlock').forEach(function (b) { b.addEventListener('click', openGate); });
+            gate.querySelector('.js-gate-close').addEventListener('click', closeGate);
+            gate.addEventListener('click', function (e) { if (e.target === gate) closeGate(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && gate.classList.contains('open')) closeGate(); });
+
+            // A etapa é marcada quando a pessoa abre o perfil e volta para o site
+            var pending = null;
+            function confirmPending() {
+                if (!pending) return;
+                state[pending] = true; pending = null; save(); render();
+            }
+            steps.forEach(function (el) {
+                el.addEventListener('click', function () {
+                    if (state[el.getAttribute('data-step')]) return;
+                    pending = el.getAttribute('data-step');
+                    el.querySelector('.st').textContent = 'Abrindo…';
+                    setTimeout(confirmPending, 4000);
                 });
             });
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'visible' && pending) setTimeout(confirmPending, 600);
+            });
+
+            render();
         })();
     </script>
 </body>
