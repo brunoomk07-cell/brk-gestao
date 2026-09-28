@@ -1,820 +1,402 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#050505">
-    <meta name="description" content="BRK Gestão Financeira — análise técnica para organizar as finanças pessoais e dar clareza à viabilidade real da sua empresa.">
-    <title>BRK Gestão Financeira | Estratégia e Transparência</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-body: #050505;
-            --bg-card: #0d0d0d;
-            --bg-raised: #121212;
-            --gold-primary: #D4AF37;
-            --gold-secondary: #996515;
-            --gold-line: rgba(212, 175, 55, 0.14);
-            --gold-line-strong: rgba(212, 175, 55, 0.4);
-            --text-main: #e6e6e6;
-            --text-muted: #a3a3a3;
-            --white: #ffffff;
-            --header-h: 88px;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); -webkit-text-size-adjust: 100%; }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            line-height: 1.7;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: -10%; left: -10%;
-            width: 60%; height: 50%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        a { -webkit-tap-highlight-color: transparent; }
-        a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-primary); outline-offset: 4px; }
-
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
-
-        .eyebrow {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold-primary);
-            margin-bottom: 16px;
-        }
-
-        /* ---------- HEADER ---------- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(5, 5, 5, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gold-line);
-        }
-        .header-inner {
-            height: var(--header-h);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo-container { display: flex; align-items: center; }
-        .logo-container img {
-            height: 72px;
-            width: auto;
-            display: block;
-            mix-blend-mode: screen;
-            filter: brightness(1.1) contrast(1.1);
-        }
-
-        .nav-links { display: flex; align-items: center; gap: 44px; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-        .nav-links a:hover { color: var(--gold-primary); }
-        .nav-links .nav-cta {
-            color: var(--gold-primary);
-            border: 1px solid var(--gold-line-strong);
-            padding: 10px 22px;
-        }
-        .nav-links .nav-cta:hover { background: var(--gold-primary); color: var(--bg-body); }
-
-        .menu-toggle {
-            display: none;
-            width: 44px; height: 44px;
-            background: none;
-            border: 1px solid var(--gold-line);
-            cursor: pointer;
-            position: relative;
-        }
-        .menu-toggle span {
-            position: absolute;
-            left: 12px; right: 12px;
-            height: 1.5px;
-            background: var(--gold-primary);
-            transition: var(--transition);
-        }
-        .menu-toggle span:nth-child(1) { top: 16px; }
-        .menu-toggle span:nth-child(2) { top: 21px; }
-        .menu-toggle span:nth-child(3) { top: 26px; }
-        .menu-open .menu-toggle span:nth-child(1) { top: 21px; transform: rotate(45deg); }
-        .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
-        .menu-open .menu-toggle span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
-
-        /* ---------- HERO ---------- */
-        .hero { padding: 120px 0 100px; }
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            line-height: 1.12;
-            margin-bottom: 32px;
-            max-width: 900px;
-            background: linear-gradient(to right, #ffffff 30%, var(--gold-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 680px;
-            margin-bottom: 48px;
-        }
-        .hero-note {
-            display: block;
-            margin-top: 18px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 20px 48px;
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            text-align: center;
-            transition: var(--transition);
-        }
-        .btn:hover {
-            background-color: var(--gold-primary);
-            color: var(--bg-body);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        }
-        .btn-solid { background: var(--gold-primary); color: var(--bg-body); }
-        .btn-solid:hover { background: var(--white); border-color: var(--white); }
-
-        /* ---------- INSIGHT ---------- */
-        .insight {
-            padding: 64px 48px;
-            background: linear-gradient(90deg, var(--bg-card), var(--bg-body));
-            border-left: 3px solid var(--gold-primary);
-            margin-bottom: 100px;
-        }
-        .insight h2 { font-family: 'Cinzel', serif; font-size: 1.7rem; color: var(--gold-primary); margin-bottom: 16px; }
-        .insight p { font-size: 1.1rem; color: var(--text-main); max-width: 900px; font-style: italic; }
-
-        /* ---------- SECTIONS ---------- */
-        .section { padding: 110px 0; }
-        .section-alt { background-color: var(--bg-card); }
-        .section-head { text-align: center; margin-bottom: 64px; }
-        .section-title {
-            font-family: 'Cinzel', serif;
-            color: var(--white);
-            font-size: 2.4rem;
-            line-height: 1.2;
-        }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-
-        .card {
-            background: var(--bg-body);
-            padding: 48px 40px;
-            border: 1px solid var(--gold-line);
-            position: relative;
-            transition: var(--transition);
-        }
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 48px; height: 2px;
-            background: var(--gold-primary);
-        }
-        .card:hover { border-color: var(--gold-line-strong); transform: translateY(-6px); }
-        .card-num {
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            color: var(--gold-secondary);
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 18px;
-        }
-        .card h3 { font-family: 'Cinzel', serif; font-size: 1.35rem; color: var(--gold-primary); margin-bottom: 14px; line-height: 1.3; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; }
-
-        /* ---------- MANIFESTO ---------- */
-        .manifesto { border-bottom: 1px solid var(--gold-line); }
-        .manifesto-content {
-            max-width: 900px; margin: 0 auto;
-            border-left: 2px solid var(--gold-secondary);
-            padding: 0 56px;
-        }
-        .manifesto h2 { font-family: 'Cinzel', serif; font-size: 2.1rem; line-height: 1.3; color: var(--white); margin-bottom: 32px; font-style: italic; }
-        .manifesto p { font-size: 1.1rem; color: var(--text-muted); line-height: 2; }
-        .manifesto .btn { margin-top: 40px; }
-
-        /* ---------- MATERIAIS (E-BOOKS) ---------- */
-        .section-intro { max-width: 720px; margin: 20px auto 0; color: var(--text-muted); font-size: 1.02rem; }
-        .library-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; max-width: 1040px; margin: 0 auto; }
-        .ebook {
-            background: var(--bg-body);
-            border: 1px solid var(--gold-line);
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-        }
-        .ebook:hover { border-color: var(--gold-line-strong); }
-
-        .ebook-cover {
-            position: relative;
-            padding: 36px 32px 30px;
-            background:
-                radial-gradient(120% 90% at 100% 0%, rgba(212,175,55,0.16) 0%, transparent 60%),
-                linear-gradient(160deg, #151515 0%, #080808 100%);
-            border-bottom: 1px solid var(--gold-line);
-            overflow: hidden;
-        }
-        .ebook-cover::after {
-            content: attr(data-tag);
-            position: absolute;
-            right: -6px; bottom: -34px;
-            font-family: 'Cinzel', serif;
-            font-size: 7.5rem;
-            font-weight: 700;
-            line-height: 1;
-            color: rgba(212,175,55,0.07);
-            pointer-events: none;
-        }
-        .ebook-badge {
-            display: inline-block;
-            font-size: 0.66rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold-primary);
-            border: 1px solid var(--gold-line-strong);
-            padding: 5px 10px;
-            margin-bottom: 18px;
-        }
-        .ebook-cover h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            line-height: 1.25;
-            color: var(--white);
-            margin-bottom: 10px;
-            position: relative;
-        }
-        .ebook-cover p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; position: relative; max-width: 90%; }
-
-        .ebook-body { padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 22px; flex: 1; }
-
-        .ebook-stat { display: flex; gap: 16px; align-items: baseline; }
-        .ebook-stat strong { font-family: 'Cinzel', serif; font-size: 1.9rem; color: var(--gold-primary); line-height: 1; white-space: nowrap; }
-        .ebook-stat span { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
-        .ebook-stat small { display: block; font-size: 0.7rem; color: #6b6b6b; margin-top: 2px; }
-
-        .ebook-list-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-secondary); margin-bottom: 10px; }
-        .ebook-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-        .ebook-list li { position: relative; padding-left: 22px; font-size: 0.92rem; color: var(--text-main); line-height: 1.55; }
-        .ebook-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 10px; height: 1px; background: var(--gold-primary); }
-
-        .ebook-question {
-            background: rgba(212,175,55,0.05);
-            border-left: 2px solid var(--gold-secondary);
-            padding: 14px 16px;
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--text-main);
-        }
-
-        .ebook-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
-        .ebook-actions .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 20px; font-size: 0.78rem; letter-spacing: 2px; cursor: pointer; font-family: inherit; background: none; }
-        .ebook-actions .btn svg { width: 18px; height: 18px; flex: none; }
-        .ebook-actions .btn-solid { background: var(--gold-primary); }
-        .ebook-hint { font-size: 0.75rem; color: #6b6b6b; text-align: center; }
-        .ebook-download { display: none !important; }
-        .guides-unlocked .ebook-download { display: flex !important; background: var(--gold-primary); color: var(--bg-body); }
-        .guides-unlocked .js-unlock, .guides-unlocked .ebook-hint-locked { display: none !important; }
-        .ebook-hint-unlocked { display: none; }
-        .guides-unlocked .ebook-hint-unlocked { display: block; }
-
-        /* ---------- TELA DE DESBLOQUEIO ---------- */
-        .gate {
-            position: fixed; inset: 0; z-index: 2000;
-            display: flex; align-items: center; justify-content: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.72);
-            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.25s ease, visibility 0.25s;
-        }
-        .gate.open { opacity: 1; visibility: visible; }
-        .gate-panel {
-            position: relative;
-            width: 100%; max-width: 480px;
-            max-height: calc(100vh - 40px); overflow-y: auto;
-            background: var(--bg-card);
-            border: 1px solid var(--gold-line-strong);
-            padding: 36px 32px 28px;
-            transform: translateY(16px);
-            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-        }
-        .gate.open .gate-panel { transform: none; }
-        .gate-close {
-            position: absolute; top: 10px; right: 10px;
-            width: 44px; height: 44px;
-            background: none; border: none; cursor: pointer;
-            color: var(--text-muted); font-size: 1.6rem; line-height: 1;
-        }
-        .gate-close:hover { color: var(--gold-primary); }
-        .gate h3 { font-family: 'Cinzel', serif; font-size: 1.45rem; line-height: 1.25; color: var(--white); margin-bottom: 10px; }
-        .gate-intro { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 22px; }
-        .gate-progress { height: 3px; background: rgba(212,175,55,0.15); margin-bottom: 8px; }
-        .gate-progress span { display: block; height: 100%; width: 0; background: var(--gold-primary); transition: width 0.4s ease; }
-        .gate-count { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-secondary); font-weight: 600; margin-bottom: 18px; }
-
-        .gate-step {
-            display: flex; align-items: center; gap: 14px;
-            padding: 16px; margin-bottom: 12px;
-            border: 1px solid var(--gold-line);
-            background: var(--bg-body);
-            text-decoration: none; color: var(--text-main);
-            transition: var(--transition);
-        }
-        .gate-step:hover { border-color: var(--gold-line-strong); }
-        .gate-step .ic {
-            width: 44px; height: 44px; flex: none;
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid var(--gold-line-strong); color: var(--gold-primary);
-        }
-        .gate-step .ic svg { width: 20px; height: 20px; }
-        .gate-step .tx { flex: 1; min-width: 0; }
-        .gate-step .tx b { display: block; font-size: 0.95rem; font-weight: 600; color: var(--white); }
-        .gate-step .tx small { display: block; font-size: 0.78rem; color: var(--text-muted); }
-        .gate-step .st {
-            flex: none; font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--bg-body); background: var(--gold-primary); padding: 8px 12px;
-        }
-        .gate-step.done { border-color: rgba(212,175,55,0.5); }
-        .gate-step.done .ic { background: var(--gold-primary); color: var(--bg-body); }
-        .gate-step.done .st { background: none; color: var(--gold-primary); padding: 8px 0; }
-
-        .gate-downloads { display: none; flex-direction: column; gap: 10px; margin-top: 18px; }
-        .gate.complete .gate-downloads { display: flex; }
-        .gate-downloads .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; font-size: 0.76rem; letter-spacing: 1.5px; }
-        .gate-downloads .btn svg { width: 18px; height: 18px; }
-        .gate-note { font-size: 0.72rem; color: #6b6b6b; text-align: center; margin-top: 16px; }
-        .gate.complete .gate-note-pending { display: none; }
-        .gate-note-done { display: none; color: var(--gold-primary); font-weight: 500; }
-        .gate.complete .gate-note-done { display: block; }
-        body.gate-open { overflow: hidden; }
-
-        /* ---------- ARTIGOS ---------- */
-        .article-item { max-width: 850px; margin: 0 auto; background: var(--bg-card); padding: 40px 44px; border-left: 3px solid var(--gold-secondary); }
-        .article-tag { font-size: 0.72rem; font-weight: 600; color: var(--gold-secondary); letter-spacing: 2px; margin-bottom: 14px; display: block; }
-        .article-item p { font-size: 1.05rem; line-height: 1.8; }
-        .article-item b { color: var(--white); font-weight: 600; }
-
-        /* ---------- FOOTER ---------- */
-        footer { padding: 48px 0; text-align: center; border-top: 1px solid var(--gold-line); }
-        footer p { color: #5a5a5a; font-size: 0.72rem; letter-spacing: 3px; }
-
-        /* ---------- CTA FIXO (só celular) ---------- */
-        .mobile-cta { display: none; }
-
-        /* =========================================================
-           CELULAR E TABLET
-           ========================================================= */
-        @media (max-width: 860px) {
-            :root { --header-h: 68px; }
-            .container { padding: 0 20px; }
-
-            .logo-container img { height: 52px; }
-
-            .menu-toggle { display: block; }
-
-            .nav-links {
-                position: fixed;
-                top: var(--header-h); left: 0; right: 0;
-                height: calc(100vh - var(--header-h));
-                height: calc(100dvh - var(--header-h));
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                padding: 16px 20px 40px;
-                background: var(--bg-body);
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-8px);
-                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-            }
-            .menu-open .nav-links { opacity: 1; visibility: visible; transform: none; }
-            .nav-links a {
-                font-family: 'Cinzel', serif;
-                font-size: 1.35rem;
-                letter-spacing: 1px;
-                text-transform: none;
-                color: var(--text-main);
-                padding: 20px 4px;
-                border-bottom: 1px solid var(--gold-line);
-            }
-            .nav-links .nav-cta {
-                margin-top: 32px;
-                font-family: 'Montserrat', sans-serif;
-                font-size: 0.85rem;
-                font-weight: 600;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                text-align: center;
-                padding: 18px;
-                background: var(--gold-primary);
-                color: var(--bg-body);
-                border: none;
-            }
-            body.menu-open { overflow: hidden; }
-
-            .hero { padding: 56px 0 48px; }
-            .hero h1 { font-size: 2.15rem; line-height: 1.18; margin-bottom: 20px; }
-            .hero p { font-size: 1.02rem; line-height: 1.7; margin-bottom: 32px; }
-            .btn { display: block; width: 100%; padding: 18px 20px; font-size: 0.8rem; letter-spacing: 2px; }
-            .hero-note { text-align: center; }
-
-            .insight { padding: 32px 24px; margin-bottom: 64px; border-left-width: 2px; }
-            .insight h2 { font-size: 1.25rem; margin-bottom: 12px; }
-            .insight p { font-size: 1rem; line-height: 1.7; }
-
-            .section { padding: 64px 0; }
-            .section-head { margin-bottom: 36px; }
-            .section-title { font-size: 1.7rem; }
-
-            .grid, .library-grid { grid-template-columns: 1fr; gap: 16px; }
-            .card { padding: 28px 24px; }
-            .card:hover { transform: none; }
-            .card-num { margin-bottom: 10px; }
-            .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-            .card p { font-size: 0.95rem; }
-
-            .manifesto-content { border-left-width: 2px; padding: 0 0 0 20px; }
-            .manifesto h2 { font-size: 1.45rem; margin-bottom: 20px; }
-            .manifesto p { font-size: 1rem; line-height: 1.85; }
-            .manifesto .btn { margin-top: 28px; }
-
-            .section-intro { font-size: 0.97rem; margin-top: 14px; }
-            .ebook-cover { padding: 28px 22px 24px; }
-            .ebook-cover h3 { font-size: 1.3rem; }
-            .ebook-cover p { max-width: 100%; }
-            .ebook-cover::after { font-size: 6rem; bottom: -26px; }
-            .ebook-body { padding: 22px 22px 26px; gap: 20px; }
-            .ebook-stat strong { font-size: 1.6rem; }
-            .gate { align-items: flex-end; padding: 0; }
-            .gate-panel {
-                max-width: none; max-height: 92vh;
-                border-left: none; border-right: none; border-bottom: none;
-                padding: 30px 20px calc(24px + env(safe-area-inset-bottom));
-                transform: translateY(100%);
-            }
-            .gate-panel::before { content: ""; position: absolute; top: 10px; left: 50%; width: 40px; height: 4px; margin-left: -20px; background: rgba(255,255,255,0.15); border-radius: 2px; }
-            .gate h3 { font-size: 1.3rem; padding-right: 30px; }
-            .gate-step { padding: 14px 12px; gap: 12px; }
-            .article-item { padding: 28px 22px; border-left-width: 2px; }
-            .article-item p { font-size: 1rem; }
-
-            footer { padding: 32px 0 calc(110px + env(safe-area-inset-bottom)); }
-
-            .mobile-cta {
-                display: block;
-                position: fixed;
-                left: 0; right: 0; bottom: 0;
-                z-index: 900;
-                padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
-                background: rgba(5, 5, 5, 0.92);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border-top: 1px solid var(--gold-line);
-                transform: translateY(110%);
-                transition: transform 0.3s ease;
-            }
-            .mobile-cta.visible { transform: none; }
-            .mobile-cta .btn { padding: 16px 20px; }
-            .menu-open .mobile-cta { transform: translateY(110%); }
-        }
-
-        @media (max-width: 360px) {
-            .hero h1 { font-size: 1.85rem; }
-            .section-title { font-size: 1.5rem; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after { transition: none !important; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Consultoria Financeira em Mauá, Santo André e ABC | BRK Gestão</title>
+<meta name="description" content="Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e Grande ABC. Fluxo de caixa, DRE, dívidas e educação financeira. Diagnóstico grátis.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://brunoomk07-cell.github.io/brk-gestao/">
+<meta name="theme-color" content="#050505">
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="Mauá, Santo André, Grande ABC">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BRK Gestão Financeira">
+<meta property="og:title" content="BRK Gestão Financeira — Consultoria financeira para empresas e pessoas no Grande ABC">
+<meta property="og:description" content="Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e Grande ABC. Fluxo de caixa, DRE, dívidas e educação financeira. Diagnóstico grátis.">
+<meta property="og:url" content="https://brunoomk07-cell.github.io/brk-gestao/">
+<meta property="og:image" content="https://brunoomk07-cell.github.io/brk-gestao/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": ["ProfessionalService", "FinancialService"], "@id": "https://brunoomk07-cell.github.io/brk-gestao/#organizacao", "name": "BRK Gestão Financeira", "alternateName": "BRK Gestão", "description": "Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e em todo o Grande ABC, com atendimento online para todo o Brasil. Fluxo de caixa, DRE, precificação, organização de dívidas e educação financeira.", "url": "https://brunoomk07-cell.github.io/brk-gestao/", "logo": "https://brunoomk07-cell.github.io/brk-gestao/logo.png", "image": "https://brunoomk07-cell.github.io/brk-gestao/og-image.png", "telephone": "+55 11 94370-1337", "priceRange": "$$", "slogan": "Salvar empresas e dar liberdade financeira às pessoas, por meio da educação e do direcionamento correto.", "address": {"@type": "PostalAddress", "addressLocality": "Mauá", "addressRegion": "SP", "addressCountry": "BR"}, "areaServed": [{"@type": "City", "name": "Mauá"}, {"@type": "City", "name": "Santo André"}, {"@type": "City", "name": "São Bernardo do Campo"}, {"@type": "City", "name": "São Caetano do Sul"}, {"@type": "City", "name": "Diadema"}, {"@type": "City", "name": "Ribeirão Pires"}, {"@type": "City", "name": "Rio Grande da Serra"}, {"@type": "AdministrativeArea", "name": "Grande ABC Paulista"}, {"@type": "Country", "name": "Brasil"}], "sameAs": ["https://instagram.com/brunomagalhaesadm", "https://www.linkedin.com/in/brunomagalhaes1"], "knowsAbout": ["Consultoria financeira", "Fluxo de caixa", "DRE", "Precificação", "Capital de giro", "Ponto de equilíbrio", "Finanças pessoais", "Renegociação de dívidas", "Educação financeira", "Gestão financeira para MEI"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Serviços de consultoria financeira", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoria financeira para pequenas empresas", "url": "https://brunoomk07-cell.github.io/brk-gestao/consultoria-financeira-empresas.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoria financeira pessoal", "url": "https://brunoomk07-cell.github.io/brk-gestao/consultoria-financeira-pessoal.html"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoria financeira para MEI", "url": "https://brunoomk07-cell.github.io/brk-gestao/consultoria-financeira-mei.html"}}, {"@type": "Offer", "price": "0", "priceCurrency": "BRL", "itemOffered": {"@type": "Service", "name": "Diagnóstico financeiro gratuito"}}]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "O que faz uma consultoria financeira?", "acceptedAnswer": {"@type": "Answer", "text": "Uma consultoria financeira analisa a situação real do seu dinheiro — da empresa ou pessoal —, identifica onde estão os problemas (falta de controle, dívidas caras, preço errado, mistura de contas) e monta com você um plano de ação. Na BRK, isso inclui implantar ferramentas simples, como fluxo de caixa e orçamento, e ensinar você a usá-las para não depender de ninguém."}}, {"@type": "Question", "name": "O diagnóstico é gratuito mesmo?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. A primeira reunião é sem custo e sem compromisso. Nela fazemos uma leitura honesta da sua situação e mostramos por onde começar. Só depois, se fizer sentido para você, apresentamos uma proposta de acompanhamento."}}, {"@type": "Question", "name": "Vocês atendem presencialmente no ABC?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Atendemos presencialmente em Mauá e Santo André e em todo o Grande ABC — São Bernardo do Campo, São Caetano do Sul, Diadema, Ribeirão Pires e Rio Grande da Serra. Também atendemos online, por videochamada, pessoas e empresas de qualquer cidade do Brasil."}}, {"@type": "Question", "name": "Minha empresa é pequena. A consultoria vale a pena?", "acceptedAnswer": {"@type": "Answer", "text": "Justamente as pequenas empresas são as que mais se beneficiam, porque normalmente não têm um departamento financeiro. Pequenos ajustes — separar as contas, conhecer a margem, projetar o caixa — costumam gerar resultado rápido e evitar decisões caras, como empréstimos desnecessários."}}, {"@type": "Question", "name": "Estou endividado. A consultoria pessoal pode me ajudar?", "acceptedAnswer": {"@type": "Answer", "text": "Pode. Organizamos todas as dívidas, identificamos quais têm os juros mais caros, montamos uma ordem de pagamento que caiba no seu orçamento e orientamos a renegociação. O mais importante: trabalhamos os hábitos que criaram a dívida, para você não voltar a ela."}}, {"@type": "Question", "name": "Vocês vendem investimentos ou produtos financeiros?", "acceptedAnswer": {"@type": "Answer", "text": "Não. A BRK não vende produtos financeiros nem recebe comissão de bancos. Nosso trabalho é organizar, orientar e educar. Isso garante que cada recomendação seja feita pensando só no seu interesse."}}, {"@type": "Question", "name": "Quanto tempo leva para ver resultado?", "acceptedAnswer": {"@type": "Answer", "text": "Os primeiros ganhos — como enxergar para onde o dinheiro vai e cortar vazamentos — costumam aparecer já no primeiro mês. A estrutura completa, com rotina financeira funcionando, normalmente se consolida em três a seis meses, dependendo da situação e do seu envolvimento."}}]}</script>
 </head>
 <body>
-
-    <header>
-        <div class="container header-inner">
-            <a href="#" class="logo-container" aria-label="BRK Gestão Financeira — início">
-                <img src="logo.png" alt="BRK Gestão Financeira">
-            </a>
-            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav-links" id="menu">
-                <a href="#services">Atuação</a>
-                <a href="#artigos">Artigos</a>
-                <a href="#materiais">Materiais</a>
-                <a href="contato.html" class="nav-cta">Contato</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <section class="hero" id="topo">
-                <span class="eyebrow">Consultoria financeira · PF e PJ</span>
-                <h1>Clareza técnica para você ou para seu negócio.</h1>
-                <p>Seja para organizar suas contas pessoais ou para traduzir a viabilidade real da sua empresa. Meu papel é fornecer a análise técnica necessária para decisões seguras.</p>
-                <a href="contato.html" class="btn btn-solid">Agendar Diagnóstico Técnico</a>
-                <span class="hero-note">Primeira reunião sem custo e sem compromisso.</span>
-            </section>
-
-            <div class="insight">
-                <h2>Gestão baseada em fatos</h2>
-                <p>"Do CPF ao CNPJ, o sucesso depende da clareza dos relatórios e da interpretação correta dos gargalos. Decisões inteligentes exigem dados precisos."</p>
-            </div>
-        </div>
-
-        <section id="services" class="section section-alt">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">O que eu faço</span>
-                    <h2 class="section-title">Frentes de Atuação</h2>
-                </div>
-                <div class="grid">
-                    <div class="card">
-                        <span class="card-num">01</span>
-                        <h3>Pessoa Física (PF)</h3>
-                        <p>Organização do fluxo de caixa pessoal e suporte técnico para investimentos alinhados aos seus objetivos reais.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-num">02</span>
-                        <h3>Pessoa Jurídica (PJ)</h3>
-                        <p>Identificação de gargalos operacionais e auxílio na estruturação de relatórios essenciais (DRE/Balanço).</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-num">03</span>
-                        <h3>Análise Profunda</h3>
-                        <p>Imersão completa na sua realidade e processos financeiros antes de qualquer recomendação estratégica.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="manifesto" class="section manifesto">
-            <div class="container">
-                <div class="manifesto-content">
-                    <span class="eyebrow">Primeiro passo</span>
-                    <h2>"Por que ofereço um Diagnóstico Sem Custo?"</h2>
-                    <p>Ofereço esta primeira reunião como um investimento na viabilidade do nosso projeto. É o momento de realizar uma imersão técnica no seu cenário para identificar gargalos críticos de forma honesta, garantindo clareza imediata sem compromissos iniciais.</p>
-                    <a href="contato.html" class="btn">Quero meu diagnóstico</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="materiais" class="section section-alt">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Biblioteca BRK · Acesso gratuito</span>
-                    <h2 class="section-title">Guias Fundamentais</h2>
-                    <p class="section-intro">Uma consultoria entrega resultado quando encontra uma base preparada. Estes guias reúnem os fundamentos, a postura e as boas práticas que tornam o trabalho técnico mais efetivo — no CPF e no CNPJ.</p>
-                </div>
-                <div class="library-grid">
-                    <article class="ebook" data-ebook="pf">
-                        <div class="ebook-cover" data-tag="PF">
-                            <span class="ebook-badge">Volume I · Pessoa Física</span>
-                            <h3>Guia de Preparação Financeira Pessoal</h3>
-                            <p>Fundamentos, postura e boas práticas para organizar as finanças pessoais com método.</p>
-                        </div>
-                        <div class="ebook-body">
-                            <div class="ebook-stat">
-                                <strong>84 mi</strong>
-                                <span>de brasileiros com o nome negativado.<small>Fonte: Serasa, 2026</small></span>
-                            </div>
-                            <div>
-                                <p class="ebook-list-title">O que você vai encontrar</p>
-                                <ul class="ebook-list">
-                                <li>A postura necessária antes de buscar apoio técnico</li>
-                                <li>Os erros mais comuns com cartão, crédito e orçamento</li>
-                                <li>Primeiros passos: reserva, controle de gastos e metas</li>
-                                <li>Guia de boas práticas para o dia a dia</li>
-                                <li>Bibliografia recomendada</li>
-                                </ul>
-                            </div>
-                            <p class="ebook-question">“Estou disposto a olhar meus números reais e mudar hábitos — ou quero só uma solução rápida?”</p>
-                            <div class="ebook-actions">
-                                <button type="button" class="btn btn-solid js-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Liberar acesso gratuito</button>
-                                <a href="guia-preparacao-financeira-pf.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar o guia (PDF)</a>
-                                <p class="ebook-hint ebook-hint-locked">Liberado ao seguir o perfil no Instagram e no LinkedIn.</p>
-                                <p class="ebook-hint ebook-hint-unlocked">Acesso liberado. Bom estudo.</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="ebook" data-ebook="pj">
-                        <div class="ebook-cover" data-tag="PJ">
-                            <span class="ebook-badge">Volume II · Pessoa Jurídica</span>
-                            <h3>Guia de Preparação para a Gestão Empresarial</h3>
-                            <p>O que o empresário precisa compreender e estruturar para que a consultoria gere resultado.</p>
-                        </div>
-                        <div class="ebook-body">
-                            <div class="ebook-stat">
-                                <strong>6 em 10</strong>
-                                <span>empresas fecham antes de completar 5 anos.<small>Fonte: IBGE, Demografia das Empresas</small></span>
-                            </div>
-                            <div>
-                                <p class="ebook-list-title">O que você vai encontrar</p>
-                                <ul class="ebook-list">
-                                <li>A postura do gestor que obtém resultado com consultoria</li>
-                                <li>Erros clássicos: faturamento x lucro e CPF misturado com CNPJ</li>
-                                <li>Noções iniciais de fluxo de caixa, DRE e margem</li>
-                                <li>Boas práticas de rotina financeira na empresa</li>
-                                <li>Bibliografia recomendada para gestores</li>
-                                </ul>
-                            </div>
-                            <p class="ebook-question">“Estou disposto a ouvir um diagnóstico duro e agir sobre ele?”</p>
-                            <div class="ebook-actions">
-                                <button type="button" class="btn btn-solid js-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Liberar acesso gratuito</button>
-                                <a href="guia-preparacao-gestao-pj.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar o guia (PDF)</a>
-                                <p class="ebook-hint ebook-hint-locked">Liberado ao seguir o perfil no Instagram e no LinkedIn.</p>
-                                <p class="ebook-hint ebook-hint-unlocked">Acesso liberado. Bom estudo.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="artigos" class="section">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Artigos</span>
-                    <h2 class="section-title">Insights Técnicos</h2>
-                </div>
-                <article class="article-item">
-                    <span class="article-tag">NOTAS TÉCNICAS</span>
-                    <p>Empresas rentáveis podem falhar por falta de visibilidade. Confundir faturamento com lucro é o primeiro passo para o erro. <b>Dados são a única bússola confiável.</b></p>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 — BRK GESTÃO FINANCEIRA</p>
-    </footer>
-
-    <div class="mobile-cta" aria-hidden="true">
-        <a href="contato.html" class="btn btn-solid" tabindex="-1">Agendar diagnóstico grátis</a>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BRK Gestão Financeira — página inicial"><img src="logo.png" alt="BRK Gestão Financeira" width="144" height="64"></a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="menu" aria-label="Menu principal">
+      <a href="consultoria-financeira-empresas.html">Empresas</a>
+<a href="consultoria-financeira-pessoal.html">Pessoa Física</a>
+<a href="consultoria-financeira-mei.html">MEI</a>
+<a href="blog/">Blog</a>
+<a href="index.html#guias">Guias Grátis</a>
+      <a href="contato.html" class="nav-cta">Diagnóstico Grátis</a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo">
+<div class="container">
+  <section class="hero">
+    <span class="eyebrow">Consultoria financeira · Mauá, Santo André e Grande ABC</span>
+    <h1>Consultoria financeira para pequenas empresas e pessoas no Grande ABC</h1>
+    <p class="lead">Organizamos o caixa da sua empresa e as finanças da sua casa com método, clareza e linguagem simples. Nossa missão é salvar empresas e dar liberdade financeira às pessoas, por meio da educação e do direcionamento correto.</p>
+    <div class="btn-row">
+      <a href="contato.html" class="btn btn-solid">Agendar diagnóstico gratuito</a>
+      <a href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." class="btn btn-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg> Falar no WhatsApp</a>
     </div>
+    <ul class="trust">
+      <li>Primeira reunião sem custo</li>
+      <li>Presencial no ABC e online</li>
+      <li>Sigilo total dos seus dados</li>
+      <li>Sem venda de produtos financeiros</li>
+    </ul>
+  </section>
+</div>
 
-    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-hidden="true">
-        <div class="gate-panel">
-            <button type="button" class="gate-close js-gate-close" aria-label="Fechar">&times;</button>
-            <span class="eyebrow">Biblioteca BRK</span>
-            <h3 id="gate-title">Libere seus Guias Fundamentais</h3>
-            <p class="gate-intro">Os dois guias são gratuitos. Para liberar o acesso, acompanhe meu trabalho nas duas redes — é onde publico conteúdo técnico sobre finanças.</p>
-            <div class="gate-progress"><span></span></div>
-            <p class="gate-count"><span class="js-count">0</span> de 2 etapas concluídas</p>
-
-            <a class="gate-step" data-step="instagram" href="https://instagram.com/brunomagalhaesadm" target="_blank" rel="noopener">
-                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
-                <span class="tx"><b>Seguir no Instagram</b><small>@brunomagalhaesadm</small></span>
-                <span class="st">Seguir</span>
-            </a>
-            <a class="gate-step" data-step="linkedin" href="https://www.linkedin.com/in/brunomagalhaes1" target="_blank" rel="noopener">
-                <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></svg></span>
-                <span class="tx"><b>Seguir no LinkedIn</b><small>Bruno Magalhães</small></span>
-                <span class="st">Seguir</span>
-            </a>
-
-            <div class="gate-downloads">
-                <a href="guia-preparacao-financeira-pf.pdf" class="btn btn-solid" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Guia Pessoa Física (PDF)</a>
-                <a href="guia-preparacao-gestao-pj.pdf" class="btn" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Guia Pessoa Jurídica (PDF)</a>
-            </div>
-            <p class="gate-note gate-note-pending">Siga nas duas redes e volte para esta tela. O download é liberado em seguida.</p>
-            <p class="gate-note gate-note-done">Acesso liberado. Obrigado por acompanhar — bom estudo!</p>
-        </div>
+<section class="section section-alt" id="identifica">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Você se identifica?</span>
+      <h2 class="section-title">O dinheiro entra, mas nunca sobra</h2>
+      <p class="section-intro">Esses são os sinais que mais aparecem nos diagnósticos que fazemos. Se você marcou mais de dois, está na hora de olhar os números com método.</p>
     </div>
+    <div class="grid grid-2">
+      <div class="pains">
+        <h3>Na sua empresa</h3>
+        <ul class="dash">
+          <li>Vende bem, mas o caixa vive apertado no fim do mês.</li>
+          <li>Não sabe dizer qual é o lucro real do negócio.</li>
+          <li>As contas da empresa e as pessoais estão misturadas.</li>
+          <li>Já usou cheque especial ou empréstimo para pagar a folha ou fornecedores.</li>
+          <li>O preço foi definido "olhando o concorrente".</li>
+        </ul>
+      </div>
+      <div class="pains">
+        <h3>Na sua vida pessoal</h3>
+        <ul class="dash">
+          <li>O salário acaba antes do mês terminar.</li>
+          <li>A fatura do cartão só cresce e você paga o mínimo.</li>
+          <li>Está com o nome negativado ou com medo de ficar.</li>
+          <li>Não consegue guardar dinheiro, mesmo ganhando mais do que antes.</li>
+          <li>Evita abrir o aplicativo do banco para não ver o saldo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        (function () {
-            var toggle = document.querySelector('.menu-toggle');
-            var body = document.body;
-            function setMenu(open) {
-                body.classList.toggle('menu-open', open);
-                toggle.setAttribute('aria-expanded', open);
-                toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-            }
-            toggle.addEventListener('click', function () { setMenu(!body.classList.contains('menu-open')); });
-            document.querySelectorAll('.nav-links a').forEach(function (a) {
-                a.addEventListener('click', function () { setMenu(false); });
-            });
-            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+<section class="section" id="servicos">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Como podemos ajudar</span>
+      <h2 class="section-title">Serviços de consultoria financeira</h2>
+      <p class="section-intro">Três frentes de atuação, com o mesmo princípio: entender a sua realidade antes de qualquer recomendação.</p>
+    </div>
+    <div class="grid grid-3">
+      <a class="card" href="consultoria-financeira-empresas.html">
+        <span class="card-num">01</span>
+        <h3>Pequenas e médias empresas</h3>
+        <p>Fluxo de caixa, DRE gerencial, precificação, capital de giro e separação entre empresa e sócios. Para o empresário que quer decidir com base em números, e não em sensação.</p>
+        <span class="more">Consultoria para empresas →</span>
+      </a>
+      <a class="card" href="consultoria-financeira-mei.html">
+        <span class="card-num">02</span>
+        <h3>MEI e autônomos</h3>
+        <p>Organização do dinheiro do negócio, pró-labore, controle do limite de faturamento e preparação para crescer — sem burocracia e sem complicação.</p>
+        <span class="more">Consultoria para MEI →</span>
+      </a>
+      <a class="card" href="consultoria-financeira-pessoal.html">
+        <span class="card-num">03</span>
+        <h3>Pessoa física e famílias</h3>
+        <p>Orçamento, plano para sair das dívidas, reserva de emergência e metas. Para quem quer parar de viver no aperto e construir liberdade financeira.</p>
+        <span class="more">Consultoria pessoal →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-            // Botão fixo aparece depois que o botão do topo sai da tela
-            var cta = document.querySelector('.mobile-cta');
-            var heroBtn = document.querySelector('.hero .btn');
-            if ('IntersectionObserver' in window && cta && heroBtn) {
-                new IntersectionObserver(function (entries) {
-                    cta.classList.toggle('visible', !entries[0].isIntersecting && entries[0].boundingClientRect.top < 0);
-                }).observe(heroBtn);
-            }
+<section class="section section-alt" id="missao">
+  <div class="container">
+    <div class="mission">
+      <span class="eyebrow">Nossa missão</span>
+      <h2>Salvar empresas e dar liberdade financeira às pessoas</h2>
+      <p>No Brasil, a maioria das empresas que fecham não fecha por falta de clientes. Fecha por falta de gestão. E a maioria das famílias endividadas não está assim por ganhar pouco, mas por nunca ter aprendido a organizar o próprio dinheiro.</p>
+      <p>A BRK existe para mudar isso. Acreditamos que <strong>educação financeira e direcionamento correto</strong> transformam negócios e vidas. Por isso, não entregamos apenas relatórios: explicamos cada número, implantamos ferramentas simples e ensinamos você a usá-las — para que a organização continue funcionando depois que a consultoria terminar.</p>
+      <p>Nosso compromisso é com a verdade dos números. Às vezes o diagnóstico é duro. Mas é sempre honesto, e sempre acompanhado de um caminho possível.</p>
+    </div>
+  </div>
+</section>
 
-            // ===== GUIAS: desbloqueio após seguir no Instagram e no LinkedIn =====
-            var STORE_KEY = 'brk-guias-v1';
-            var state = { instagram: false, linkedin: false };
-            try { var saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); state.instagram = !!saved.instagram; state.linkedin = !!saved.linkedin; } catch (e) {}
-            function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Método BRK</span>
+      <h2 class="section-title">Como funciona a consultoria</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Diagnóstico gratuito</h3><p>Uma conversa para entender sua situação, seus objetivos e onde estão os principais gargalos.</p></div>
+      <div class="step"><h3>Plano de ação</h3><p>Com os números organizados, definimos as prioridades e um plano claro, com metas e prazos realistas.</p></div>
+      <div class="step"><h3>Implantação</h3><p>Montamos as ferramentas — fluxo de caixa, DRE, orçamento — e ajustamos os processos junto com você.</p></div>
+      <div class="step"><h3>Acompanhamento</h3><p>Reuniões periódicas para medir resultados, corrigir a rota e ensinar você a caminhar com as próprias pernas.</p></div>
+    </div>
+  </div>
+</section>
 
-            var gate = document.getElementById('gate');
-            var steps = gate.querySelectorAll('.gate-step');
-            var bar = gate.querySelector('.gate-progress span');
-            var count = gate.querySelector('.js-count');
-            var lastFocus = null;
+<section class="section section-alt" id="cenario">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">O cenário no Brasil</span>
+      <h2 class="section-title">Por que organizar as finanças ficou urgente</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>84 milhões</b><span>de brasileiros estão com o nome negativado.</span><small>Serasa, agosto de 2026</small></div>
+      <div class="stat"><b>9,2 milhões</b><span>de empresas estão inadimplentes — um recorde histórico.</span><small>Serasa Experian, julho de 2026</small></div>
+      <div class="stat"><b>6 em 10</b><span>empresas fecham antes de completar cinco anos de vida.</span><small>IBGE, Demografia das Empresas</small></div>
+    </div>
+  </div>
+</section>
 
-            function render() {
-                var done = 0;
-                steps.forEach(function (el) {
-                    var ok = state[el.getAttribute('data-step')];
-                    el.classList.toggle('done', ok);
-                    el.querySelector('.st').textContent = ok ? '✓ Feito' : 'Seguir';
-                    if (ok) done++;
-                });
-                count.textContent = done;
-                bar.style.width = (done / steps.length * 100) + '%';
-                var complete = done === steps.length;
-                gate.classList.toggle('complete', complete);
-                body.classList.toggle('guides-unlocked', complete);
-            }
-            function openGate() {
-                lastFocus = document.activeElement;
-                gate.classList.add('open'); gate.setAttribute('aria-hidden', 'false');
-                body.classList.add('gate-open');
-                setTimeout(function () { gate.querySelector('.gate-close').focus(); }, 50);
-            }
-            function closeGate() {
-                gate.classList.remove('open'); gate.setAttribute('aria-hidden', 'true');
-                body.classList.remove('gate-open');
-                if (lastFocus) lastFocus.focus();
-            }
-            document.querySelectorAll('.js-unlock').forEach(function (b) { b.addEventListener('click', openGate); });
-            gate.querySelector('.js-gate-close').addEventListener('click', closeGate);
-            gate.addEventListener('click', function (e) { if (e.target === gate) closeGate(); });
-            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && gate.classList.contains('open')) closeGate(); });
+<div class="container">
+  <section class="section" id="diagnostico">
+    <div class="quote">
+      <p>"Oferecemos a primeira reunião sem custo porque ninguém deveria pagar para descobrir se precisa de ajuda."</p>
+      <span>Diagnóstico gratuito · sem compromisso</span>
+    </div>
+    <div style="margin-top:40px" class="narrow">
+      <p style="color:var(--text-muted);margin-bottom:28px">No diagnóstico, fazemos uma leitura técnica e honesta do seu cenário: onde o dinheiro está vazando, quais dívidas pesam mais e quais decisões precisam ser tomadas primeiro. Você sai da conversa com clareza — contratando ou não a consultoria.</p>
+      <div class="btn-row">
+        <a href="contato.html" class="btn btn-solid">Quero meu diagnóstico</a>
+        <a href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." class="btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg> Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</div>
 
-            // A etapa é marcada quando a pessoa abre o perfil e volta para o site
-            var pending = null;
-            function confirmPending() {
-                if (!pending) return;
-                state[pending] = true; pending = null; save(); render();
-            }
-            steps.forEach(function (el) {
-                el.addEventListener('click', function () {
-                    if (state[el.getAttribute('data-step')]) return;
-                    pending = el.getAttribute('data-step');
-                    el.querySelector('.st').textContent = 'Abrindo…';
-                    setTimeout(confirmPending, 4000);
-                });
-            });
-            document.addEventListener('visibilitychange', function () {
-                if (document.visibilityState === 'visible' && pending) setTimeout(confirmPending, 600);
-            });
+<section id="guias" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Biblioteca BRK · Acesso gratuito</span>
+      <h2 class="section-title">Guias Fundamentais</h2>
+      <p class="section-intro">Uma consultoria entrega resultado quando encontra uma base preparada. Estes guias reúnem os fundamentos, a postura e as boas práticas que tornam o trabalho técnico mais efetivo — no CPF e no CNPJ.</p>
+    </div>
+    <div class="library-grid">
+      <article class="ebook">
+        <div class="ebook-cover" data-tag="PF">
+          <span class="ebook-badge">Volume I · Pessoa Física</span>
+          <h3>Guia de Preparação Financeira Pessoal</h3>
+          <p>Fundamentos, postura e boas práticas para organizar as finanças pessoais com método.</p>
+        </div>
+        <div class="ebook-body">
+          <div class="ebook-stat"><strong>84 mi</strong><span>de brasileiros com o nome negativado.<small>Fonte: Serasa, 2026</small></span></div>
+          <div>
+            <p class="ebook-list-title">O que você vai encontrar</p>
+            <ul class="dash">
+              <li>O retrato do endividamento no Brasil em dez anos</li>
+              <li>A postura necessária antes de buscar apoio técnico</li>
+              <li>Os erros mais comuns com cartão, crédito e orçamento</li>
+              <li>Primeiros passos: reserva, controle de gastos e metas</li>
+              <li>Boas práticas e bibliografia recomendada</li>
+            </ul>
+          </div>
+          <p class="ebook-question">“Estou disposto a olhar meus números reais e mudar hábitos — ou quero só uma solução rápida?”</p>
+          <div class="ebook-actions">
+            <button type="button" class="btn btn-solid js-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Liberar acesso gratuito</button>
+            <a href="guia-preparacao-financeira-pf.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar o guia (PDF)</a>
+            <p class="ebook-hint ebook-hint-locked">Liberado ao seguir a BRK no Instagram e no LinkedIn.</p>
+            <p class="ebook-hint ebook-hint-unlocked">Acesso liberado. Bom estudo.</p>
+          </div>
+        </div>
+      </article>
+      <article class="ebook">
+        <div class="ebook-cover" data-tag="PJ">
+          <span class="ebook-badge">Volume II · Pessoa Jurídica</span>
+          <h3>Guia de Preparação para a Gestão Empresarial</h3>
+          <p>O que o empresário precisa compreender e estruturar para que a consultoria gere resultado.</p>
+        </div>
+        <div class="ebook-body">
+          <div class="ebook-stat"><strong>6 em 10</strong><span>empresas fecham antes de completar 5 anos.<small>Fonte: IBGE, Demografia das Empresas</small></span></div>
+          <div>
+            <p class="ebook-list-title">O que você vai encontrar</p>
+            <ul class="dash">
+              <li>Inadimplência e recuperações judiciais: o cenário atual</li>
+              <li>A postura do gestor que obtém resultado com consultoria</li>
+              <li>Erros clássicos: faturamento x lucro e CPF misturado com CNPJ</li>
+              <li>Noções de fluxo de caixa, DRE, margem e ponto de equilíbrio</li>
+              <li>Rotina financeira e bibliografia para gestores</li>
+            </ul>
+          </div>
+          <p class="ebook-question">“Estou disposto a ouvir um diagnóstico duro e agir sobre ele?”</p>
+          <div class="ebook-actions">
+            <button type="button" class="btn btn-solid js-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Liberar acesso gratuito</button>
+            <a href="guia-preparacao-gestao-pj.pdf" class="btn ebook-download" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Baixar o guia (PDF)</a>
+            <p class="ebook-hint ebook-hint-locked">Liberado ao seguir a BRK no Instagram e no LinkedIn.</p>
+            <p class="ebook-hint ebook-hint-unlocked">Acesso liberado. Bom estudo.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-            render();
-        })();
-    </script>
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Educação financeira</span>
+      <h2 class="section-title">Artigos para você decidir melhor</h2>
+      <p class="section-intro">Conteúdo prático, em linguagem simples, para empresários e famílias que querem cuidar melhor do dinheiro.</p>
+    </div>
+    <div class="grid grid-3">
+<a class="post-card" href="blog/como-sair-das-dividas.html">
+  <span class="post-tag">Finanças pessoais</span>
+  <h3>Como sair das dívidas: um passo a passo realista</h3>
+  <p>O método em 6 etapas para listar, priorizar e quitar dívidas sem cair de novo no mesmo buraco — com exemplo prático.</p>
+  <span class="more">Ler artigo →</span>
+</a>
+<a class="post-card" href="blog/fluxo-de-caixa-pequena-empresa.html">
+  <span class="post-tag">Gestão empresarial</span>
+  <h3>Fluxo de caixa para pequenas empresas: como fazer e por que ele salva o negócio</h3>
+  <p>Lucro e caixa são coisas diferentes. Veja como montar um fluxo de caixa simples, semana a semana, e antecipar os apertos antes que eles aconteçam.</p>
+  <span class="more">Ler artigo →</span>
+</a>
+<a class="post-card" href="blog/separar-financas-pessoais-e-da-empresa.html">
+  <span class="post-tag">Gestão empresarial</span>
+  <h3>Como separar as finanças pessoais das da empresa (e definir seu pró-labore)</h3>
+  <p>Misturar CPF e CNPJ é o erro mais comum — e mais caro — das pequenas empresas. Veja como separar de vez e quanto você pode retirar por mês.</p>
+  <span class="more">Ler artigo →</span>
+</a>
+    </div>
+    <div style="text-align:center;margin-top:40px"><a href="blog/" class="btn">Ver todos os artigos</a></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="regiao">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Onde atendemos</span>
+      <h2 class="section-title">Presencial no Grande ABC. Online para todo o Brasil.</h2>
+      <p class="section-intro">Nossa base fica na divisa entre Mauá e Santo André. Atendemos presencialmente em todo o ABC Paulista e por videochamada em qualquer cidade.</p>
+    </div>
+    <ul class="cities" style="justify-content:center">
+      <li class="core">Mauá</li><li class="core">Santo André</li><li>São Bernardo do Campo</li><li>São Caetano do Sul</li><li>Diadema</li><li>Ribeirão Pires</li><li>Rio Grande da Serra</li><li>Online · Brasil</li>
+    </ul>
+    <div style="text-align:center;margin-top:36px"><a href="consultoria-financeira-grande-abc.html" class="btn">Consultoria financeira no Grande ABC</a></div>
+  </div>
+</section>
+
+<section class="section" id="perguntas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 class="section-title">Perguntas sobre a consultoria</h2>
+    </div>
+<div class="faq"><details><summary>O que faz uma consultoria financeira?</summary><div class="answer"><p>Uma consultoria financeira analisa a situação real do seu dinheiro — da empresa ou pessoal —, identifica onde estão os problemas (falta de controle, dívidas caras, preço errado, mistura de contas) e monta com você um plano de ação. Na BRK, isso inclui implantar ferramentas simples, como fluxo de caixa e orçamento, e ensinar você a usá-las para não depender de ninguém.</p></div></details>
+<details><summary>O diagnóstico é gratuito mesmo?</summary><div class="answer"><p>Sim. A primeira reunião é sem custo e sem compromisso. Nela fazemos uma leitura honesta da sua situação e mostramos por onde começar. Só depois, se fizer sentido para você, apresentamos uma proposta de acompanhamento.</p></div></details>
+<details><summary>Vocês atendem presencialmente no ABC?</summary><div class="answer"><p>Sim. Atendemos presencialmente em Mauá e Santo André e em todo o Grande ABC — São Bernardo do Campo, São Caetano do Sul, Diadema, Ribeirão Pires e Rio Grande da Serra. Também atendemos online, por videochamada, pessoas e empresas de qualquer cidade do Brasil.</p></div></details>
+<details><summary>Minha empresa é pequena. A consultoria vale a pena?</summary><div class="answer"><p>Justamente as pequenas empresas são as que mais se beneficiam, porque normalmente não têm um departamento financeiro. Pequenos ajustes — separar as contas, conhecer a margem, projetar o caixa — costumam gerar resultado rápido e evitar decisões caras, como empréstimos desnecessários.</p></div></details>
+<details><summary>Estou endividado. A consultoria pessoal pode me ajudar?</summary><div class="answer"><p>Pode. Organizamos todas as dívidas, identificamos quais têm os juros mais caros, montamos uma ordem de pagamento que caiba no seu orçamento e orientamos a renegociação. O mais importante: trabalhamos os hábitos que criaram a dívida, para você não voltar a ela.</p></div></details>
+<details><summary>Vocês vendem investimentos ou produtos financeiros?</summary><div class="answer"><p>Não. A BRK não vende produtos financeiros nem recebe comissão de bancos. Nosso trabalho é organizar, orientar e educar. Isso garante que cada recomendação seja feita pensando só no seu interesse.</p></div></details>
+<details><summary>Quanto tempo leva para ver resultado?</summary><div class="answer"><p>Os primeiros ganhos — como enxergar para onde o dinheiro vai e cortar vazamentos — costumam aparecer já no primeiro mês. A estrutura completa, com rotina financeira funcionando, normalmente se consolida em três a seis meses, dependendo da situação e do seu envolvimento.</p></div></details></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>O primeiro passo para sair do aperto é enxergar os números</h2>
+    <p>Agende seu diagnóstico gratuito. Em uma conversa, você entende onde está e por onde começar.</p>
+    <div class="btn-row">
+      <a href="contato.html" class="btn btn-solid">Agendar diagnóstico gratuito</a>
+      <a href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." class="btn btn-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="BRK Gestão Financeira" width="135" height="60" loading="lazy">
+        <p>Consultoria financeira para pequenas empresas, MEIs e pessoas físicas. Nossa missão é salvar empresas e dar liberdade financeira às pessoas, por meio da educação e do direcionamento correto.</p>
+        <div class="socials">
+          <a href="https://instagram.com/brunomagalhaesadm" target="_blank" rel="noopener" aria-label="Instagram da BRK"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+          <a href="https://www.linkedin.com/in/brunomagalhaes1" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></svg></a>
+          <a href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener" aria-label="WhatsApp da BRK"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h2>Serviços</h2>
+        <ul>
+          <li><a href="consultoria-financeira-empresas.html">Consultoria para empresas</a></li>
+          <li><a href="consultoria-financeira-mei.html">Consultoria para MEI</a></li>
+          <li><a href="consultoria-financeira-pessoal.html">Consultoria pessoal</a></li>
+          <li><a href="contato.html">Diagnóstico gratuito</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Conteúdo</h2>
+        <ul>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="index.html#guias">Guias gratuitos</a></li>
+          <li><a href="blog/fluxo-de-caixa-pequena-empresa.html">Fluxo de caixa</a></li>
+          <li><a href="blog/como-sair-das-dividas.html">Como sair das dívidas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Atendimento</h2>
+        <ul>
+          <li><a href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener">WhatsApp (11) 94370-1337</a></li>
+          <li><a href="consultoria-financeira-grande-abc.html">Mauá, Santo André e Grande ABC</a></li>
+          <li><a href="contato.html">Online para todo o Brasil</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BRK GESTÃO FINANCEIRA</span>
+      <span>Consultoria financeira em Mauá, Santo André e Grande ABC · Atendimento online</span>
+    </div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener" aria-label="Falar com a BRK no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg></a>
+<div class="mobile-cta">
+  <a href="https://wa.me/5511943701337?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20BRK%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20financeiro%20gratuito." class="btn btn-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg> WhatsApp</a>
+  <a href="contato.html" class="btn btn-solid">Diagnóstico grátis</a>
+</div>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-hidden="true">
+  <div class="gate-panel">
+    <button type="button" class="gate-close js-gate-close" aria-label="Fechar">&times;</button>
+    <span class="eyebrow">Biblioteca BRK</span>
+    <h2 id="gate-title">Libere seus Guias Fundamentais</h2>
+    <p class="gate-intro">Os dois guias são gratuitos. Para liberar o acesso, acompanhe a BRK nas duas redes — é onde publicamos conteúdo sobre finanças para empresas e pessoas.</p>
+    <div class="gate-progress"><span></span></div>
+    <p class="gate-count"><span class="js-count">0</span> de 2 etapas concluídas</p>
+    <a class="gate-step" data-step="instagram" href="https://instagram.com/brunomagalhaesadm" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span><span class="tx"><b>Seguir no Instagram</b><small>@brunomagalhaesadm</small></span><span class="st">Seguir</span>
+    </a>
+    <a class="gate-step" data-step="linkedin" href="https://www.linkedin.com/in/brunomagalhaes1" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></svg></span><span class="tx"><b>Seguir no LinkedIn</b><small>Perfil profissional</small></span><span class="st">Seguir</span>
+    </a>
+    <div class="gate-downloads">
+      <a href="guia-preparacao-financeira-pf.pdf" class="btn btn-solid" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Guia Pessoa Física (PDF)</a>
+      <a href="guia-preparacao-gestao-pj.pdf" class="btn" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg> Guia Pessoa Jurídica (PDF)</a>
+    </div>
+    <p class="gate-note gate-note-pending">Siga nas duas redes e volte para esta tela. O download é liberado em seguida.</p>
+    <p class="gate-note gate-note-done">Acesso liberado. Obrigado por acompanhar — bom estudo!</p>
+  </div>
+</div>
+<script src="main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brunoomk07-cell.github.io/brk-gestao/sitemap.xml
