@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://brunoomk07-cell.github.io/brk-gestao/"}, {"@type": "ListItem", "position": 2, "name": "Aprenda", "item": "https://brunoomk07-cell.github.io/brk-gestao/aprenda/"}, {"@type": "ListItem", "position": 3, "name": "Diagnóstico rápido da empresa", "item": "https://brunoomk07-cell.github.io/brk-gestao/aprenda/diagnostico-empresa.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://brunoomk07-cell.github.io/brk-gestao/"}, {"@type": "ListItem", "position": 2, "name": "Autodiagnóstico", "item": "https://brunoomk07-cell.github.io/brk-gestao/aprenda/"}, {"@type": "ListItem", "position": 3, "name": "Diagnóstico rápido da empresa", "item": "https://brunoomk07-cell.github.io/brk-gestao/aprenda/diagnostico-empresa.html"}]}</script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -38,8 +38,8 @@
     <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <nav class="nav" id="menu" aria-label="Menu principal">
       <a href="../servicos.html">Serviços</a>
-<a href="../ferramentas/">Ferramentas</a>
-<a href="../aprenda/" aria-current="page">Aprenda</a>
+<a href="../ferramentas/">Simuladores</a>
+<a href="../aprenda/" aria-current="page">Autodiagnóstico</a>
 <a href="../panorama.html">Panorama</a>
 <a href="../noticias.html">Notícias</a>
 <a href="../blog/">Blog</a>
@@ -50,7 +50,7 @@
 <main id="conteudo">
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="../index.html">Início</a></li><li><a href="../aprenda/">Aprenda</a></li><li>Diagnóstico rápido da empresa</li></ol>
+    <ol class="breadcrumb"><li><a href="../index.html">Início</a></li><li><a href="../aprenda/">Autodiagnóstico</a></li><li>Diagnóstico rápido da empresa</li></ol>
     <span class="eyebrow">Quiz para empresários · 3 minutos</span>
     <h1>Diagnóstico financeiro rápido da sua empresa</h1>
     <p class="lead">Dez perguntas para avaliar a maturidade financeira do seu negócio em cinco áreas: controle, caixa, resultado, preço e governança. No final, você vê um gráfico radar com os pontos fortes e fracos.</p>
@@ -71,27 +71,273 @@
 
 <script type="application/json" id="quiz-data">
 {
- "mode": "score", "radar": true, "label": "Diagnóstico da empresa",
+ "mode": "score",
+ "radar": true,
+ "label": "Diagnóstico da empresa",
  "share": "Fiz o diagnóstico financeiro rápido da minha empresa. Faça também:",
- "cta": {"label": "Aprofundar no diagnóstico gratuito", "href": "../contato.html"},
+ "cta": {
+  "label": "Agendar diagnóstico gratuito",
+  "href": "../contato.html"
+ },
  "bands": [
-  {"min": 80, "title": "Gestão financeira madura", "text": "Sua empresa tem controles e rotinas que poucas pequenas empresas têm. O foco agora é usar os números para crescer com estratégia: indicadores, planejamento e governança."},
-  {"min": 55, "title": "Base estruturada, com lacunas", "text": "O essencial existe, mas algumas áreas ainda dependem de intuição. Fechar essas lacunas costuma liberar caixa e evitar decisões caras."},
-  {"min": 30, "title": "Gestão no improviso", "text": "A empresa funciona, mas sem visibilidade sobre caixa e resultado. É o perfil mais comum entre os negócios que entram em dificuldade — e também o que mais melhora com método."},
-  {"min": 0, "title": "Risco alto", "text": "Sem controles básicos, qualquer queda de vendas ou aumento de custos pode virar uma crise. Estruturar o financeiro é urgente — e possível."}
+  {
+   "min": 80,
+   "title": "Gestão financeira madura",
+   "text": "Sua empresa tem controles que poucas pequenas empresas têm. O foco agora é usar os números para crescer com estratégia."
+  },
+  {
+   "min": 55,
+   "title": "Base estruturada, com lacunas",
+   "text": "O essencial existe, mas algumas áreas ainda dependem de intuição — e é aí que o dinheiro costuma escapar."
+  },
+  {
+   "min": 30,
+   "title": "Gestão no improviso",
+   "text": "A empresa funciona, mas sem visibilidade sobre caixa e resultado. É o perfil mais comum entre os negócios que entram em dificuldade."
+  },
+  {
+   "min": 0,
+   "title": "Risco alto",
+   "text": "Sem controles básicos, qualquer queda de vendas ou aumento de custos pode virar crise. Estruturar o financeiro é urgente."
+  }
  ],
  "questions": [
-  {"area": "Controle", "q": "O dinheiro da empresa e o dos sócios ficam em contas separadas?", "tip": "Separe de vez as contas da empresa e dos sócios. É a base de qualquer controle.", "options": [{"t": "Sim, totalmente separados", "p": 3}, {"t": "Quase sempre", "p": 2}, {"t": "Misturamos com frequência", "p": 1}, {"t": "É tudo junto", "p": 0}]},
-  {"area": "Controle", "q": "Todas as entradas e saídas são registradas?", "tip": "Registre todas as movimentações com data e categoria — planilha simples já resolve.", "options": [{"t": "Sim, em sistema ou planilha atualizada", "p": 3}, {"t": "A maioria", "p": 2}, {"t": "Só as maiores", "p": 1}, {"t": "Não registramos", "p": 0}]},
-  {"area": "Caixa", "q": "Você sabe hoje quanto vai ter em caixa daqui a 30 dias?", "tip": "Monte um fluxo de caixa semanal para as próximas 4 a 8 semanas.", "options": [{"t": "Sim, temos fluxo de caixa projetado", "p": 3}, {"t": "Tenho uma estimativa", "p": 2}, {"t": "Só olho o saldo do banco", "p": 1}, {"t": "Não faço ideia", "p": 0}]},
-  {"area": "Caixa", "q": "Com que frequência a empresa usa cheque especial, antecipação ou empréstimo para pagar contas do mês?", "tip": "Crédito caro recorrente é sintoma de falta de capital de giro — trate a causa, não só o sintoma.", "options": [{"t": "Nunca", "p": 3}, {"t": "Raramente, em meses atípicos", "p": 2}, {"t": "Em vários meses do ano", "p": 1}, {"t": "Todo mês", "p": 0}]},
-  {"area": "Resultado", "q": "Você sabe qual foi o lucro da empresa no último mês?", "tip": "Feche uma DRE gerencial simples todo mês para saber o lucro real.", "options": [{"t": "Sim, fechamos DRE todo mês", "p": 3}, {"t": "Sei aproximadamente", "p": 2}, {"t": "Sei o faturamento, não o lucro", "p": 1}, {"t": "Não sei", "p": 0}]},
-  {"area": "Resultado", "q": "Você conhece a margem de cada produto ou serviço?", "tip": "Calcule a margem de contribuição por produto para saber quais sustentam a empresa.", "options": [{"t": "Sim, de todos", "p": 3}, {"t": "Dos principais", "p": 2}, {"t": "Tenho uma noção geral", "p": 1}, {"t": "Não", "p": 0}]},
-  {"area": "Preço", "q": "Como os preços são definidos?", "tip": "Forme o preço a partir do custo real e da margem desejada — não só pelo concorrente.", "options": [{"t": "Com base no custo real e na margem desejada", "p": 3}, {"t": "Custo mais uma margem padrão", "p": 2}, {"t": "Olhando o concorrente", "p": 1}, {"t": "No feeling", "p": 0}]},
-  {"area": "Preço", "q": "Quando os custos sobem, o que acontece com os preços?", "tip": "Revise os preços pelo menos a cada trimestre, com base nos custos atualizados.", "options": [{"t": "Revisamos de forma planejada", "p": 3}, {"t": "Ajustamos quando percebemos", "p": 2}, {"t": "Demoramos muito para ajustar", "p": 1}, {"t": "Nunca revisamos", "p": 0}]},
-  {"area": "Governança", "q": "Os sócios recebem um pró-labore fixo?", "tip": "Defina um pró-labore fixo e sustentável; distribua lucro só quando houver lucro.", "options": [{"t": "Sim, valor e data definidos", "p": 3}, {"t": "Valor fixo, mas retiramos extras", "p": 2}, {"t": "Retiramos conforme a necessidade", "p": 1}, {"t": "Não há regra", "p": 0}]},
-  {"area": "Governança", "q": "Existe uma reunião periódica para analisar os números e tomar decisões?", "tip": "Crie uma reunião mensal de resultados, com pauta, números e decisões registradas.", "options": [{"t": "Sim, mensal, com números e registro das decisões", "p": 3}, {"t": "Às vezes, sem regularidade", "p": 2}, {"t": "Só quando há problema", "p": 1}, {"t": "Nunca", "p": 0}]}
- ]
+  {
+   "area": "Controle",
+   "q": "O dinheiro da empresa e o dos sócios ficam em contas separadas?",
+   "tip": "Dinheiro da empresa e dos sócios misturado: impossível saber o lucro real.",
+   "options": [
+    {
+     "t": "Sim, totalmente separados",
+     "p": 3
+    },
+    {
+     "t": "Quase sempre",
+     "p": 2
+    },
+    {
+     "t": "Misturamos com frequência",
+     "p": 1
+    },
+    {
+     "t": "É tudo junto",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Controle",
+   "q": "Todas as entradas e saídas são registradas?",
+   "tip": "Movimentações sem registro: decisões tomadas no escuro.",
+   "options": [
+    {
+     "t": "Sim, em sistema ou planilha atualizada",
+     "p": 3
+    },
+    {
+     "t": "A maioria",
+     "p": 2
+    },
+    {
+     "t": "Só as maiores",
+     "p": 1
+    },
+    {
+     "t": "Não registramos",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Caixa",
+   "q": "Você sabe hoje quanto vai ter em caixa daqui a 30 dias?",
+   "tip": "Sem previsão de caixa: os apertos chegam de surpresa.",
+   "options": [
+    {
+     "t": "Sim, temos fluxo de caixa projetado",
+     "p": 3
+    },
+    {
+     "t": "Tenho uma estimativa",
+     "p": 2
+    },
+    {
+     "t": "Só olho o saldo do banco",
+     "p": 1
+    },
+    {
+     "t": "Não faço ideia",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Caixa",
+   "q": "Com que frequência a empresa usa cheque especial, antecipação ou empréstimo para pagar contas do mês?",
+   "tip": "Crédito caro recorrente: sinal de falta de capital de giro.",
+   "options": [
+    {
+     "t": "Nunca",
+     "p": 3
+    },
+    {
+     "t": "Raramente, em meses atípicos",
+     "p": 2
+    },
+    {
+     "t": "Em vários meses do ano",
+     "p": 1
+    },
+    {
+     "t": "Todo mês",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Resultado",
+   "q": "Você sabe qual foi o lucro da empresa no último mês?",
+   "tip": "A empresa não sabe quanto lucra.",
+   "options": [
+    {
+     "t": "Sim, fechamos DRE todo mês",
+     "p": 3
+    },
+    {
+     "t": "Sei aproximadamente",
+     "p": 2
+    },
+    {
+     "t": "Sei o faturamento, não o lucro",
+     "p": 1
+    },
+    {
+     "t": "Não sei",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Resultado",
+   "q": "Você conhece a margem de cada produto ou serviço?",
+   "tip": "Margem por produto desconhecida: pode haver itens dando prejuízo.",
+   "options": [
+    {
+     "t": "Sim, de todos",
+     "p": 3
+    },
+    {
+     "t": "Dos principais",
+     "p": 2
+    },
+    {
+     "t": "Tenho uma noção geral",
+     "p": 1
+    },
+    {
+     "t": "Não",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Preço",
+   "q": "Como os preços são definidos?",
+   "tip": "Preço definido sem base no custo real.",
+   "options": [
+    {
+     "t": "Com base no custo real e na margem desejada",
+     "p": 3
+    },
+    {
+     "t": "Custo mais uma margem padrão",
+     "p": 2
+    },
+    {
+     "t": "Olhando o concorrente",
+     "p": 1
+    },
+    {
+     "t": "No feeling",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Preço",
+   "q": "Quando os custos sobem, o que acontece com os preços?",
+   "tip": "Preços defasados em relação aos custos.",
+   "options": [
+    {
+     "t": "Revisamos de forma planejada",
+     "p": 3
+    },
+    {
+     "t": "Ajustamos quando percebemos",
+     "p": 2
+    },
+    {
+     "t": "Demoramos muito para ajustar",
+     "p": 1
+    },
+    {
+     "t": "Nunca revisamos",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Governança",
+   "q": "Os sócios recebem um pró-labore fixo?",
+   "tip": "Retiradas sem regra: o caixa fica imprevisível.",
+   "options": [
+    {
+     "t": "Sim, valor e data definidos",
+     "p": 3
+    },
+    {
+     "t": "Valor fixo, mas retiramos extras",
+     "p": 2
+    },
+    {
+     "t": "Retiramos conforme a necessidade",
+     "p": 1
+    },
+    {
+     "t": "Não há regra",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "area": "Governança",
+   "q": "Existe uma reunião periódica para analisar os números e tomar decisões?",
+   "tip": "Decisões sem rotina nem registro: os mesmos problemas se repetem.",
+   "options": [
+    {
+     "t": "Sim, mensal, com números e registro das decisões",
+     "p": 3
+    },
+    {
+     "t": "Às vezes, sem regularidade",
+     "p": 2
+    },
+    {
+     "t": "Só quando há problema",
+     "p": 1
+    },
+    {
+     "t": "Nunca",
+     "p": 0
+    }
+   ]
+  }
+ ],
+ "pitch": {
+  "title": "Quer o plano para corrigir cada um desses pontos?",
+  "text": "No diagnóstico gratuito, analisamos os números da sua empresa e mostramos por onde começar — e o que isso pode devolver ao seu caixa."
+ },
+ "wa": "https://wa.me/5511943701337?text=Ol%C3%A1%21%20Fiz%20o%20diagn%C3%B3stico%20r%C3%A1pido%20da%20empresa%20no%20site%20da%20BRK%20e%20quero%20entender%20os%20n%C3%BAmeros%20do%20meu%20neg%C3%B3cio."
 }
 </script>
 
@@ -132,8 +378,8 @@
       <div>
         <h2>Conteúdo grátis</h2>
         <ul>
-          <li><a href="../ferramentas/">Ferramentas e simuladores</a></li>
-          <li><a href="../aprenda/">Trilhas, quizzes e jogo</a></li>
+          <li><a href="../ferramentas/">Simuladores</a></li>
+          <li><a href="../aprenda/">Autodiagnóstico, testes e jogo</a></li>
           <li><a href="../panorama.html">Panorama em gráficos</a></li>
           <li><a href="../noticias.html">Notícias do Sebrae</a></li>
           <li><a href="../blog/">Blog</a></li>

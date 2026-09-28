@@ -70,12 +70,15 @@
             pct = max ? tot / max * 100 : 0; shown = Math.round(pct);
         }
         band = Q.bands.filter(function (b) { return pct >= b.min; })[0] || Q.bands[Q.bands.length - 1];
-        var tipsHtml = tips.length ? '<div class="tips"><p class="eyebrow" style="margin-bottom:10px">Por onde começar</p><ul class="check">' + tips.slice(0, 4).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></div>' : '';
+        var tipsHtml = tips.length ? '<p class="eyebrow" style="margin:26px 0 4px">Pontos de risco encontrados</p><ul class="risk-list">' + tips.slice(0, 5).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' : '';
+        var pitch = Q.pitch ? '<div class="tool-cta" style="text-align:left;max-width:620px;margin:26px auto 0"><b>' + esc(Q.pitch.title) + '</b><p>' + esc(Q.pitch.text) + '</p><div class="btn-row">' +
+            (Q.wa ? '<a class="btn btn-solid" href="' + Q.wa + '" target="_blank" rel="noopener">Falar com um consultor</a>' : '') +
+            (Q.cta ? '<a class="btn" href="' + Q.cta.href + '">' + esc(Q.cta.label) + '</a>' : '') + '</div></div>' : '';
         var radar = (Q.mode !== 'knowledge' && Q.radar && window.Chart) ? '<div class="chart-box sq" style="max-width:520px;margin:10px auto 0"><canvas aria-label="Gráfico radar com a nota de cada área"></canvas></div>' : '';
         host.innerHTML = '<div class="quiz-bar"><span style="width:100%"></span></div><div class="quiz-result">' + ring(pct) +
-            '<h2>' + esc(band.title) + '</h2><p>' + esc(band.text) + '</p>' + radar + tipsHtml +
-            '<div class="btn-row">' + (Q.cta ? '<a class="btn btn-solid" href="' + Q.cta.href + '"' + (Q.cta.ext ? ' target="_blank" rel="noopener"' : '') + '>' + esc(Q.cta.label) + '</a>' : '') +
-            '<button type="button" class="btn" data-again>Refazer</button></div>' +
+            '<h2>' + esc(band.title) + '</h2><p>' + esc(band.text) + '</p>' + radar + tipsHtml + pitch +
+            '<div class="btn-row">' + (!Q.pitch && Q.cta ? '<a class="btn btn-solid" href="' + Q.cta.href + '">' + esc(Q.cta.label) + '</a>' : '') +
+            '<button type="button" class="btn" data-again>Refazer o teste</button></div>' +
             '<p style="margin-top:22px;font-size:0.84rem"><a href="#" data-share>Compartilhar este teste</a></p></div>';
         animate(pct, shown);
         host.querySelector('[data-again]').addEventListener('click', function () { i = 0; answers = []; score = 0; render(); });

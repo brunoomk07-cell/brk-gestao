@@ -5,13 +5,29 @@
  "title": "Teste de Saúde Financeira Pessoal: Faça em 2 Minutos | BRK",
  "description": "Faça o teste grátis de saúde financeira: 10 perguntas rápidas sobre orçamento, dívidas, cartão e reserva. Receba sua nota de 0 a 100 e recomendações práticas.",
  "priority": "0.8",
- "scripts": ["quiz"],
- "breadcrumb": [["Início", ""], ["Aprenda", "aprenda/"], ["Teste de saúde financeira", "aprenda/teste-saude-financeira.html"]]
+ "scripts": [
+  "quiz"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Autodiagnóstico",
+   "aprenda/"
+  ],
+  [
+   "Teste de saúde financeira",
+   "aprenda/teste-saude-financeira.html"
+  ]
+ ],
+ "wa_text": "Olá! Fiz o teste de saúde financeira no site da BRK e quero ajuda para organizar minhas finanças."
 }
 -->
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}aprenda/">Aprenda</a></li><li>Teste de saúde financeira</li></ol>
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}aprenda/">Autodiagnóstico</a></li><li>Teste de saúde financeira</li></ol>
     <span class="eyebrow">Quiz gratuito · 2 minutos</span>
     <h1>Teste de saúde financeira pessoal</h1>
     <p class="lead">Responda 10 perguntas com sinceridade e descubra, de 0 a 100, como está a sua vida financeira. No final, você recebe recomendações práticas sobre por onde começar.</p>
@@ -32,27 +48,262 @@
 
 <script type="application/json" id="quiz-data">
 {
- "mode": "score", "label": "Saúde financeira",
+ "mode": "score",
+ "label": "Saúde financeira",
  "share": "Descobri minha nota de saúde financeira. Faça o teste:",
- "cta": {"label": "Agendar diagnóstico gratuito", "href": "{{P}}contato.html"},
+ "cta": {
+  "label": "Agendar diagnóstico gratuito",
+  "href": "{{P}}contato.html"
+ },
  "bands": [
-  {"min": 80, "title": "Saúde financeira forte", "text": "Parabéns: você tem controle, reserva e bons hábitos. O próximo passo é planejar metas de longo prazo e fazer o dinheiro trabalhar por você."},
-  {"min": 55, "title": "No caminho certo", "text": "Você tem uma boa base, mas ainda há pontos que deixam sua vida financeira vulnerável. Ajustes simples podem trazer muito mais tranquilidade."},
-  {"min": 30, "title": "Sinal de atenção", "text": "Algumas decisões do dia a dia estão colocando seu orçamento em risco. É hora de organizar os números e montar um plano antes que o aperto aumente."},
-  {"min": 0, "title": "Alerta vermelho", "text": "Seu dinheiro está no comando — e não você. A boa notícia: com método e acompanhamento, dá para virar esse jogo. O primeiro passo é enxergar os números."}
+  {
+   "min": 80,
+   "title": "Saúde financeira forte",
+   "text": "Você tem uma base sólida. O próximo passo é fazer o dinheiro trabalhar por você — com um plano de longo prazo."
+  },
+  {
+   "min": 55,
+   "title": "No caminho certo",
+   "text": "Há uma boa base, mas alguns pontos deixam sua vida financeira vulnerável a qualquer imprevisto."
+  },
+  {
+   "min": 30,
+   "title": "Sinal de atenção",
+   "text": "Algumas decisões do dia a dia estão colocando o seu orçamento em risco. Sem ajuste, o aperto tende a crescer."
+  },
+  {
+   "min": 0,
+   "title": "Alerta vermelho",
+   "text": "O dinheiro está no comando — e não você. A boa notícia: com o direcionamento certo, esse jogo vira."
+  }
  ],
  "questions": [
-  {"q": "Você sabe quanto gastou no mês passado?", "tip": "Anote todos os gastos por 30 dias. Sem saber para onde o dinheiro vai, não dá para decidir.", "options": [{"t": "Sei com precisão, anoto tudo", "p": 3}, {"t": "Tenho uma boa ideia", "p": 2}, {"t": "Mais ou menos", "p": 1}, {"t": "Não faço ideia", "p": 0}]},
-  {"q": "Como você costuma pagar a fatura do cartão de crédito?", "tip": "Pague sempre o valor total da fatura. O rotativo está entre os créditos mais caros do país.", "options": [{"t": "Sempre o valor total", "p": 3}, {"t": "Quase sempre o total", "p": 2}, {"t": "Às vezes parcelo a fatura ou pago só parte", "p": 1}, {"t": "Pago o mínimo com frequência", "p": 0}]},
-  {"q": "Se sua renda parasse hoje, por quanto tempo você se manteria?", "tip": "Comece uma reserva de emergência: o primeiro degrau é um mês de gastos essenciais.", "options": [{"t": "Seis meses ou mais", "p": 3}, {"t": "De três a seis meses", "p": 2}, {"t": "Um ou dois meses", "p": 1}, {"t": "Menos de um mês", "p": 0}]},
-  {"q": "Quanto da sua renda vai para parcelas e dívidas?", "tip": "Liste todas as dívidas com saldo, parcela e juros, e ataque primeiro as de juros mais altos.", "options": [{"t": "Nada ou menos de 10%", "p": 3}, {"t": "Entre 10% e 20%", "p": 2}, {"t": "Entre 20% e 35%", "p": 1}, {"t": "Mais de 35%", "p": 0}]},
-  {"q": "Seu nome está ou já esteve negativado?", "tip": "Organize as dívidas em atraso e negocie com um plano que caiba no orçamento — sem aceitar parcelas impossíveis.", "options": [{"t": "Nunca esteve", "p": 3}, {"t": "Já esteve, hoje está limpo", "p": 2}, {"t": "Está, e estou negociando", "p": 1}, {"t": "Está, e não sei como sair", "p": 0}]},
-  {"q": "Você guarda dinheiro todo mês?", "tip": "Pague-se primeiro: programe uma transferência para a reserva no dia em que o salário cai.", "options": [{"t": "Sim, logo que recebo", "p": 3}, {"t": "Quando sobra no fim do mês", "p": 2}, {"t": "Raramente", "p": 1}, {"t": "Nunca consigo", "p": 0}]},
-  {"q": "Com que frequência você usa o cheque especial?", "tip": "Trate o cheque especial como emergência absoluta — nunca como parte do salário.", "options": [{"t": "Nunca", "p": 3}, {"t": "Raramente", "p": 2}, {"t": "Em alguns meses", "p": 1}, {"t": "Todo mês", "p": 0}]},
-  {"q": "Você tem metas financeiras com valor e prazo?", "tip": "Defina uma meta com valor e prazo. Objetivos claros dão sentido aos cortes do dia a dia.", "options": [{"t": "Sim, por escrito e acompanho", "p": 3}, {"t": "Tenho na cabeça", "p": 2}, {"t": "Tenho ideias vagas", "p": 1}, {"t": "Não tenho", "p": 0}]},
-  {"q": "Como você lida com compras por impulso?", "tip": "Adote a regra das 48 horas antes de qualquer compra que não estava planejada.", "options": [{"t": "Espero alguns dias antes de comprar", "p": 3}, {"t": "Às vezes me arrependo", "p": 2}, {"t": "Acontece com frequência", "p": 1}, {"t": "Parcelo quase tudo sem pensar", "p": 0}]},
-  {"q": "Como é a conversa sobre dinheiro na sua casa?", "tip": "Façam uma conversa mensal sobre o orçamento. Um organizando e o outro gastando não funciona.", "options": [{"t": "Planejamos juntos (ou me organizo bem sozinho)", "p": 3}, {"t": "Conversamos quando aparece um problema", "p": 2}, {"t": "Cada um cuida do seu, sem combinar", "p": 1}, {"t": "É motivo de brigas", "p": 0}]}
- ]
+  {
+   "q": "Você sabe quanto gastou no mês passado?",
+   "tip": "Você não sabe para onde o seu dinheiro vai — e é aí que ele vaza.",
+   "options": [
+    {
+     "t": "Sei com precisão, anoto tudo",
+     "p": 3
+    },
+    {
+     "t": "Tenho uma boa ideia",
+     "p": 2
+    },
+    {
+     "t": "Mais ou menos",
+     "p": 1
+    },
+    {
+     "t": "Não faço ideia",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Como você costuma pagar a fatura do cartão de crédito?",
+   "tip": "A fatura do cartão está virando dívida cara.",
+   "options": [
+    {
+     "t": "Sempre o valor total",
+     "p": 3
+    },
+    {
+     "t": "Quase sempre o total",
+     "p": 2
+    },
+    {
+     "t": "Às vezes parcelo a fatura ou pago só parte",
+     "p": 1
+    },
+    {
+     "t": "Pago o mínimo com frequência",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Se sua renda parasse hoje, por quanto tempo você se manteria?",
+   "tip": "Sem reserva, um imprevisto vira dívida na hora.",
+   "options": [
+    {
+     "t": "Seis meses ou mais",
+     "p": 3
+    },
+    {
+     "t": "De três a seis meses",
+     "p": 2
+    },
+    {
+     "t": "Um ou dois meses",
+     "p": 1
+    },
+    {
+     "t": "Menos de um mês",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Quanto da sua renda vai para parcelas e dívidas?",
+   "tip": "Parcelas e dívidas estão comprometendo demais a sua renda.",
+   "options": [
+    {
+     "t": "Nada ou menos de 10%",
+     "p": 3
+    },
+    {
+     "t": "Entre 10% e 20%",
+     "p": 2
+    },
+    {
+     "t": "Entre 20% e 35%",
+     "p": 1
+    },
+    {
+     "t": "Mais de 35%",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Seu nome está ou já esteve negativado?",
+   "tip": "O nome negativado está travando crédito e oportunidades.",
+   "options": [
+    {
+     "t": "Nunca esteve",
+     "p": 3
+    },
+    {
+     "t": "Já esteve, hoje está limpo",
+     "p": 2
+    },
+    {
+     "t": "Está, e estou negociando",
+     "p": 1
+    },
+    {
+     "t": "Está, e não sei como sair",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Você guarda dinheiro todo mês?",
+   "tip": "Não sobra dinheiro para o futuro — o mês consome tudo.",
+   "options": [
+    {
+     "t": "Sim, logo que recebo",
+     "p": 3
+    },
+    {
+     "t": "Quando sobra no fim do mês",
+     "p": 2
+    },
+    {
+     "t": "Raramente",
+     "p": 1
+    },
+    {
+     "t": "Nunca consigo",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Com que frequência você usa o cheque especial?",
+   "tip": "O cheque especial virou parte do salário.",
+   "options": [
+    {
+     "t": "Nunca",
+     "p": 3
+    },
+    {
+     "t": "Raramente",
+     "p": 2
+    },
+    {
+     "t": "Em alguns meses",
+     "p": 1
+    },
+    {
+     "t": "Todo mês",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Você tem metas financeiras com valor e prazo?",
+   "tip": "Sem metas, os cortes não se sustentam.",
+   "options": [
+    {
+     "t": "Sim, por escrito e acompanho",
+     "p": 3
+    },
+    {
+     "t": "Tenho na cabeça",
+     "p": 2
+    },
+    {
+     "t": "Tenho ideias vagas",
+     "p": 1
+    },
+    {
+     "t": "Não tenho",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Como você lida com compras por impulso?",
+   "tip": "Compras por impulso estão pesando no orçamento.",
+   "options": [
+    {
+     "t": "Espero alguns dias antes de comprar",
+     "p": 3
+    },
+    {
+     "t": "Às vezes me arrependo",
+     "p": 2
+    },
+    {
+     "t": "Acontece com frequência",
+     "p": 1
+    },
+    {
+     "t": "Parcelo quase tudo sem pensar",
+     "p": 0
+    }
+   ]
+  },
+  {
+   "q": "Como é a conversa sobre dinheiro na sua casa?",
+   "tip": "Falta alinhamento sobre dinheiro dentro de casa.",
+   "options": [
+    {
+     "t": "Planejamos juntos (ou me organizo bem sozinho)",
+     "p": 3
+    },
+    {
+     "t": "Conversamos quando aparece um problema",
+     "p": 2
+    },
+    {
+     "t": "Cada um cuida do seu, sem combinar",
+     "p": 1
+    },
+    {
+     "t": "É motivo de brigas",
+     "p": 0
+    }
+   ]
+  }
+ ],
+ "pitch": {
+  "title": "Esses pontos têm solução — e ela começa com um plano.",
+  "text": "No diagnóstico gratuito, analisamos a sua situação real e mostramos exatamente o que fazer primeiro para sair do aperto e começar a sobrar dinheiro."
+ },
+ "wa": "{{WA_CTX}}"
 }
 </script>
 

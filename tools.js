@@ -91,8 +91,8 @@
             set(root, 'lucro', money(lucro), lucro >= 0 ? 'good' : 'bad');
             set(root, 'dia', money(pe / dias));
             say(root, fat >= pe
-                ? 'Sua empresa está <b>' + num1.format(seg) + '% acima</b> do ponto de equilíbrio. Esse é o seu colchão: as vendas podem cair até esse percentual antes de dar prejuízo.'
-                : 'Atenção: o faturamento atual está <b>' + money(pe - fat) + ' abaixo</b> do ponto de equilíbrio. Faltam cerca de ' + money((pe - fat) / dias) + ' por dia útil para empatar.');
+                ? (seg < 20 ? '⚠ Sua folga é de apenas <b>' + num1.format(seg) + '%</b>. Uma queda pequena nas vendas já coloca a empresa no prejuízo.' : 'Sua empresa está <b>' + num1.format(seg) + '% acima</b> do ponto de equilíbrio. Mas o lucro de ' + money(lucro) + ' é compatível com o esforço e o risco do negócio?')
+                : '⚠ O faturamento está <b>' + money(pe - fat) + ' abaixo</b> do ponto de equilíbrio. Todo mês nessa situação consome caixa — cerca de ' + money(-lucro) + ' de prejuízo operacional.');
             var max = Math.max(fat, pe) * 1.4 || 10000, pts = 12, r = [], c = [];
             for (var i = 0; i <= pts; i++) { var x = max * i / pts; r.push({ x: x, y: x }); c.push({ x: x, y: fixas + x * cv / 100 }); }
             makeChart(root, {
@@ -166,9 +166,9 @@
             set(root, 'total', money(total));
             set(root, 'prazo', months(plan.months), isFinite(plan.months) ? 'good' : 'bad');
             set(root, 'juros', money(plan.interest));
-            set(root, 'economia', isFinite(base.months) ? money(Math.max(base.interest - plan.interest, 0)) : 'O mínimo não quita', isFinite(base.months) ? 'good' : 'bad');
-            if (!isFinite(plan.months)) say(root, 'Com esses valores, <b>a dívida não para de crescer</b>: os juros do mês são maiores que o que você consegue pagar. É hora de renegociar ou trocar a dívida cara por uma mais barata.');
-            else say(root, 'Ordem de quitação: <b>' + plan.order.join(' → ') + '</b>. ' + (isFinite(base.months) ? 'Pagando só o mínimo, levaria ' + months(base.months) + '.' : 'Pagando só o mínimo, <b>você nunca sairia da dívida</b>.'));
+            set(root, 'economia', isFinite(base.months) ? months(base.months) : 'Nunca termina', 'bad');
+            if (!isFinite(plan.months)) say(root, '⚠ Com esses valores, <b>a dívida não para de crescer</b>: os juros do mês são maiores que o que você consegue pagar. Sozinho, esse ciclo dificilmente se quebra.');
+            else say(root, 'Você ainda vai entregar <b>' + money(plan.interest) + ' aos credores só em juros</b>' + (isFinite(base.months) ? '. Pagando só o mínimo, seriam ' + months(base.months) + ' de dívida.' : '. E pagando só o mínimo, <b>você nunca sairia da dívida</b>.'));
             var n = Math.min(Math.max(plan.series.length, isFinite(base.months) ? base.series.length : 60), 120);
             var labels = []; for (var i = 0; i < n; i++) labels.push(i);
             makeChart(root, {
@@ -197,8 +197,8 @@
             set(root, 'pct', num1.format(meta > 0 ? Math.min(tem / meta * 100, 100) : 0) + '%');
             var d = new Date(); d.setMonth(d.getMonth() + n);
             say(root, tem >= meta ? 'Parabéns: sua reserva já está completa. Mantenha-a em um lugar seguro e com resgate rápido.' :
-                ok ? 'Guardando ' + money(aporte) + ' por mês, você completa a reserva em <b>' + d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }) + '</b>. Primeiro degrau (1 mês de gastos): ' + money(gastos) + '.' :
-                'Com aporte zero a reserva não cresce. Comece com qualquer valor — até R$ 50 por mês fazem diferença.');
+                ok ? 'Hoje você aguentaria <b>' + num1.format(gastos > 0 ? tem / gastos : 0) + ' mês(es)</b> sem renda. No ritmo atual, a proteção completa só chega em <b>' + d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }) + '</b> — até lá, qualquer imprevisto vira dívida.' :
+                '⚠ Sem guardar nada por mês, a proteção nunca chega. Qualquer imprevisto vai direto para o cartão ou o cheque especial.');
             var labels = serie.map(function (_, i) { return i; }).slice(0, 121);
             makeChart(root, {
                 type: 'line',
@@ -231,7 +231,7 @@
             set(root, 'juros', money(a.juros), 'bad');
             set(root, 'total', money(a.pago));
             set(root, 'dobro', isFinite(b.m) ? months(b.m) : '—', 'good');
-            say(root, 'Pagando ' + money(p) + ' por mês, você paga <b>' + money(a.juros) + ' só de juros</b>. Dobrando o pagamento, quita em ' + months(b.m) + ' e economiza ' + money(Math.max(a.juros - b.juros, 0)) + '. Pela lei, desde 2024 os juros e encargos do rotativo e do parcelamento da fatura não podem passar de 100% do valor original da dívida — por isso a simulação para de somar juros nesse limite.');
+            say(root, '⚠ Pagando ' + money(p) + ' por mês, você entrega <b>' + money(a.juros) + ' só de juros</b> — ' + num1.format(s > 0 ? a.juros / s * 100 : 0) + '% do valor da dívida. (A simulação respeita o teto legal: juros e encargos até 100% do valor original.)');
             var n = Math.max(a.serie.length, b.serie.length), labels = []; for (var i = 0; i < n; i++) labels.push(i);
             makeChart(root, {
                 type: 'line',
@@ -254,10 +254,10 @@
             set(root, 'sobra', money(sobra), sobra >= 0 ? 'good' : 'bad');
             var msg = [];
             if (real > 0) {
-                if (n > r * 0.5) msg.push('Seus gastos essenciais estão em <b>' + num1.format(n / r * 100) + '%</b> da renda (o ideal é até 50%). Revise moradia, transporte e contas fixas.');
-                if (d > r * 0.3) msg.push('Os gastos com desejos passam de 30%: há espaço para cortar sem afetar o essencial.');
-                if (f < r * 0.2) msg.push('Você está guardando ' + num1.format(f / r * 100) + '% da renda. Tente chegar a 20%, mesmo que aos poucos.');
-                if (!msg.length) msg.push('Seu orçamento está dentro da regra 50-30-20. Excelente!');
+                if (n > r * 0.5) msg.push('⚠ As necessidades consomem <b>' + num1.format(n / r * 100) + '%</b> da renda — acima do nível saudável.');
+                if (d > r * 0.3) msg.push('⚠ Os desejos passam de 30% da renda.');
+                if (f < r * 0.2) msg.push('⚠ Só <b>' + num1.format(f / r * 100) + '%</b> vai para o futuro: pouca proteção e pouco avanço.');
+                if (!msg.length) msg.push('Seu orçamento está dentro da referência. O próximo passo é fazer esse dinheiro trabalhar por você.');
             } else msg.push('Preencha seus gastos reais para comparar com o ideal.');
             say(root, msg.join(' '));
             makeChart(root, {
@@ -281,8 +281,8 @@
             set(root, 'caixa', money(caixa), caixa >= 0 ? 'good' : 'bad');
             set(root, 'plmax', money(Math.max(lucro * 0.8, 0)));
             say(root, caixa < 0
-                ? 'As retiradas estão <b>' + money(-caixa) + ' acima</b> do que a empresa gera por mês. Isso consome o caixa e, cedo ou tarde, vira empréstimo.'
-                : 'Depois das retiradas, sobram <b>' + money(caixa) + '</b> por mês para reserva, investimentos e imprevistos.');
+                ? '⚠ A empresa está <b>perdendo ' + money(-caixa) + ' de caixa por mês</b>. Em um ano, são ' + money(-caixa * 12) + ' — um buraco que costuma ser coberto com empréstimo caro.'
+                : 'Sobram <b>' + money(caixa) + '</b> por mês depois das retiradas' + (fat > 0 && caixa / fat < 0.05 ? ' — menos de 5% do faturamento: margem apertada para qualquer imprevisto.' : '.'));
             var steps = [['Faturamento', fat], ['Mercadoria/insumos', -cmv], ['Impostos', -imp], ['Taxas', -tax], ['Despesas fixas', -fixas], ['Pró-labore', -pl]];
             var acc = 0, bars = [], colors = [], labels = [];
             steps.forEach(function (s, i) {
@@ -310,8 +310,8 @@
             set(root, 'resta', money(Math.max(LIM - feito, 0)));
             set(root, 'max', rest > 0 ? money(Math.max(maxMedia, 0)) : '—');
             say(root, proj <= LIM ? 'Mantendo essa média, você fecha o ano <b>dentro do limite</b> do MEI, com folga de ' + money(LIM - proj) + '.'
-                : proj <= TOL ? 'Projeção <b>acima de R$ 81 mil, mas dentro da tolerância de 20%</b>. Você seria desenquadrado a partir de janeiro do ano seguinte e pagaria um DAS complementar sobre o excesso. Planeje a transição com seu contador.'
-                : 'Projeção <b>acima de R$ 97,2 mil</b>: o desenquadramento seria retroativo a janeiro, com impostos de microempresa sobre o ano todo. Converse com um contador o quanto antes.');
+                : proj <= TOL ? 'Projeção <b>acima de R$ 81 mil, mas dentro da tolerância de 20%</b>. Você seria desenquadrado a partir de janeiro do ano seguinte e pagaria um DAS complementar sobre o excesso. Sem planejamento, isso pesa no caixa e no preço.'
+                : 'Projeção <b>acima de R$ 97,2 mil</b>: o desenquadramento seria retroativo a janeiro, com impostos de microempresa sobre o ano todo. É urgente planejar.');
             var labels = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'], real = [], prj = [];
             for (var i = 1; i <= 12; i++) {
                 real.push(i <= mes ? feito * i / mes : null);

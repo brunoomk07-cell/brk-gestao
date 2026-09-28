@@ -2,20 +2,21 @@
 {
  "url": "ferramentas/simulador-liberdade-financeira.html",
  "nav": "ferramentas/",
- "title": "Simulador de Juros Compostos e Liberdade Financeira | BRK",
- "description": "Simule quanto seu dinheiro pode crescer com aportes mensais e juros compostos, e quanta renda mensal esse patrimônio poderia gerar. Grátis, com gráfico.",
+ "title": "Simulador de Liberdade Financeira e Juros Compostos Grátis | BRK",
+ "description": "Simule quanto seu patrimônio pode crescer guardando todo mês e quanta renda ele poderia gerar. Grátis, com gráfico.",
  "priority": "0.8",
  "scripts": [
   "chart",
   "tools"
  ],
+ "wa_text": "Olá! Usei o simulador de liberdade financeira no site da BRK e quero montar meu plano.",
  "breadcrumb": [
   [
    "Início",
    ""
   ],
   [
-   "Ferramentas",
+   "Simuladores",
    "ferramentas/"
   ],
   [
@@ -34,10 +35,10 @@
 -->
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Simulador de liberdade financeira</li></ol>
-    <span class="eyebrow">Ferramenta gratuita · Pessoa física</span>
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Simuladores</a></li><li>Simulador de liberdade financeira</li></ol>
+    <span class="eyebrow">Simulador gratuito · Pessoa física</span>
     <h1>Simulador de liberdade financeira</h1>
-    <p class="lead">Veja o poder dos juros compostos: quanto seu patrimônio pode crescer guardando todo mês — e quanta renda ele poderia gerar.</p>
+    <p class="lead">Veja onde você pode chegar guardando todo mês — e quanta renda esse patrimônio poderia gerar para você.</p>
   </section>
 </div>
 
@@ -46,13 +47,21 @@
     <div class="tool" data-tool="liberdade">
       <div class="tool-panel">
         <h2>Seus números</h2>
-        <div class="field"><label for="ini">Valor inicial</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="ini" name="ini" value="5000"></div></div><div class="field"><label for="aporte">Aporte mensal</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="aporte" name="aporte" value="500"></div></div><div class="field"><label for="taxa">Rentabilidade real ao ano</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="taxa" name="taxa" value="4"><span>%</span></div><p class="hint">Acima da inflação. Use valores conservadores, como 3% a 5%.</p></div><div class="field"><label for="anos">Prazo</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="anos" name="anos" value="20"><span>anos</span></div></div>
+        <div class="field"><label for="ini">Valor inicial</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="ini" name="ini" value="5000"></div></div><div class="field"><label for="aporte">Quanto posso guardar por mês</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="aporte" name="aporte" value="500"></div></div><div class="field"><label for="taxa">Rentabilidade real ao ano</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="taxa" name="taxa" value="4"><span>%</span></div><p class="hint">Acima da inflação. Use valores conservadores.</p></div><div class="field"><label for="anos">Prazo</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="anos" name="anos" value="20"><span>anos</span></div></div>
       </div>
       <div>
         <div class="results"><div class="result"><small>Patrimônio final</small><b data-out="total">—</b></div><div class="result"><small>Total guardado</small><b data-out="aportado">—</b></div><div class="result"><small>Rendimentos</small><b data-out="juros">—</b></div><div class="result"><small>Renda mensal possível</small><b data-out="renda">—</b></div></div>
         <div class="verdict" data-out="verdict" aria-live="polite"></div>
         <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Simulador de liberdade financeira"></canvas></div>
         <p class="chart-caption">A parte clara é o que você guardou; a dourada, o que os juros compostos acrescentaram.</p>
+        <div class="tool-cta">
+          <b>O difícil não é a conta. É conseguir guardar todo mês.</b>
+          <p>Liberdade financeira começa com um orçamento que sobra. No diagnóstico gratuito, descobrimos quanto você realmente pode guardar e o que está impedindo isso hoje.</p>
+          <div class="btn-row">
+            <a href="{{WA_CTX}}" class="btn btn-solid" target="_blank" rel="noopener">{{WA_ICON}} Falar com um consultor</a>
+            <a href="{{P}}contato.html" class="btn">Agendar diagnóstico</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -61,23 +70,29 @@
 <section class="section section-alt">
   <div class="container">
     <div class="prose">
-      <h2>Liberdade financeira é constância</h2>
-<p>O segredo dos juros compostos é o tempo: nos primeiros anos, o crescimento vem quase todo dos seus aportes; depois, os rendimentos passam a trabalhar por você. Por isso, começar cedo — mesmo com pouco — vale mais do que começar tarde com muito.</p>
+      <h2>O que esse número revela</h2>
+<p>Com tempo e constância, os rendimentos passam a trabalhar por você. Mas a simulação só vira realidade se sobrar dinheiro todo mês — e é aí que a maioria das pessoas trava.</p>
 <p>Esta simulação é educativa e usa uma taxa real constante. Rendimentos reais variam, e investimentos com retorno maior envolvem riscos maiores.</p>
-      <div class="callout">
-        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
-        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
-        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
-      </div>
       <h2>Perguntas frequentes</h2>
 <!--FAQ-->
     </div>
   </div>
 </section>
 
+<section class="cta-band">
+  <div class="container">
+    <h2>Os números mostram o problema. <em>Nós mostramos a solução.</em></h2>
+    <p>Diagnóstico gratuito, presencial em Mauá, Santo André e Grande ABC ou online.</p>
+    <div class="btn-row">
+      <a href="{{P}}contato.html" class="btn btn-solid">Agendar diagnóstico gratuito</a>
+      <a href="{{WA_CTX}}" class="btn btn-wa" target="_blank" rel="noopener">{{WA_ICON}} WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="section-head"><span class="eyebrow">Outros simuladores</span><h2 class="section-title">Descubra outros pontos de risco</h2></div>
     <div class="grid grid-3">
 <!--TOOLS_RELATED-->
     </div>

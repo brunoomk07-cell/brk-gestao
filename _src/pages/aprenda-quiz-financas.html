@@ -5,13 +5,29 @@
  "title": "Quiz de Finanças: Teste Seus Conhecimentos (10 Perguntas) | BRK",
  "description": "Quiz de educação financeira com 10 perguntas sobre juros, margem, ponto de equilíbrio, MEI, reserva e cartão de crédito. Veja a explicação de cada resposta.",
  "priority": "0.7",
- "scripts": ["quiz"],
- "breadcrumb": [["Início", ""], ["Aprenda", "aprenda/"], ["Quiz de finanças", "aprenda/quiz-financas.html"]]
+ "scripts": [
+  "quiz"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Autodiagnóstico",
+   "aprenda/"
+  ],
+  [
+   "Quiz de finanças",
+   "aprenda/quiz-financas.html"
+  ]
+ ],
+ "wa_text": "Olá! Fiz o quiz de finanças no site da BRK e quero conversar sobre a minha situação."
 }
 -->
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}aprenda/">Aprenda</a></li><li>Quiz de finanças</li></ol>
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}aprenda/">Autodiagnóstico</a></li><li>Quiz de finanças</li></ol>
     <span class="eyebrow">Quiz · Educação financeira</span>
     <h1>Quiz: quanto você sabe de finanças?</h1>
     <p class="lead">Dez perguntas sobre finanças pessoais e empresariais. A cada resposta, você vê a explicação — é um jeito rápido de aprender brincando.</p>
@@ -32,25 +48,196 @@
 
 <script type="application/json" id="quiz-data">
 {
- "mode": "knowledge", "label": "Quiz de finanças",
+ "mode": "knowledge",
+ "label": "Quiz de finanças",
  "share": "Fiz o quiz de finanças da BRK. Quanto você acerta?",
- "cta": {"label": "Explorar as trilhas de aprendizado", "href": "{{P}}aprenda/"},
+ "cta": {
+  "label": "Agendar diagnóstico gratuito",
+  "href": "{{P}}contato.html"
+ },
  "bands": [
-  {"min": 80, "title": "Nível avançado!", "text": "Você domina os conceitos. Que tal colocar isso em prática nas ferramentas de simulação?"},
-  {"min": 50, "title": "Bom conhecimento", "text": "Você tem uma boa base. Os artigos do blog ajudam a fechar as lacunas."},
-  {"min": 0, "title": "Hora de aprender", "text": "Todo mundo começa em algum lugar. Nossas trilhas de aprendizado explicam cada conceito em linguagem simples."}
+  {
+   "min": 80,
+   "title": "Nível avançado!",
+   "text": "Você domina os conceitos. Que tal colocar isso em prática nas ferramentas de simulação?"
+  },
+  {
+   "min": 50,
+   "title": "Bom conhecimento",
+   "text": "Você tem uma boa base. Os artigos do blog ajudam a fechar as lacunas."
+  },
+  {
+   "min": 0,
+   "title": "Hora de aprender",
+   "text": "Todo mundo começa em algum lugar. Nossas trilhas de aprendizado explicam cada conceito em linguagem simples."
+  }
  ],
  "questions": [
-  {"q": "Uma empresa faturou R$ 100 mil no mês. Isso significa que ela lucrou?", "options": [{"t": "Sim, faturamento é o lucro"}, {"t": "Não necessariamente: é preciso descontar custos e despesas"}, {"t": "Sim, se o dinheiro estiver na conta"}], "correct": 1, "explain": "Faturamento é o total vendido. Lucro é o que sobra depois de pagar mercadoria, impostos, taxas, despesas fixas e retiradas. Muitas empresas faturam bem e dão prejuízo."},
-  {"q": "R$ 1.000 aplicados a 1% ao mês, com juros compostos, viram quanto em 12 meses?", "options": [{"t": "R$ 1.120"}, {"t": "Cerca de R$ 1.127"}, {"t": "R$ 1.200"}], "correct": 1, "explain": "Nos juros compostos, os juros de cada mês rendem juros no mês seguinte: 1.000 × 1,01¹² ≈ R$ 1.126,83. O mesmo efeito faz as dívidas crescerem rápido."},
-  {"q": "O que é margem de contribuição?", "options": [{"t": "O lucro líquido da empresa"}, {"t": "O que sobra de cada venda depois dos custos variáveis"}, {"t": "O valor dos impostos pagos"}], "correct": 1, "explain": "É o que sobra de cada venda depois de pagar mercadoria, impostos sobre a venda e taxas. Esse valor contribui para pagar as despesas fixas e gerar lucro."},
-  {"q": "Uma empresa tem R$ 20 mil de despesas fixas e margem de contribuição de 40%. Qual é o ponto de equilíbrio?", "options": [{"t": "R$ 28 mil"}, {"t": "R$ 50 mil"}, {"t": "R$ 80 mil"}], "correct": 1, "explain": "Ponto de equilíbrio = despesas fixas ÷ margem de contribuição: R$ 20.000 ÷ 0,40 = R$ 50.000 de faturamento por mês."},
-  {"q": "Qual é o limite anual de faturamento do MEI em 2026?", "options": [{"t": "R$ 60 mil"}, {"t": "R$ 81 mil"}, {"t": "R$ 130 mil"}], "correct": 1, "explain": "O limite segue em R$ 81 mil por ano (média de R$ 6.750 por mês). Há projetos para aumentá-lo, mas nenhum foi aprovado até agora."},
-  {"q": "Para quem tem carteira assinada, qual é a recomendação mais comum para a reserva de emergência?", "options": [{"t": "Um salário"}, {"t": "3 a 6 meses de gastos essenciais"}, {"t": "Dois anos de renda"}], "correct": 1, "explain": "De 3 a 6 meses dos gastos essenciais. Autônomos e quem tem renda variável devem mirar em 6 a 12 meses."},
-  {"q": "Qual destas linhas de crédito costuma ter os juros mais altos?", "options": [{"t": "Consignado"}, {"t": "Financiamento imobiliário"}, {"t": "Rotativo do cartão de crédito"}], "correct": 2, "explain": "O rotativo do cartão está entre os créditos mais caros do país. Por isso, pagar só o mínimo da fatura é uma das armadilhas mais perigosas."},
-  {"q": "O que é pró-labore?", "options": [{"t": "A remuneração fixa do sócio pelo trabalho na empresa"}, {"t": "Um imposto sobre a folha"}, {"t": "O lucro distribuído no fim do ano"}], "correct": 0, "explain": "Pró-labore é o 'salário' do sócio: valor fixo, em data definida. A distribuição de lucros é outra coisa e só deve acontecer quando há lucro."},
-  {"q": "Na regra 50-30-20, os 20% vão para:", "options": [{"t": "Lazer e compras"}, {"t": "Moradia e contas"}, {"t": "Futuro: reserva, investimentos e quitar dívidas"}], "correct": 2, "explain": "50% para necessidades, 30% para desejos e 20% para o futuro — incluindo pagar dívidas, formar a reserva e investir."},
-  {"q": "O que é a taxa Selic?", "options": [{"t": "A taxa básica de juros da economia, definida pelo Copom"}, {"t": "A taxa do cartão de crédito"}, {"t": "A inflação oficial do país"}], "correct": 0, "explain": "A Selic é a taxa básica de juros, definida pelo Comitê de Política Monetária do Banco Central. Quando ela sobe, todo o crédito fica mais caro."}
- ]
+  {
+   "q": "Uma empresa faturou R$ 100 mil no mês. Isso significa que ela lucrou?",
+   "options": [
+    {
+     "t": "Sim, faturamento é o lucro"
+    },
+    {
+     "t": "Não necessariamente: é preciso descontar custos e despesas"
+    },
+    {
+     "t": "Sim, se o dinheiro estiver na conta"
+    }
+   ],
+   "correct": 1,
+   "explain": "Faturamento é o total vendido. Lucro é o que sobra depois de pagar mercadoria, impostos, taxas, despesas fixas e retiradas. Muitas empresas faturam bem e dão prejuízo."
+  },
+  {
+   "q": "R$ 1.000 aplicados a 1% ao mês, com juros compostos, viram quanto em 12 meses?",
+   "options": [
+    {
+     "t": "R$ 1.120"
+    },
+    {
+     "t": "Cerca de R$ 1.127"
+    },
+    {
+     "t": "R$ 1.200"
+    }
+   ],
+   "correct": 1,
+   "explain": "Nos juros compostos, os juros de cada mês rendem juros no mês seguinte: 1.000 × 1,01¹² ≈ R$ 1.126,83. O mesmo efeito faz as dívidas crescerem rápido."
+  },
+  {
+   "q": "O que é margem de contribuição?",
+   "options": [
+    {
+     "t": "O lucro líquido da empresa"
+    },
+    {
+     "t": "O que sobra de cada venda depois dos custos variáveis"
+    },
+    {
+     "t": "O valor dos impostos pagos"
+    }
+   ],
+   "correct": 1,
+   "explain": "É o que sobra de cada venda depois de pagar mercadoria, impostos sobre a venda e taxas. Esse valor contribui para pagar as despesas fixas e gerar lucro."
+  },
+  {
+   "q": "Uma empresa tem R$ 20 mil de despesas fixas e margem de contribuição de 40%. Qual é o ponto de equilíbrio?",
+   "options": [
+    {
+     "t": "R$ 28 mil"
+    },
+    {
+     "t": "R$ 50 mil"
+    },
+    {
+     "t": "R$ 80 mil"
+    }
+   ],
+   "correct": 1,
+   "explain": "Ponto de equilíbrio = despesas fixas ÷ margem de contribuição: R$ 20.000 ÷ 0,40 = R$ 50.000 de faturamento por mês."
+  },
+  {
+   "q": "Qual é o limite anual de faturamento do MEI em 2026?",
+   "options": [
+    {
+     "t": "R$ 60 mil"
+    },
+    {
+     "t": "R$ 81 mil"
+    },
+    {
+     "t": "R$ 130 mil"
+    }
+   ],
+   "correct": 1,
+   "explain": "O limite segue em R$ 81 mil por ano (média de R$ 6.750 por mês). Há projetos para aumentá-lo, mas nenhum foi aprovado até agora."
+  },
+  {
+   "q": "Para quem tem carteira assinada, qual é a recomendação mais comum para a reserva de emergência?",
+   "options": [
+    {
+     "t": "Um salário"
+    },
+    {
+     "t": "3 a 6 meses de gastos essenciais"
+    },
+    {
+     "t": "Dois anos de renda"
+    }
+   ],
+   "correct": 1,
+   "explain": "De 3 a 6 meses dos gastos essenciais. Autônomos e quem tem renda variável devem mirar em 6 a 12 meses."
+  },
+  {
+   "q": "Qual destas linhas de crédito costuma ter os juros mais altos?",
+   "options": [
+    {
+     "t": "Consignado"
+    },
+    {
+     "t": "Financiamento imobiliário"
+    },
+    {
+     "t": "Rotativo do cartão de crédito"
+    }
+   ],
+   "correct": 2,
+   "explain": "O rotativo do cartão está entre os créditos mais caros do país. Por isso, pagar só o mínimo da fatura é uma das armadilhas mais perigosas."
+  },
+  {
+   "q": "O que é pró-labore?",
+   "options": [
+    {
+     "t": "A remuneração fixa do sócio pelo trabalho na empresa"
+    },
+    {
+     "t": "Um imposto sobre a folha"
+    },
+    {
+     "t": "O lucro distribuído no fim do ano"
+    }
+   ],
+   "correct": 0,
+   "explain": "Pró-labore é o 'salário' do sócio: valor fixo, em data definida. A distribuição de lucros é outra coisa e só deve acontecer quando há lucro."
+  },
+  {
+   "q": "Na regra 50-30-20, os 20% vão para:",
+   "options": [
+    {
+     "t": "Lazer e compras"
+    },
+    {
+     "t": "Moradia e contas"
+    },
+    {
+     "t": "Futuro: reserva, investimentos e quitar dívidas"
+    }
+   ],
+   "correct": 2,
+   "explain": "50% para necessidades, 30% para desejos e 20% para o futuro — incluindo pagar dívidas, formar a reserva e investir."
+  },
+  {
+   "q": "O que é a taxa Selic?",
+   "options": [
+    {
+     "t": "A taxa básica de juros da economia, definida pelo Copom"
+    },
+    {
+     "t": "A taxa do cartão de crédito"
+    },
+    {
+     "t": "A inflação oficial do país"
+    }
+   ],
+   "correct": 0,
+   "explain": "A Selic é a taxa básica de juros, definida pelo Comitê de Política Monetária do Banco Central. Quando ela sobe, todo o crédito fica mais caro."
+  }
+ ],
+ "pitch": {
+  "title": "Saber a teoria é o primeiro passo. Aplicar no seu caso é outro.",
+  "text": "No diagnóstico gratuito, olhamos os seus números reais — da empresa ou da sua casa — e mostramos onde estão as oportunidades."
+ },
+ "wa": "{{WA_CTX}}"
 }
 </script>

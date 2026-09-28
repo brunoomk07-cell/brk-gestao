@@ -6,12 +6,13 @@
  "description": "Jogo gratuito de educação financeira: tome as decisões do dia a dia — mercado, imprevistos, cartão, empréstimo — e veja se chega ao fim do mês no azul.",
  "priority": "0.7",
  "scripts": ["game"],
- "breadcrumb": [["Início", ""], ["Aprenda", "aprenda/"], ["Jogo Sobreviva ao Mês", "aprenda/jogo-sobreviva-ao-mes.html"]]
+ "wa_text": "Olá! Joguei o Sobreviva ao Mês no site da BRK e quero organizar minhas finanças de verdade.",
+ "breadcrumb": [["Início", ""], ["Autodiagnóstico", "aprenda/"], ["Jogo Sobreviva ao Mês", "aprenda/jogo-sobreviva-ao-mes.html"]]
 }
 -->
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}aprenda/">Aprenda</a></li><li>Jogo Sobreviva ao Mês</li></ol>
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}aprenda/">Autodiagnóstico</a></li><li>Jogo Sobreviva ao Mês</li></ol>
     <span class="eyebrow">Jogo · 3 minutos</span>
     <h1>Sobreviva ao Mês</h1>
     <p class="lead">Você recebeu o salário e já pagou aluguel e contas fixas: sobraram R$ 2.000 para o resto do mês, e há R$ 300 na reserva. Oito situações do dia a dia vão testar suas escolhas. Você chega ao dia 30 no azul?</p>
@@ -20,7 +21,7 @@
 
 <section class="section" style="padding-top:44px">
   <div class="container">
-    <div class="game" id="game">
+    <div class="game" id="game" data-wa="{{WA_CTX}}" data-contact="{{P}}contato.html">
       <div class="callout" style="text-align:center">
         <h2 class="section-title" style="font-size:1.4rem;margin-bottom:10px">Cada decisão conta</h2>
         <p style="color:var(--text-muted);margin-bottom:22px">Acompanhe no painel o saldo, as dívidas, a reserva e a sua tranquilidade. No final, você recebe uma pontuação.</p>

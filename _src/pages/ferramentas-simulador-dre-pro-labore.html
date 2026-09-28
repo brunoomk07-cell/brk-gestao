@@ -2,42 +2,43 @@
 {
  "url": "ferramentas/simulador-dre-pro-labore.html",
  "nav": "ferramentas/",
- "title": "Simulador de DRE Simplificada e Pró-labore Grátis | BRK",
- "description": "Monte a DRE simplificada da sua empresa em segundos: margem de contribuição, lucro operacional e quanto sobra depois do pró-labore, com gráfico em cascata.",
+ "title": "Empresa Perdendo Dinheiro? Simulador de DRE Grátis | BRK",
+ "description": "Veja em um gráfico em cascata para onde vai cada real que sua empresa fatura — e se as retiradas dos sócios estão consumindo o caixa.",
  "priority": "0.8",
  "scripts": [
   "chart",
   "tools"
  ],
+ "wa_text": "Olá! Usei o simulador de DRE no site da BRK e quero entender o resultado da minha empresa.",
  "breadcrumb": [
   [
    "Início",
    ""
   ],
   [
-   "Ferramentas",
+   "Simuladores",
    "ferramentas/"
   ],
   [
-   "Simulador de DRE e pró-labore",
+   "Simulador: sua empresa está perdendo caixa?",
    "ferramentas/simulador-dre-pro-labore.html"
   ]
  ],
  "faq": [
   [
-   "DRE é a mesma coisa que fluxo de caixa?",
-   "Não. A DRE mostra lucro ou prejuízo pelo regime de competência (o que foi vendido e gasto no período). O fluxo de caixa mostra quando o dinheiro entra e sai da conta. As duas visões se complementam."
+   "Isso é o mesmo que a DRE do meu contador?",
+   "A lógica é parecida, mas a DRE gerencial é feita para decidir, não para o fisco. Na consultoria, montamos a sua DRE gerencial com os números reais e ensinamos a usá-la."
   ]
  ],
- "app": "Simulador de DRE e pró-labore"
+ "app": "Simulador: sua empresa está perdendo caixa?"
 }
 -->
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Simulador de DRE e pró-labore</li></ol>
-    <span class="eyebrow">Ferramenta gratuita · Empresas</span>
-    <h1>Simulador de DRE e pró-labore</h1>
-    <p class="lead">Veja, em um gráfico em cascata, para onde vai cada real que sua empresa fatura — e se o pró-labore cabe no resultado.</p>
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Simuladores</a></li><li>Simulador: sua empresa está perdendo caixa?</li></ol>
+    <span class="eyebrow">Simulador gratuito · Empresas</span>
+    <h1>Simulador: sua empresa está perdendo caixa?</h1>
+    <p class="lead">Veja, em um gráfico em cascata, para onde vai cada real que a sua empresa fatura — e se as retiradas estão maiores do que o negócio aguenta.</p>
   </section>
 </div>
 
@@ -46,13 +47,21 @@
     <div class="tool" data-tool="dre">
       <div class="tool-panel">
         <h2>Seus números</h2>
-        <div class="field"><label for="fat">Faturamento do mês</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fat" name="fat" value="100000"></div></div><div class="field"><label for="cmv">Mercadoria ou insumos (% do faturamento)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="cmv" name="cmv" value="55"><span>%</span></div></div><div class="field"><label for="imp">Impostos sobre a venda (%)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="imp" name="imp" value="8"><span>%</span></div></div><div class="field"><label for="tax">Taxas de cartão e comissões (%)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="tax" name="tax" value="2"><span>%</span></div></div><div class="field"><label for="fixas">Despesas fixas</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fixas" name="fixas" value="30000"></div></div><div class="field"><label for="pl">Pró-labore e retiradas dos sócios</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="pl" name="pl" value="12000"></div></div>
+        <div class="field"><label for="fat">Faturamento do mês</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fat" name="fat" value="100000"></div></div><div class="field"><label for="cmv">Mercadoria ou insumos (% do faturamento)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="cmv" name="cmv" value="55"><span>%</span></div></div><div class="field"><label for="imp">Impostos sobre a venda (%)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="imp" name="imp" value="8"><span>%</span></div></div><div class="field"><label for="tax">Taxas de cartão e comissões (%)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="tax" name="tax" value="2"><span>%</span></div></div><div class="field"><label for="fixas">Despesas fixas</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fixas" name="fixas" value="30000"></div></div><div class="field"><label for="pl">Retiradas dos sócios</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="pl" name="pl" value="12000"></div></div>
       </div>
       <div>
-        <div class="results"><div class="result wide"><small>Margem de contribuição</small><b data-out="mc">—</b></div><div class="result"><small>Lucro operacional</small><b data-out="lucro">—</b></div><div class="result"><small>Sobra após retiradas</small><b data-out="caixa">—</b></div><div class="result wide"><small>Pró-labore sustentável (até)</small><b data-out="plmax">—</b></div></div>
+        <div class="results"><div class="result wide"><small>Margem de contribuição</small><b data-out="mc">—</b></div><div class="result"><small>Lucro operacional</small><b data-out="lucro">—</b></div><div class="result"><small>Sobra após retiradas</small><b data-out="caixa">—</b></div><div class="result wide"><small>Retirada que o negócio aguenta</small><b data-out="plmax">—</b></div></div>
         <div class="verdict" data-out="verdict" aria-live="polite"></div>
-        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Simulador de DRE e pró-labore"></canvas></div>
-        <p class="chart-caption">Gráfico em cascata: do faturamento até a sobra de caixa depois das retiradas.</p>
+        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Simulador: sua empresa está perdendo caixa?"></canvas></div>
+        <p class="chart-caption">Do faturamento até a sobra de caixa depois das retiradas.</p>
+        <div class="tool-cta">
+          <b>Se a sobra ficou no vermelho, o caixa está sangrando.</b>
+          <p>Esse é um dos problemas mais comuns — e mais silenciosos — das pequenas empresas. No diagnóstico gratuito, mostramos exatamente onde está o vazamento e como corrigir.</p>
+          <div class="btn-row">
+            <a href="{{WA_CTX}}" class="btn btn-solid" target="_blank" rel="noopener">{{WA_ICON}} Falar com um consultor</a>
+            <a href="{{P}}contato.html" class="btn">Agendar diagnóstico</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -61,24 +70,29 @@
 <section class="section section-alt">
   <div class="container">
     <div class="prose">
-      <h2>O que o gráfico mostra</h2>
-<p>A DRE (Demonstração do Resultado) mostra se a empresa dá lucro. A versão gerencial, simplificada, cabe em uma página e responde às perguntas que importam: quanto sobra de cada venda, quanto custa manter a estrutura e quanto os sócios podem retirar sem sufocar o caixa.</p>
-<p>O "pró-labore sustentável" é uma referência prudente: até 80% do lucro operacional, deixando uma parte para formar reserva na empresa.</p>
-<p>Leia: <a href="{{P}}blog/dre-gerencial.html">DRE gerencial: como montar e usar</a> e <a href="{{P}}blog/separar-financas-pessoais-e-da-empresa.html">como definir o pró-labore</a>.</p>
-      <div class="callout">
-        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
-        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
-        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
-      </div>
+      <h2>O que esse número revela</h2>
+<p>Muitas empresas dão lucro no papel e, mesmo assim, vivem pedindo empréstimo. O motivo mais comum: os sócios retiram mais do que o negócio gera, ou a margem já chega baixa demais para pagar a estrutura.</p>
+<p>O resultado aparece devagar — cheque especial aqui, antecipação ali — até virar uma dívida difícil de controlar. Enxergar isso cedo é o que separa um ajuste simples de uma crise.</p>
       <h2>Perguntas frequentes</h2>
 <!--FAQ-->
     </div>
   </div>
 </section>
 
+<section class="cta-band">
+  <div class="container">
+    <h2>Os números mostram o problema. <em>Nós mostramos a solução.</em></h2>
+    <p>Diagnóstico gratuito, presencial em Mauá, Santo André e Grande ABC ou online.</p>
+    <div class="btn-row">
+      <a href="{{P}}contato.html" class="btn btn-solid">Agendar diagnóstico gratuito</a>
+      <a href="{{WA_CTX}}" class="btn btn-wa" target="_blank" rel="noopener">{{WA_ICON}} WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="section-head"><span class="eyebrow">Outros simuladores</span><h2 class="section-title">Descubra outros pontos de risco</h2></div>
     <div class="grid grid-3">
 <!--TOOLS_RELATED-->
     </div>

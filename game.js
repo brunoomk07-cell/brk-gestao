@@ -88,7 +88,8 @@
         host.innerHTML = hud() + '<div class="quiz-result" style="margin-top:10px"><div class="score-ring"><svg viewBox="0 0 170 170" aria-hidden="true"><circle cx="85" cy="85" r="70" fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="12"/><circle cx="85" cy="85" r="70" fill="none" stroke="#D4AF37" stroke-width="12" stroke-dasharray="' + (2 * Math.PI * 70) + '" stroke-dashoffset="' + (2 * Math.PI * 70 * (1 - pts / 100)) + '"/></svg><div class="n">' + pts + '<small>PONTOS</small></div></div>' +
             '<h2>' + title + '</h2><p>' + text + '</p>' + juros +
             '<p>Resultado do mês: saldo ' + m(S.saldo) + ' + reserva ' + m(S.reserva) + ' − dívidas ' + m(S.divida) + ' = <b style="color:var(--gold-primary)">' + m(patrimonio) + '</b>.</p>' +
-            '<div class="btn-row"><button type="button" class="btn btn-solid" data-again>Jogar de novo</button><a class="btn" href="../ferramentas/simulador-quitar-dividas.html">Simular minhas dívidas</a></div></div>';
+            '<div class="tool-cta" style="text-align:left;max-width:620px;margin:24px auto 0"><b>No jogo são oito decisões. Na vida real, são centenas por mês.</b><p>No diagnóstico gratuito, mostramos onde as suas decisões do dia a dia estão custando mais caro — e como virar o jogo de verdade.</p><div class="btn-row"><a class="btn btn-solid" href="' + (host.dataset.wa || '#') + '" target="_blank" rel="noopener">Falar com um consultor</a><a class="btn" href="' + (host.dataset.contact || '#') + '">Agendar diagnóstico</a></div></div>' +
+            '<div class="btn-row"><button type="button" class="btn" data-again>Jogar de novo</button></div></div>';
         host.querySelector('[data-again]').addEventListener('click', function () { reset(); show(); });
         host.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

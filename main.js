@@ -1,6 +1,14 @@
 /* BRK Gestão Financeira — interações do site */
 (function () {
     var body = document.body;
+    document.documentElement.classList.add('js');
+
+    // ----- Revelação suave ao rolar -----
+    if ('IntersectionObserver' in window) {
+        var els = document.querySelectorAll('.section .section-head, .card, .tool-card, .post-card, .pain-card, .stat, .kpi, .cost, .outcomes, .commit > div, .step, .dash-card, .ebook, .track, .news-card, .faq, .quote, .mission, .statement');
+        var ro = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function (el) { el.classList.add('reveal'); ro.observe(el); });
+    }
 
     // ----- Menu do celular -----
     var toggle = document.querySelector('.menu-toggle');

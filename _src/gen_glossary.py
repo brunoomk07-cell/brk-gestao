@@ -77,7 +77,7 @@ def main():
     meta = {'url': 'aprenda/glossario.html', 'nav': 'aprenda/', 'title': 'Glossário Financeiro: Termos de Finanças Explicados | BRK',
             'description': f'Glossário com {len(terms)} termos de finanças pessoais e empresariais explicados em linguagem simples: DRE, EBITDA, capital de giro, margem, Selic, MEI e mais.',
             'priority': '0.7', 'scripts': ['glossary'],
-            'breadcrumb': [['Início', ''], ['Aprenda', 'aprenda/'], ['Glossário', 'aprenda/glossario.html']]}
+            'breadcrumb': [['Início', ''], ['Autodiagnóstico', 'aprenda/'], ['Glossário', 'aprenda/glossario.html']]}
     letter_links = ''.join(f'<a href="#letra-{L}">{L}</a>' for L in letters)
     html = f'''<!--meta
 {json.dumps(meta, ensure_ascii=False, indent=1)}
@@ -85,8 +85,8 @@ def main():
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 <div class="container">
   <section class="page-hero">
-    <ol class="breadcrumb"><li><a href="{{{{P}}}}index.html">Início</a></li><li><a href="{{{{P}}}}aprenda/">Aprenda</a></li><li>Glossário</li></ol>
-    <span class="eyebrow">Aprenda · {len(terms)} termos</span>
+    <ol class="breadcrumb"><li><a href="{{{{P}}}}index.html">Início</a></li><li><a href="{{{{P}}}}aprenda/">Autodiagnóstico</a></li><li>Glossário</li></ol>
+    <span class="eyebrow">Glossário · {len(terms)} termos</span>
     <h1>Glossário financeiro</h1>
     <p class="lead">Os termos de finanças pessoais, finanças corporativas e governança que mais aparecem no dia a dia — explicados sem complicação.</p>
   </section>

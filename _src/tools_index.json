@@ -3,48 +3,48 @@
   "url": "ferramentas/calculadora-ponto-de-equilibrio.html",
   "name": "Calculadora de ponto de equilíbrio",
   "tag": "Empresas",
-  "lead": "Descubra quanto sua empresa precisa faturar por mês — e por dia — para cobrir todos os custos. Ajuste os valores e veja o gráfico mudar na hora."
+  "lead": "Sua empresa está vendendo o suficiente para pagar a própria estrutura? Coloque seus números e descubra a venda mínima para não ter prejuízo — e a distância até ela."
  },
  {
   "url": "ferramentas/simulador-quitar-dividas.html",
-  "name": "Simulador para quitar dívidas",
+  "name": "Simulador de dívidas: quanto você ainda vai pagar",
   "tag": "Pessoa física",
-  "lead": "Liste suas dívidas, informe quanto consegue pagar a mais por mês e veja em quanto tempo você fica livre — e quanto economiza de juros."
+  "lead": "Coloque suas dívidas e veja a verdade: quanto tempo elas ainda vão durar, quanto você vai pagar só de juros — e o que acontece se continuar pagando apenas o mínimo."
  },
  {
   "url": "ferramentas/calculadora-reserva-de-emergencia.html",
   "name": "Calculadora de reserva de emergência",
   "tag": "Pessoa física",
-  "lead": "Descubra o valor ideal da sua reserva e quando você vai completá-la, guardando um valor fixo por mês."
+  "lead": "Se a sua renda parasse hoje, por quanto tempo você aguentaria? Descubra o tamanho da proteção que você precisa — e o quanto está exposto agora."
  },
  {
   "url": "ferramentas/simulador-juros-cartao-de-credito.html",
   "name": "Simulador de juros do cartão (rotativo)",
   "tag": "Pessoa física",
-  "lead": "Veja o tamanho real de uma dívida no rotativo do cartão — e o que muda quando você aumenta o pagamento mensal."
+  "lead": "Pagando o mínimo da fatura? Veja quanto essa dívida realmente vai custar — e por quanto tempo ela vai te acompanhar."
  },
  {
   "url": "ferramentas/planilha-orcamento-50-30-20.html",
-  "name": "Orçamento 50-30-20",
+  "name": "Orçamento 50-30-20: seu dinheiro está equilibrado?",
   "tag": "Pessoa física",
-  "lead": "A regra 50-30-20 é um ponto de partida simples: 50% para necessidades, 30% para desejos e 20% para o futuro e para quitar dívidas. Compare com o seu orçamento real."
+  "lead": "Coloque sua renda e seus gastos e veja, num gráfico, onde o seu orçamento está desequilibrado em relação a uma referência saudável."
  },
  {
   "url": "ferramentas/simulador-dre-pro-labore.html",
-  "name": "Simulador de DRE e pró-labore",
+  "name": "Simulador: sua empresa está perdendo caixa?",
   "tag": "Empresas",
-  "lead": "Veja, em um gráfico em cascata, para onde vai cada real que sua empresa fatura — e se o pró-labore cabe no resultado."
+  "lead": "Veja, em um gráfico em cascata, para onde vai cada real que a sua empresa fatura — e se as retiradas estão maiores do que o negócio aguenta."
  },
  {
   "url": "ferramentas/calculadora-limite-mei.html",
   "name": "Calculadora do limite do MEI",
   "tag": "MEI",
-  "lead": "Acompanhe o faturamento acumulado do ano e descubra se você vai passar do limite de R$ 81 mil — antes que isso aconteça."
+  "lead": "Você vai estourar o limite do MEI este ano? Projete o faturamento e descubra antes que isso vire um problema com impostos."
  },
  {
   "url": "ferramentas/simulador-liberdade-financeira.html",
   "name": "Simulador de liberdade financeira",
   "tag": "Pessoa física",
-  "lead": "Veja o poder dos juros compostos: quanto seu patrimônio pode crescer guardando todo mês — e quanta renda ele poderia gerar."
+  "lead": "Veja onde você pode chegar guardando todo mês — e quanta renda esse patrimônio poderia gerar para você."
  }
 ]

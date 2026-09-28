@@ -42,8 +42,8 @@ ICON = {
 
 NAV = [
     ('servicos.html', 'Serviços'),
-    ('ferramentas/', 'Ferramentas'),
-    ('aprenda/', 'Aprenda'),
+    ('ferramentas/', 'Simuladores'),
+    ('aprenda/', 'Autodiagnóstico'),
     ('panorama.html', 'Panorama'),
     ('noticias.html', 'Notícias'),
     ('blog/', 'Blog'),
@@ -191,6 +191,8 @@ def layout(meta, body, out_path):
     faq_block = ''
     if meta.get('faq') and '<!--FAQ-->' in body:
         body = body.replace('<!--FAQ-->', faq_html(meta['faq']))
+    wa_ctx = f'https://wa.me/{WHATSAPP}?text={quote(meta.get("wa_text", WA_TEXT))}'
+    body = body.replace('{{WA_CTX}}', esc(wa_ctx))
     body = body.replace('{{P}}', p).replace('{{WA}}', esc(WA_URL)).replace('{{WA_ICON}}', ICON['wa']) \
                .replace('{{LOCK}}', ICON['lock']).replace('{{DL}}', ICON['dl']).replace('{{IG}}', INSTAGRAM) \
                .replace('{{LI}}', LINKEDIN).replace('{{WA_DISPLAY}}', WHATSAPP_DISPLAY) \
@@ -272,8 +274,8 @@ def layout(meta, body, out_path):
       <div>
         <h2>Conteúdo grátis</h2>
         <ul>
-          <li><a href="{p}ferramentas/">Ferramentas e simuladores</a></li>
-          <li><a href="{p}aprenda/">Trilhas, quizzes e jogo</a></li>
+          <li><a href="{p}ferramentas/">Simuladores</a></li>
+          <li><a href="{p}aprenda/">Autodiagnóstico, testes e jogo</a></li>
           <li><a href="{p}panorama.html">Panorama em gráficos</a></li>
           <li><a href="{p}noticias.html">Notícias do Sebrae</a></li>
           <li><a href="{p}blog/">Blog</a></li>
@@ -313,7 +315,7 @@ def tool_card(t, p):
   <span class="pill">{t['tag']}</span>
   <h3>{t['name']}</h3>
   <p>{t['lead']}</p>
-  <span class="more">Usar ferramenta →</span>
+  <span class="more">Simular agora →</span>
 </a>'''
 
 
@@ -322,7 +324,7 @@ def post_card(meta, p):
   <span class="post-tag">{meta['tag']}</span>
   <h3>{meta['h1']}</h3>
   <p>{meta['excerpt']}</p>
-  <span class="more">Ler artigo →</span>
+  <span class="more">Ler →</span>
 </a>'''
 
 
@@ -344,7 +346,11 @@ def main():
         if '<!--POSTS_ALL-->' in body:
             body = body.replace('<!--POSTS_ALL-->', '\n'.join(post_card(x, p) for x in posts))
         if '<!--POSTS_LATEST-->' in body:
-            body = body.replace('<!--POSTS_LATEST-->', '\n'.join(post_card(x, p) for x in posts[:3]))
+            seen, latest = set(), []
+            for x in posts:
+                if x.get('tag') not in seen:
+                    seen.add(x.get('tag')); latest.append(x)
+            body = body.replace('<!--POSTS_LATEST-->', '\n'.join(post_card(x, p) for x in latest[:3]))
         tools = json.loads((SRC / 'tools_index.json').read_text(encoding='utf-8'))
         if '<!--TOOLS_ALL-->' in body:
             body = body.replace('<!--TOOLS_ALL-->', '\n'.join(tool_card(t, p) for t in tools))
