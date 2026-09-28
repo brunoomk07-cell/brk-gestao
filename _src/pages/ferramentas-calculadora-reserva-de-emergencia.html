@@ -1,0 +1,86 @@
+<!--meta
+{
+ "url": "ferramentas/calculadora-reserva-de-emergencia.html",
+ "nav": "ferramentas/",
+ "title": "Calculadora de Reserva de Emergência: Quanto Guardar | BRK",
+ "description": "Calcule quanto você precisa ter na reserva de emergência e em quanto tempo chega lá guardando um valor por mês. Grátis, com gráfico.",
+ "priority": "0.8",
+ "scripts": [
+  "chart",
+  "tools"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Ferramentas",
+   "ferramentas/"
+  ],
+  [
+   "Calculadora de reserva de emergência",
+   "ferramentas/calculadora-reserva-de-emergencia.html"
+  ]
+ ],
+ "faq": [
+  [
+   "Devo montar a reserva antes de pagar as dívidas?",
+   "Comece com um degrau pequeno — um mês de gastos essenciais — enquanto ataca as dívidas mais caras. Sem nenhuma reserva, qualquer imprevisto vira uma nova dívida."
+  ]
+ ],
+ "app": "Calculadora de reserva de emergência"
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Calculadora de reserva de emergência</li></ol>
+    <span class="eyebrow">Ferramenta gratuita · Pessoa física</span>
+    <h1>Calculadora de reserva de emergência</h1>
+    <p class="lead">Descubra o valor ideal da sua reserva e quando você vai completá-la, guardando um valor fixo por mês.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="tool" data-tool="reserva">
+      <div class="tool-panel">
+        <h2>Seus números</h2>
+        <div class="field"><label for="gastos">Gastos essenciais por mês</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="gastos" name="gastos" value="3000"></div><p class="hint">Moradia, alimentação, contas, transporte, saúde, escola.</p></div><div class="field"><label>Quantos meses de proteção</label><div class="seg" data-name="meses" data-value="6"><button type="button" data-v="3">3 meses</button><button type="button" data-v="6" class="on">6 meses</button><button type="button" data-v="12">12 meses</button></div></div><div class="field"><label for="tem">Quanto já tenho guardado</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="tem" name="tem" value="1000"></div></div><div class="field"><label for="aporte">Quanto posso guardar por mês</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="aporte" name="aporte" value="400"></div></div><div class="field"><label for="taxa">Rendimento estimado ao mês</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="taxa" name="taxa" value="0.8"><span>%</span></div><p class="hint">Aproximado, em aplicação segura com resgate rápido.</p></div>
+      </div>
+      <div>
+        <div class="results"><div class="result"><small>Meta da reserva</small><b data-out="meta">—</b></div><div class="result"><small>Quanto falta</small><b data-out="falta">—</b></div><div class="result"><small>Tempo para completar</small><b data-out="prazo">—</b></div><div class="result"><small>Você já tem</small><b data-out="pct">—</b></div></div>
+        <div class="verdict" data-out="verdict" aria-live="polite"></div>
+        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Calculadora de reserva de emergência"></canvas></div>
+        <p class="chart-caption">Evolução da reserva mês a mês até a meta (linha tracejada).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="prose">
+      <h2>Quantos meses escolher?</h2>
+<p><strong>3 a 6 meses</strong> para quem tem renda estável, como carteira assinada. <strong>6 a 12 meses</strong> para autônomos, MEIs, profissionais com renda variável ou quem é a única fonte de renda da família.</p>
+<p>A reserva deve ficar em uma aplicação segura, com resgate rápido e rendimento que ao menos acompanhe a inflação. Não é dinheiro para investir em risco.</p>
+<p>Guia completo: <a href="{{P}}blog/reserva-de-emergencia.html">Reserva de emergência: quanto guardar e por onde começar</a>.</p>
+      <div class="callout">
+        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
+        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
+        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
+      </div>
+      <h2>Perguntas frequentes</h2>
+<!--FAQ-->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="grid grid-3">
+<!--TOOLS_RELATED-->
+    </div>
+  </div>
+</section>

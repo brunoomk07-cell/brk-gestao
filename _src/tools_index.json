@@ -1,0 +1,50 @@
+[
+ {
+  "url": "ferramentas/calculadora-ponto-de-equilibrio.html",
+  "name": "Calculadora de ponto de equilíbrio",
+  "tag": "Empresas",
+  "lead": "Descubra quanto sua empresa precisa faturar por mês — e por dia — para cobrir todos os custos. Ajuste os valores e veja o gráfico mudar na hora."
+ },
+ {
+  "url": "ferramentas/simulador-quitar-dividas.html",
+  "name": "Simulador para quitar dívidas",
+  "tag": "Pessoa física",
+  "lead": "Liste suas dívidas, informe quanto consegue pagar a mais por mês e veja em quanto tempo você fica livre — e quanto economiza de juros."
+ },
+ {
+  "url": "ferramentas/calculadora-reserva-de-emergencia.html",
+  "name": "Calculadora de reserva de emergência",
+  "tag": "Pessoa física",
+  "lead": "Descubra o valor ideal da sua reserva e quando você vai completá-la, guardando um valor fixo por mês."
+ },
+ {
+  "url": "ferramentas/simulador-juros-cartao-de-credito.html",
+  "name": "Simulador de juros do cartão (rotativo)",
+  "tag": "Pessoa física",
+  "lead": "Veja o tamanho real de uma dívida no rotativo do cartão — e o que muda quando você aumenta o pagamento mensal."
+ },
+ {
+  "url": "ferramentas/planilha-orcamento-50-30-20.html",
+  "name": "Orçamento 50-30-20",
+  "tag": "Pessoa física",
+  "lead": "A regra 50-30-20 é um ponto de partida simples: 50% para necessidades, 30% para desejos e 20% para o futuro e para quitar dívidas. Compare com o seu orçamento real."
+ },
+ {
+  "url": "ferramentas/simulador-dre-pro-labore.html",
+  "name": "Simulador de DRE e pró-labore",
+  "tag": "Empresas",
+  "lead": "Veja, em um gráfico em cascata, para onde vai cada real que sua empresa fatura — e se o pró-labore cabe no resultado."
+ },
+ {
+  "url": "ferramentas/calculadora-limite-mei.html",
+  "name": "Calculadora do limite do MEI",
+  "tag": "MEI",
+  "lead": "Acompanhe o faturamento acumulado do ano e descubra se você vai passar do limite de R$ 81 mil — antes que isso aconteça."
+ },
+ {
+  "url": "ferramentas/simulador-liberdade-financeira.html",
+  "name": "Simulador de liberdade financeira",
+  "tag": "Pessoa física",
+  "lead": "Veja o poder dos juros compostos: quanto seu patrimônio pode crescer guardando todo mês — e quanta renda ele poderia gerar."
+ }
+]

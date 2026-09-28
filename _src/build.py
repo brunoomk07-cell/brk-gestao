@@ -41,12 +41,14 @@ ICON = {
 }
 
 NAV = [
-    ('consultoria-financeira-empresas.html', 'Empresas'),
-    ('consultoria-financeira-pessoal.html', 'Pessoa Física'),
-    ('consultoria-financeira-mei.html', 'MEI'),
+    ('servicos.html', 'Serviços'),
+    ('ferramentas/', 'Ferramentas'),
+    ('aprenda/', 'Aprenda'),
+    ('panorama.html', 'Panorama'),
+    ('noticias.html', 'Notícias'),
     ('blog/', 'Blog'),
-    ('index.html#guias', 'Guias Grátis'),
 ]
+SCRIPTS = {'chart': 'vendor/chart.umd.js', 'tools': 'tools.js', 'quiz': 'quiz.js', 'game': 'game.js', 'news': 'news.js', 'glossary': 'glossary.js'}
 
 
 def esc(s):
@@ -165,6 +167,11 @@ def layout(meta, body, out_path):
             'author': {'@type': 'Organization', 'name': BRAND, 'url': BASE_URL},
             'publisher': {'@type': 'Organization', 'name': BRAND, 'logo': {'@type': 'ImageObject', 'url': BASE_URL + 'logo.png'}},
         })
+    if meta.get('app'):
+        schemas.append({'@context': 'https://schema.org', '@type': 'WebApplication', 'name': meta['app'], 'description': desc,
+                        'url': canonical, 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Web', 'inLanguage': 'pt-BR',
+                        'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'BRL'},
+                        'provider': {'@type': 'Organization', 'name': BRAND, 'url': BASE_URL}})
     if meta.get('service'):
         s = meta['service']
         schemas.append({
@@ -190,6 +197,7 @@ def layout(meta, body, out_path):
                .replace('{{ICON_PIN}}', ICON['pin']).replace('{{ICON_CLOCK}}', ICON['clock']) \
                .replace('{{ICON_IG}}', ICON['ig']).replace('{{ICON_LI}}', ICON['li'])
 
+    extra_js = ''.join(f'\n<script src="{p}{SCRIPTS[k]}" defer></script>' for k in meta.get('scripts', []))
     robots = 'noindex, follow' if meta.get('noindex') else 'index, follow, max-image-preview:large, max-snippet:-1'
 
     return f'''<!DOCTYPE html>
@@ -257,16 +265,20 @@ def layout(meta, body, out_path):
           <li><a href="{p}consultoria-financeira-empresas.html">Consultoria para empresas</a></li>
           <li><a href="{p}consultoria-financeira-mei.html">Consultoria para MEI</a></li>
           <li><a href="{p}consultoria-financeira-pessoal.html">Consultoria pessoal</a></li>
+          <li><a href="{p}servicos.html">Governança e reestruturação</a></li>
           <li><a href="{p}contato.html">Diagnóstico gratuito</a></li>
         </ul>
       </div>
       <div>
-        <h2>Conteúdo</h2>
+        <h2>Conteúdo grátis</h2>
         <ul>
+          <li><a href="{p}ferramentas/">Ferramentas e simuladores</a></li>
+          <li><a href="{p}aprenda/">Trilhas, quizzes e jogo</a></li>
+          <li><a href="{p}panorama.html">Panorama em gráficos</a></li>
+          <li><a href="{p}noticias.html">Notícias do Sebrae</a></li>
           <li><a href="{p}blog/">Blog</a></li>
-          <li><a href="{p}index.html#guias">Guias gratuitos</a></li>
-          <li><a href="{p}blog/fluxo-de-caixa-pequena-empresa.html">Fluxo de caixa</a></li>
-          <li><a href="{p}blog/como-sair-das-dividas.html">Como sair das dívidas</a></li>
+          <li><a href="{p}aprenda/glossario.html">Glossário</a></li>
+          <li><a href="{p}index.html#guias">Guias em PDF</a></li>
         </ul>
       </div>
       <div>
@@ -290,10 +302,19 @@ def layout(meta, body, out_path):
   <a href="{p}contato.html" class="btn btn-solid">Diagnóstico grátis</a>
 </div>
 {gate_html(p)}
-<script src="{p}main.js" defer></script>
+<script src="{p}main.js" defer></script>{extra_js}
 </body>
 </html>
 '''
+
+
+def tool_card(t, p):
+    return f'''<a class="tool-card" href="{p}{t['url']}">
+  <span class="pill">{t['tag']}</span>
+  <h3>{t['name']}</h3>
+  <p>{t['lead']}</p>
+  <span class="more">Usar ferramenta →</span>
+</a>'''
 
 
 def post_card(meta, p):
@@ -324,8 +345,17 @@ def main():
             body = body.replace('<!--POSTS_ALL-->', '\n'.join(post_card(x, p) for x in posts))
         if '<!--POSTS_LATEST-->' in body:
             body = body.replace('<!--POSTS_LATEST-->', '\n'.join(post_card(x, p) for x in posts[:3]))
+        tools = json.loads((SRC / 'tools_index.json').read_text(encoding='utf-8'))
+        if '<!--TOOLS_ALL-->' in body:
+            body = body.replace('<!--TOOLS_ALL-->', '\n'.join(tool_card(t, p) for t in tools))
+        if '<!--TOOLS_FEATURED-->' in body:
+            body = body.replace('<!--TOOLS_FEATURED-->', '\n'.join(tool_card(t, p) for t in [tools[i] for i in (0, 1, 7)]))
+        if '<!--TOOLS_RELATED-->' in body:
+            rel = [t for t in tools if t['url'] != m['url']]
+            body = body.replace('<!--TOOLS_RELATED-->', '\n'.join(tool_card(t, p) for t in rel[:3]))
         if '<!--POSTS_RELATED-->' in body:
-            rel = [x for x in posts if x['url'] != m['url']][:3]
+            others = [x for x in posts if x['url'] != m['url']]
+            rel = ([x for x in others if x.get('tag') == m.get('tag')] + [x for x in others if x.get('tag') != m.get('tag')])[:3]
             body = body.replace('<!--POSTS_RELATED-->', '\n'.join(post_card(x, p) for x in rel))
         target = ROOT / out
         target.parent.mkdir(parents=True, exist_ok=True)

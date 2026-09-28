@@ -1,0 +1,86 @@
+<!--meta
+{
+ "url": "ferramentas/calculadora-limite-mei.html",
+ "nav": "ferramentas/",
+ "title": "Calculadora do Limite do MEI 2026 (R$ 81 mil) | BRK",
+ "description": "Projete seu faturamento anual e veja se vai estourar o limite do MEI de R$ 81 mil em 2026. Descubra a média mensal máxima para continuar MEI.",
+ "priority": "0.8",
+ "scripts": [
+  "chart",
+  "tools"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Ferramentas",
+   "ferramentas/"
+  ],
+  [
+   "Calculadora do limite do MEI",
+   "ferramentas/calculadora-limite-mei.html"
+  ]
+ ],
+ "faq": [
+  [
+   "O limite do MEI aumentou em 2026?",
+   "Não. O limite continua em R$ 81 mil por ano. Existem projetos no Congresso para aumentá-lo, mas nenhum havia sido aprovado até a última atualização desta página."
+  ]
+ ],
+ "app": "Calculadora do limite do MEI"
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Calculadora do limite do MEI</li></ol>
+    <span class="eyebrow">Ferramenta gratuita · MEI</span>
+    <h1>Calculadora do limite do MEI</h1>
+    <p class="lead">Acompanhe o faturamento acumulado do ano e descubra se você vai passar do limite de R$ 81 mil — antes que isso aconteça.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="tool" data-tool="mei">
+      <div class="tool-panel">
+        <h2>Seus números</h2>
+        <div class="field"><label for="feito">Faturado no ano até agora</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="feito" name="feito" value="52000"></div></div><div class="field"><label for="mes">Mês atual (1 a 12)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="mes" name="mes" value="8"><span>º mês</span></div><p class="hint">Ex.: agosto = 8.</p></div><div class="field"><label for="media">Média mensal prevista até dezembro</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="media" name="media" value="7000"></div></div>
+      </div>
+      <div>
+        <div class="results"><div class="result"><small>Projeção para o ano</small><b data-out="proj">—</b></div><div class="result"><small>Do limite de R$ 81 mil</small><b data-out="pct">—</b></div><div class="result"><small>Ainda pode faturar</small><b data-out="resta">—</b></div><div class="result"><small>Média máxima por mês</small><b data-out="max">—</b></div></div>
+        <div class="verdict" data-out="verdict" aria-live="polite"></div>
+        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Calculadora do limite do MEI"></canvas></div>
+        <p class="chart-caption">Faturamento acumulado, projeção até dezembro e as linhas do limite e da tolerância de 20%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="prose">
+      <h2>O que acontece se passar do limite</h2>
+<p>Se o faturamento do ano passar de R$ 81 mil em até 20% (até R$ 97,2 mil), o desenquadramento vale a partir de janeiro do ano seguinte e você paga um DAS complementar sobre o excesso. Acima de 20%, o desenquadramento retroage a janeiro do ano em que o limite foi estourado.</p>
+<p>Para quem abriu o MEI no meio do ano, o limite é proporcional: R$ 6.750 por mês de atividade.</p>
+<p>Guia completo: <a href="{{P}}blog/financas-do-mei.html">Finanças do MEI na prática</a>.</p>
+      <div class="callout">
+        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
+        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
+        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
+      </div>
+      <h2>Perguntas frequentes</h2>
+<!--FAQ-->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="grid grid-3">
+<!--TOOLS_RELATED-->
+    </div>
+  </div>
+</section>

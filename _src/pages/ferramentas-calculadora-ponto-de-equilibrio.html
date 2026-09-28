@@ -1,0 +1,90 @@
+<!--meta
+{
+ "url": "ferramentas/calculadora-ponto-de-equilibrio.html",
+ "nav": "ferramentas/",
+ "title": "Calculadora de Ponto de Equilíbrio Online e Grátis | BRK",
+ "description": "Calcule grátis o ponto de equilíbrio da sua empresa: quanto precisa vender por mês e por dia para não ter prejuízo, com gráfico de faturamento x custos.",
+ "priority": "0.8",
+ "scripts": [
+  "chart",
+  "tools"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Ferramentas",
+   "ferramentas/"
+  ],
+  [
+   "Calculadora de ponto de equilíbrio",
+   "ferramentas/calculadora-ponto-de-equilibrio.html"
+  ]
+ ],
+ "faq": [
+  [
+   "O pró-labore entra nas despesas fixas?",
+   "Sim. A retirada dos sócios sai do caixa todo mês e deve entrar no cálculo, senão o ponto de equilíbrio parece menor do que é."
+  ],
+  [
+   "O que são custos variáveis?",
+   "São os custos que aumentam ou diminuem junto com as vendas: mercadoria, matéria-prima, impostos sobre a venda, taxas de cartão e comissões."
+  ]
+ ],
+ "app": "Calculadora de ponto de equilíbrio"
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Calculadora de ponto de equilíbrio</li></ol>
+    <span class="eyebrow">Ferramenta gratuita · Empresas</span>
+    <h1>Calculadora de ponto de equilíbrio</h1>
+    <p class="lead">Descubra quanto sua empresa precisa faturar por mês — e por dia — para cobrir todos os custos. Ajuste os valores e veja o gráfico mudar na hora.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="tool" data-tool="pe">
+      <div class="tool-panel">
+        <h2>Seus números</h2>
+        <div class="field"><label for="fat">Faturamento mensal atual</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fat" name="fat" value="100000"></div></div><div class="field"><label for="cv">Custos variáveis (% do faturamento)</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="cv" name="cv" value="65"><span>%</span></div><p class="hint">Mercadoria ou insumos, impostos sobre a venda, taxas de cartão e comissões.</p></div><div class="field"><label for="fixas">Despesas fixas mensais</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fixas" name="fixas" value="30000"></div><p class="hint">Aluguel, folha, pró-labore, contador, sistemas, contas fixas.</p></div><div class="field"><label for="dias">Dias úteis no mês</label><div class="input-suffix"><input type="number" inputmode="decimal" min="0" step="any" id="dias" name="dias" value="26"><span>dias</span></div></div>
+      </div>
+      <div>
+        <div class="results"><div class="result wide"><small>Ponto de equilíbrio</small><b data-out="pe">—</b></div><div class="result"><small>Margem de contribuição</small><b data-out="mc">—</b></div><div class="result"><small>Lucro operacional</small><b data-out="lucro">—</b></div><div class="result wide"><small>Meta diária mínima</small><b data-out="dia">—</b></div></div>
+        <div class="verdict" data-out="verdict" aria-live="polite"></div>
+        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Calculadora de ponto de equilíbrio"></canvas></div>
+        <p class="chart-caption">A linha dourada é o faturamento; a tracejada, o custo total. Onde elas se cruzam está o ponto de equilíbrio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="prose">
+      <h2>Como usar o resultado</h2>
+<p>O ponto de equilíbrio é o faturamento em que a empresa não tem lucro nem prejuízo. Abaixo dele, cada mês consome caixa; acima dele, sobra dinheiro. A fórmula é simples: <strong>despesas fixas ÷ margem de contribuição</strong>.</p>
+<ul><li><strong>Transforme em meta diária</strong> e acompanhe as vendas todo dia.</li><li><strong>Teste decisões antes de tomá-las:</strong> uma contratação ou um aluguel maior sobem o ponto de equilíbrio. Veja quanto.</li><li><strong>Melhore a margem</strong> revendo preço, custo de compra e mix de produtos.</li></ul>
+<p>Quer entender o conceito em detalhe? Leia o artigo <a href="{{P}}blog/ponto-de-equilibrio.html">Ponto de equilíbrio: quanto sua empresa precisa vender</a>.</p>
+      <div class="callout">
+        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
+        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
+        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
+      </div>
+      <h2>Perguntas frequentes</h2>
+<!--FAQ-->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="grid grid-3">
+<!--TOOLS_RELATED-->
+    </div>
+  </div>
+</section>

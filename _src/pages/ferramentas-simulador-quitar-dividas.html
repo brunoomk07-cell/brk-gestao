@@ -1,0 +1,90 @@
+<!--meta
+{
+ "url": "ferramentas/simulador-quitar-dividas.html",
+ "nav": "ferramentas/",
+ "title": "Simulador para Quitar Dívidas: Monte seu Plano Grátis | BRK",
+ "description": "Simule grátis quanto tempo leva para sair das dívidas. Compare os métodos avalanche e bola de neve e veja quanto economiza em juros pagando um valor extra.",
+ "priority": "0.8",
+ "scripts": [
+  "chart",
+  "tools"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Ferramentas",
+   "ferramentas/"
+  ],
+  [
+   "Simulador para quitar dívidas",
+   "ferramentas/simulador-quitar-dividas.html"
+  ]
+ ],
+ "faq": [
+  [
+   "Onde encontro a taxa de juros de cada dívida?",
+   "Na fatura do cartão (procure pelo CET ou taxa do rotativo), no contrato do empréstimo ou no aplicativo do banco. Se não encontrar, pergunte ao atendimento: você tem direito a essa informação."
+  ],
+  [
+   "E se o simulador disser que a dívida nunca acaba?",
+   "Significa que o que você paga por mês não cobre os juros. O caminho é renegociar, buscar uma linha de crédito mais barata para trocar a dívida ou aumentar o valor destinado a ela."
+  ]
+ ],
+ "app": "Simulador para quitar dívidas"
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Simulador para quitar dívidas</li></ol>
+    <span class="eyebrow">Ferramenta gratuita · Pessoa física</span>
+    <h1>Simulador para quitar dívidas</h1>
+    <p class="lead">Liste suas dívidas, informe quanto consegue pagar a mais por mês e veja em quanto tempo você fica livre — e quanto economiza de juros.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="tool" data-tool="dividas">
+      <div class="tool-panel">
+        <h2>Seus números</h2>
+        <div data-debts></div><button type="button" class="add-btn" data-add>+ Adicionar dívida</button><div class="field"><label for="extra">Valor extra por mês (além das parcelas mínimas)</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="extra" name="extra" value="500"></div><p class="hint">Quanto você consegue direcionar a mais para as dívidas.</p></div><div class="field"><label>Estratégia</label><div class="seg" data-name="metodo" data-value="avalanche"><button type="button" data-v="avalanche" class="on">Avalanche (juros maiores)</button><button type="button" data-v="bola">Bola de neve (saldos menores)</button></div></div>
+      </div>
+      <div>
+        <div class="results"><div class="result"><small>Total devido hoje</small><b data-out="total">—</b></div><div class="result"><small>Livre das dívidas em</small><b data-out="prazo">—</b></div><div class="result"><small>Juros pagos no plano</small><b data-out="juros">—</b></div><div class="result"><small>Economia x só o mínimo</small><b data-out="economia">—</b></div></div>
+        <div class="verdict" data-out="verdict" aria-live="polite"></div>
+        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Simulador para quitar dívidas"></canvas></div>
+        <p class="chart-caption">Saldo total das dívidas mês a mês: com o plano (dourado) e pagando só o mínimo (tracejado).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="prose">
+      <h2>Avalanche ou bola de neve?</h2>
+<p><strong>Avalanche</strong>: você concentra o dinheiro extra na dívida de juros mais altos. Matematicamente, é o método que paga menos juros. <strong>Bola de neve</strong>: você quita primeiro as dívidas de menor saldo. Paga um pouco mais de juros, mas as vitórias rápidas ajudam a manter a motivação.</p>
+<p>Nos dois métodos, quando uma dívida acaba, o valor que ia para ela passa a reforçar a próxima. É esse efeito que acelera a quitação.</p>
+<p>Leia também: <a href="{{P}}blog/como-sair-das-dividas.html">Como sair das dívidas: um passo a passo realista</a>.</p>
+      <div class="callout">
+        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
+        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
+        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
+      </div>
+      <h2>Perguntas frequentes</h2>
+<!--FAQ-->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="grid grid-3">
+<!--TOOLS_RELATED-->
+    </div>
+  </div>
+</section>

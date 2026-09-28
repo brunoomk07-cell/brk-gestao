@@ -1,0 +1,124 @@
+<!--meta
+{
+ "url": "panorama.html",
+ "nav": "panorama.html",
+ "title": "Panorama Financeiro do Brasil em Gráficos (2016–2026) | BRK",
+ "description": "Gráficos atualizados sobre juros (Selic), endividamento das famílias, inadimplência de pessoas e empresas e sobrevivência dos negócios no Brasil de 2016 a 2026.",
+ "priority": "0.8",
+ "scripts": ["chart", "tools"],
+ "breadcrumb": [["Início", ""], ["Panorama", "panorama.html"]]
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li>Panorama</li></ol>
+    <span class="eyebrow">Painel de dados · Atualizado em setembro de 2026</span>
+    <h1>Panorama financeiro do Brasil</h1>
+    <p class="lead">Juros, endividamento, inadimplência e sobrevivência das empresas em gráficos. Entender o cenário ajuda a separar o que é culpa da economia e o que está sob o seu controle.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="kpis">
+      <div class="kpi"><b>13,75%</b><span>Selic ao ano</span><small>Copom, setembro de 2026</small></div>
+      <div class="kpi"><b>84 mi</b><span>pessoas negativadas</span><small>Serasa, agosto de 2026</small></div>
+      <div class="kpi"><b>9,2 mi</b><span>empresas inadimplentes</span><small>Serasa Experian, julho de 2026</small></div>
+      <div class="kpi"><b>82%</b><span>das famílias endividadas</span><small>CNC · Peic, julho de 2026</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Pessoas e famílias</span><h2 class="section-title">O endividamento das famílias</h2></div>
+    <div class="dash-grid">
+      <div class="dash-card full">
+        <h3>Famílias endividadas e com contas em atraso</h3>
+        <p class="sub">Percentual das famílias brasileiras, média de cada ano (2026: média até o meio do ano).</p>
+        <div class="chart-box tall"><canvas data-chart="familias" role="img" aria-label="Gráfico de linhas: famílias endividadas subiram de 59% em 2016 para cerca de 80% em 2026; famílias com contas em atraso, de 24% para quase 30%."></canvas></div>
+        <p class="chart-caption">Fonte: CNC — Pesquisa de Endividamento e Inadimplência do Consumidor (Peic), compilação DIEESE (2026).</p>
+      </div>
+      <div class="dash-card">
+        <h3>Pessoas com o nome negativado</h3>
+        <p class="sub">Em milhões de pessoas.</p>
+        <div class="chart-box"><canvas data-chart="negativados" role="img" aria-label="Gráfico de barras: 59,2 milhões em 2016, 63,8 milhões no início de 2020, 81,7 milhões em fevereiro de 2026 e 84 milhões em agosto de 2026."></canvas></div>
+        <p class="chart-caption">Fonte: Serasa — Mapa da Inadimplência. Valor de 2016 estimado a partir da alta de 38% em dez anos.</p>
+      </div>
+      <div class="dash-card">
+        <h3>O que isso significa para você</h3>
+        <p class="sub">Leitura rápida dos números.</p>
+        <ul class="dash">
+          <li>O endividamento cresceu mais de 20 pontos em dez anos, puxado principalmente pelo cartão de crédito.</li>
+          <li>Quase 3 em cada 10 famílias têm contas em atraso — e 42% dos negativados de hoje já estavam negativados em 2016.</li>
+          <li>Com juros altos, a dívida cara cresce rápido. Ter reserva e fugir do rotativo virou questão de proteção.</li>
+        </ul>
+        <p style="margin-top:16px"><a href="{{P}}aprenda/teste-saude-financeira.html">Faça o teste de saúde financeira →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Juros</span><h2 class="section-title">A taxa Selic nos últimos dez anos</h2></div>
+    <div class="dash-card">
+      <h3>Selic no fim de cada ano (% ao ano)</h3>
+      <p class="sub">Quando a Selic sobe, todo o crédito fica mais caro — do cartão ao capital de giro das empresas.</p>
+      <div class="chart-box tall"><canvas data-chart="selic" role="img" aria-label="Gráfico de barras da Selic: 13,75% em 2016, mínima de 2% em 2020, 15% em 2025 e 13,75% em setembro de 2026."></canvas></div>
+      <p class="chart-caption">Fonte: Banco Central do Brasil — decisões do Copom. 2026: taxa vigente após a reunião de setembro.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Empresas</span><h2 class="section-title">A saúde financeira das empresas</h2></div>
+    <div class="dash-grid">
+      <div class="dash-card">
+        <h3>Empresas inadimplentes</h3>
+        <p class="sub">Em milhões de CNPJs com dívidas em atraso.</p>
+        <div class="chart-box"><canvas data-chart="empresas" role="img" aria-label="Gráfico de barras: 6,6 milhões em dezembro de 2023, 6,9 milhões em dezembro de 2024, 8,9 milhões em dezembro de 2025 e 9,2 milhões em julho de 2026."></canvas></div>
+        <p class="chart-caption">Fonte: Serasa Experian — Indicador de Inadimplência das Empresas.</p>
+      </div>
+      <div class="dash-card">
+        <h3>Inadimplentes por setor (2025)</h3>
+        <p class="sub">Participação de cada setor no total de empresas inadimplentes.</p>
+        <div class="chart-box"><canvas data-chart="setores" role="img" aria-label="Gráfico de rosca: serviços 55,2%, comércio 32,7%, indústria 8,1% e outros 4%."></canvas></div>
+        <p class="chart-caption">Fonte: Serasa Experian, dezembro de 2025.</p>
+      </div>
+      <div class="dash-card">
+        <h3>Com quem as empresas estão devendo</h3>
+        <p class="sub">Distribuição das dívidas em atraso por tipo de credor.</p>
+        <div class="chart-box"><canvas data-chart="credores" role="img" aria-label="Gráfico de barras horizontais: serviços 31,7%, bancos e cartões 19,7%, cooperativas 8,5%, água luz e gás 6,9%, telefonia 6,2%, outros 27%."></canvas></div>
+        <p class="chart-caption">Fonte: Serasa Experian, julho de 2026. Mais de três quartos das dívidas estão fora dos bancos — sinal de falta de capital de giro.</p>
+      </div>
+      <div class="dash-card">
+        <h3>Sobrevivência das empresas</h3>
+        <p class="sub">De cada 100 empresas abertas, quantas continuam ativas após 5 anos.</p>
+        <div class="chart-box"><canvas data-chart="sobrevivencia" role="img" aria-label="Gráfico de rosca: 37,6% das empresas continuam ativas após cinco anos; 62,4% fecham."></canvas></div>
+        <p class="chart-caption">Fonte: IBGE — Demografia das Empresas (empresas nascidas em 2014, acompanhadas até 2019).</p>
+      </div>
+      <div class="dash-card full">
+        <h3>Recuperações judiciais em alta</h3>
+        <p class="sub">Em 2025, 2.466 empresas entraram em recuperação judicial — alta de 13% sobre 2024 e o maior número da série da Serasa Experian.</p>
+        <div class="hbars">
+          <div class="hbar"><span>Empresas em RJ</span><div class="hb-track"><div class="fill" style="width:100%"></div></div><b>2.466</b></div>
+          <div class="hbar"><span>Processos</span><div class="hb-track"><div class="fill" style="width:39.6%"></div></div><b>977</b></div>
+        </div>
+        <p class="chart-caption">Fonte: Serasa Experian — Indicador de Recuperação Judicial, 2025. Um processo pode envolver várias empresas do mesmo grupo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Você não controla a economia. Mas controla como atravessa a próxima crise.</h2>
+    <p>Com caixa organizado e números claros, sua empresa e sua família ficam mais protegidas. Comece pelo diagnóstico gratuito.</p>
+    <div class="btn-row">
+      <a href="{{P}}contato.html" class="btn btn-solid">Agendar diagnóstico gratuito</a>
+      <a href="{{WA}}" class="btn btn-wa" target="_blank" rel="noopener">{{WA_ICON}} WhatsApp</a>
+    </div>
+  </div>
+</section>

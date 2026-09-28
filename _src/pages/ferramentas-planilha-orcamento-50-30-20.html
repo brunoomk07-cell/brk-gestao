@@ -1,0 +1,85 @@
+<!--meta
+{
+ "url": "ferramentas/planilha-orcamento-50-30-20.html",
+ "nav": "ferramentas/",
+ "title": "Calculadora de Orçamento 50-30-20 Online | BRK Gestão",
+ "description": "Divida sua renda pela regra 50-30-20 (necessidades, desejos e futuro) e compare com seus gastos reais em um gráfico. Ferramenta grátis de orçamento pessoal.",
+ "priority": "0.8",
+ "scripts": [
+  "chart",
+  "tools"
+ ],
+ "breadcrumb": [
+  [
+   "Início",
+   ""
+  ],
+  [
+   "Ferramentas",
+   "ferramentas/"
+  ],
+  [
+   "Orçamento 50-30-20",
+   "ferramentas/planilha-orcamento-50-30-20.html"
+  ]
+ ],
+ "faq": [
+  [
+   "Pagar dívida entra em qual parte?",
+   "Na parte do futuro (20%). Enquanto houver dívidas caras, esse dinheiro deve ir para elas; depois, para a reserva e os investimentos."
+  ]
+ ],
+ "app": "Orçamento 50-30-20"
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li><a href="{{P}}ferramentas/">Ferramentas</a></li><li>Orçamento 50-30-20</li></ol>
+    <span class="eyebrow">Ferramenta gratuita · Pessoa física</span>
+    <h1>Orçamento 50-30-20</h1>
+    <p class="lead">A regra 50-30-20 é um ponto de partida simples: 50% para necessidades, 30% para desejos e 20% para o futuro e para quitar dívidas. Compare com o seu orçamento real.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div class="tool" data-tool="orcamento">
+      <div class="tool-panel">
+        <h2>Seus números</h2>
+        <div class="field"><label for="renda">Renda líquida mensal</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="renda" name="renda" value="4500"></div></div><div class="field"><label for="nec">Seus gastos com necessidades</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="nec" name="nec" value="2950"></div><p class="hint">Moradia, mercado, contas, transporte, saúde.</p></div><div class="field"><label for="des">Seus gastos com desejos</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="des" name="des" value="1000"></div><p class="hint">Lazer, delivery, compras, assinaturas.</p></div><div class="field"><label for="fut">Quanto você guarda ou paga de dívidas</label><div class="input-money"><span>R$</span><input type="number" inputmode="decimal" min="0" step="any" id="fut" name="fut" value="550"></div></div>
+      </div>
+      <div>
+        <div class="results"><div class="result"><small>Ideal para necessidades</small><b data-out="nec">—</b></div><div class="result"><small>Ideal para desejos</small><b data-out="des">—</b></div><div class="result"><small>Ideal para o futuro</small><b data-out="fut">—</b></div><div class="result"><small>Sobra no seu mês</small><b data-out="sobra">—</b></div></div>
+        <div class="verdict" data-out="verdict" aria-live="polite"></div>
+        <div class="chart-box tall"><canvas role="img" aria-label="Gráfico: Orçamento 50-30-20"></canvas></div>
+        <p class="chart-caption">Barras claras: ideal pela regra. Barras cheias: seu orçamento (vermelho indica acima do ideal).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="prose">
+      <h2>A regra não é lei — é bússola</h2>
+<p>Em muitas famílias, só a moradia já passa de 30% da renda. Tudo bem: a regra serve para mostrar onde está o desequilíbrio. Se as necessidades passam de 50%, o ajuste costuma estar em moradia, transporte ou contas fixas. Se o futuro está abaixo de 20%, comece com 5% e aumente aos poucos.</p>
+<p>Guia completo: <a href="{{P}}blog/orcamento-familiar-50-30-20.html">Orçamento familiar com a regra 50-30-20</a>.</p>
+      <div class="callout">
+        <h3>Quer ajuda para aplicar isso na sua realidade?</h3>
+        <p>Na consultoria, fazemos essas contas com os seus números reais e montamos um plano de ação. O diagnóstico é gratuito — presencial no Grande ABC ou online.</p>
+        <p><a href="{{WA}}" target="_blank" rel="noopener">Falar pelo WhatsApp →</a></p>
+      </div>
+      <h2>Perguntas frequentes</h2>
+<!--FAQ-->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Mais ferramentas</span><h2 class="section-title">Continue simulando</h2></div>
+    <div class="grid grid-3">
+<!--TOOLS_RELATED-->
+    </div>
+  </div>
+</section>
