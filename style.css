@@ -4,7 +4,7 @@
     --bg-card: #0d0d0d;
     --bg-raised: #141414;
     --gold-primary: #D4AF37;
-    --gold-secondary: #B38728;
+    --gold-secondary: #D4AF37;
     --gold-line: rgba(212, 175, 55, 0.14);
     --gold-line-strong: rgba(212, 175, 55, 0.4);
     --text-main: #e6e6e6;
@@ -807,3 +807,7 @@ a.card:hover,.tool-card:hover,.post-card:hover,.news-card:hover{box-shadow:none}
 .sit-opts button:hover{border-color:var(--gold-primary);color:var(--gold-primary)}
 .sit-level{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-primary);border:1px solid var(--gold-line-strong);padding:6px 12px;margin-bottom:18px}
 @media (max-width:600px){.sit{padding:26px 18px}.sit-q h2,.sit-res h2{font-size:1.15rem}}
+
+/* ===== Dourado puro (sem tons terrosos) ===== */
+:root{--gold-grad:linear-gradient(135deg,#F7E7A8 0%,#E6C45E 45%,#D4AF37 75%,#F1D98A 100%);--gold-secondary:#D4AF37;--gold-line:rgba(255,255,255,0.09);--gold-line-strong:rgba(230,196,94,0.45)}
+.hero-art svg *{--x:0}
