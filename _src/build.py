@@ -44,8 +44,6 @@ NAV = [
     ('servicos.html', 'Serviços'),
     ('ferramentas/', 'Simuladores'),
     ('aprenda/', 'Autodiagnóstico'),
-    ('panorama.html', 'Panorama'),
-    ('noticias.html', 'Notícias'),
     ('blog/', 'Blog'),
 ]
 SCRIPTS = {'chart': 'vendor/chart.umd.js', 'tools': 'tools.js', 'quiz': 'quiz.js', 'game': 'game.js', 'news': 'news.js', 'glossary': 'glossary.js'}
@@ -238,7 +236,7 @@ def layout(meta, body, out_path):
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="{p}index.html" class="logo" aria-label="{BRAND} — página inicial"><img src="{p}logo.png" alt="{BRAND}" width="144" height="64"></a>
+    <a href="{p}index.html" class="logo" aria-label="{BRAND} — página inicial"><img src="{p}logo.png" alt="{BRAND}" width="120" height="52"></a>
     <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <nav class="nav" id="menu" aria-label="Menu principal">
       {nav}
@@ -253,8 +251,8 @@ def layout(meta, body, out_path):
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="{p}logo.png" alt="{BRAND}" width="135" height="60" loading="lazy">
-        <p>Consultoria financeira para pequenas empresas, MEIs e pessoas físicas. Nossa missão é salvar empresas e dar liberdade financeira às pessoas, por meio da educação e do direcionamento correto.</p>
+        <img src="{p}logo.png" alt="{BRAND}" width="166" height="72" loading="lazy">
+        <p>Consultoria financeira para pequenas empresas, MEIs e famílias. Salvar empresas e dar liberdade financeira às pessoas.</p>
         <div class="socials">
           <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram da BRK">{ICON['ig']}</a>
           <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICON['li']}</a>
@@ -275,11 +273,10 @@ def layout(meta, body, out_path):
         <h2>Conteúdo grátis</h2>
         <ul>
           <li><a href="{p}ferramentas/">Simuladores</a></li>
-          <li><a href="{p}aprenda/">Autodiagnóstico, testes e jogo</a></li>
-          <li><a href="{p}panorama.html">Panorama em gráficos</a></li>
-          <li><a href="{p}noticias.html">Notícias do Sebrae</a></li>
+          <li><a href="{p}aprenda/">Autodiagnóstico</a></li>
           <li><a href="{p}blog/">Blog</a></li>
-          <li><a href="{p}aprenda/glossario.html">Glossário</a></li>
+          <li><a href="{p}panorama.html">Panorama</a></li>
+          <li><a href="{p}noticias.html">Notícias</a></li>
           <li><a href="{p}index.html#guias">Guias em PDF</a></li>
         </ul>
       </div>

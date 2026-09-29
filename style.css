@@ -57,7 +57,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 .header-inner { height: var(--header-h); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .logo { display: flex; align-items: center; }
-.logo img { height: 64px; width: auto; mix-blend-mode: screen; }
+.logo img { height: 52px; width: auto; }
 .nav { display: flex; align-items: center; gap: 34px; }
 .nav a {
     text-decoration: none; color: var(--text-muted); font-size: 0.78rem;
@@ -317,7 +317,7 @@ body.gate-open { overflow: hidden; }
 .footer-grid li { margin-bottom: 9px; }
 .footer-grid a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
 .footer-grid a:hover { color: var(--gold-primary); }
-.footer-brand img { height: 60px; width: auto; mix-blend-mode: screen; margin-bottom: 14px; }
+.footer-brand img { height: 72px; width: auto; margin-bottom: 14px; }
 .footer-brand p { color: var(--text-muted); font-size: 0.88rem; max-width: 320px; }
 .socials { display: flex; gap: 10px; margin-top: 18px; }
 .socials a { width: 42px; height: 42px; border: 1px solid var(--gold-line-strong); display: flex; align-items: center; justify-content: center; color: var(--gold-primary); }
@@ -763,3 +763,14 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .prose .risk-list li + li, .prose .outcomes li + li { margin-top: 0; }
 .prose .tool-cta { margin-top: 2em; }
 .prose .tool-cta ul.outcomes li { padding: 10px 0; }
+
+/* ===== Clean pass ===== */
+.more-link{text-align:center;margin-top:28px}
+.more-link a{color:var(--gold);font-size:.9rem;letter-spacing:.04em}
+.fineprint{text-align:center;color:var(--text-muted);font-size:.78rem;margin-top:18px;opacity:.8}
+.section{padding-top:72px;padding-bottom:72px}
+.ebook-cover{padding:28px 28px 24px}
+.ebook-cover h3{margin-bottom:0}
+.ebook-body{padding:22px 28px 26px}
+@media (min-width:901px){.footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+@media (max-width:900px){.hero-art{display:none}.section{padding-top:52px;padding-bottom:52px}}
