@@ -42,11 +42,10 @@ ICON = {
 
 NAV = [
     ('servicos.html', 'Serviços'),
-    ('ferramentas/', 'Simuladores'),
-    ('aprenda/', 'Autodiagnóstico'),
+    ('situacao.html', 'Sua situação'),
     ('blog/', 'Blog'),
 ]
-SCRIPTS = {'chart': 'vendor/chart.umd.js', 'tools': 'tools.js', 'quiz': 'quiz.js', 'game': 'game.js', 'news': 'news.js', 'glossary': 'glossary.js'}
+SCRIPTS = {'chart': 'vendor/chart.umd.js', 'tools': 'tools.js', 'situacao': 'situacao.js', 'news': 'news.js'}
 
 
 def esc(s):
@@ -272,8 +271,7 @@ def layout(meta, body, out_path):
       <div>
         <h2>Conteúdo grátis</h2>
         <ul>
-          <li><a href="{p}ferramentas/">Simuladores</a></li>
-          <li><a href="{p}aprenda/">Autodiagnóstico</a></li>
+          <li><a href="{p}situacao.html">Qual é a sua situação?</a></li>
           <li><a href="{p}blog/">Blog</a></li>
           <li><a href="{p}panorama.html">Panorama</a></li>
           <li><a href="{p}noticias.html">Notícias</a></li>
@@ -348,14 +346,6 @@ def main():
                 if x.get('tag') not in seen:
                     seen.add(x.get('tag')); latest.append(x)
             body = body.replace('<!--POSTS_LATEST-->', '\n'.join(post_card(x, p) for x in latest[:3]))
-        tools = json.loads((SRC / 'tools_index.json').read_text(encoding='utf-8'))
-        if '<!--TOOLS_ALL-->' in body:
-            body = body.replace('<!--TOOLS_ALL-->', '\n'.join(tool_card(t, p) for t in tools))
-        if '<!--TOOLS_FEATURED-->' in body:
-            body = body.replace('<!--TOOLS_FEATURED-->', '\n'.join(tool_card(t, p) for t in [tools[i] for i in (0, 1, 7)]))
-        if '<!--TOOLS_RELATED-->' in body:
-            rel = [t for t in tools if t['url'] != m['url']]
-            body = body.replace('<!--TOOLS_RELATED-->', '\n'.join(tool_card(t, p) for t in rel[:3]))
         if '<!--POSTS_RELATED-->' in body:
             others = [x for x in posts if x['url'] != m['url']]
             rel = ([x for x in others if x.get('tag') == m.get('tag')] + [x for x in others if x.get('tag') != m.get('tag')])[:3]

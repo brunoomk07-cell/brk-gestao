@@ -1,0 +1,51 @@
+<!--meta
+{
+ "url": "situacao.html",
+ "title": "Qual é a sua situação financeira? Responda em 1 minuto | BRK",
+ "description": "Responda 5 perguntas rápidas e descubra o nível de alerta da sua empresa ou das suas finanças pessoais. Resultado na hora, sem cadastro.",
+ "priority": "0.8",
+ "scripts": ["situacao"],
+ "wa_text": "Olá! Respondi o quiz de situação no site da BRK e quero entender o que fazer.",
+ "breadcrumb": [["Início", ""], ["Sua situação", "situacao.html"]]
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li>Sua situação</li></ol>
+    <span class="eyebrow">1 minuto · Sem cadastro</span>
+    <h1>Qual é a sua <em>situação</em>?</h1>
+    <p class="lead">Cinco perguntas rápidas. O resultado mostra o seu nível de alerta.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="sit" id="sit">
+      <div class="sit-pick" id="sit-pick">
+        <p>Você quer avaliar:</p>
+        <div class="btn-row">
+          <button type="button" class="btn btn-solid" data-set="pj">Minha empresa</button>
+          <button type="button" class="btn" data-set="pf">Minhas finanças pessoais</button>
+        </div>
+      </div>
+      <div class="sit-q" id="sit-q" hidden>
+        <div class="sit-bar"><span id="sit-prog"></span></div>
+        <h2 id="sit-text"></h2>
+        <div class="sit-opts">
+          <button type="button" data-v="2">Sim, com frequência</button>
+          <button type="button" data-v="1">Às vezes</button>
+          <button type="button" data-v="0">Não</button>
+        </div>
+      </div>
+      <div class="sit-res" id="sit-res" hidden aria-live="polite">
+        <span class="sit-level" id="sit-level"></span>
+        <h2 id="sit-title"></h2>
+        <p id="sit-msg"></p>
+        <div class="btn-row" style="justify-content:center">
+          <a href="{{WA_CTX}}" class="btn btn-solid" target="_blank" rel="noopener">{{WA_ICON}} Falar com um consultor</a>
+          <a href="{{P}}contato.html" class="btn">Agendar diagnóstico gratuito</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
