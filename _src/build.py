@@ -25,16 +25,24 @@ if META_PIXEL_ID:
     TRACK += f'\n<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","{META_PIXEL_ID}");fbq("track","PageView");</script>'
 BASE_URL = 'https://brkconsultoriafinanceira.com.br/'
 BRAND = 'BRK Gestão Financeira'
+# Para ativar o WhatsApp da marca: preencha com DDI+DDD+número, só dígitos (ex.: '5511912345678')
 WHATSAPP = ''
-WHATSAPP_DISPLAY = '@brkgestaofinanceira'
-WA_TEXT = 'Olá! Vim pelo site da BRK e gostaria de agendar um diagnóstico financeiro gratuito.'
+WA_TEXT = 'Olá! Vim pelo site da BRK e quero uma das 3 vagas do Programa Piloto.'
 INSTAGRAM = 'https://instagram.com/brkgestaofinanceira'
 INSTAGRAM_HANDLE = '@brkgestaofinanceira'
 LINKEDIN = ''
 CITIES = ['Mauá', 'Santo André', 'São Bernardo do Campo', 'São Caetano do Sul', 'Diadema', 'Ribeirão Pires', 'Rio Grande da Serra']
 TODAY = datetime.date.today().isoformat()
 
-WA_URL = 'https://ig.me/m/brkgestaofinanceira'
+import urllib.parse as _up
+if WHATSAPP:
+    WA_URL = 'https://wa.me/' + WHATSAPP + '?text=' + _up.quote(WA_TEXT)
+    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'WhatsApp', 'WhatsApp', 'WhatsApp da BRK'
+    WA_ICO_KEY = 'wa'
+else:
+    WA_URL = 'https://ig.me/m/brkgestaofinanceira'
+    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'Direct no Instagram', 'Direct', '@brkgestaofinanceira'
+    WA_ICO_KEY = 'ig'
 
 ICON = {
     'wa': '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36A9.41 9.41 0 0 1 2.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.49A11.27 11.27 0 0 0 12.05.7C5.79.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.73 1.46h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg>',
@@ -193,7 +201,7 @@ def layout(meta, body, out_path):
         body = body.replace('<!--FAQ-->', faq_html(meta['faq']))
     wa_ctx = WA_URL
     body = body.replace('{{WA_CTX}}', esc(wa_ctx))
-    body = body.replace('{{P}}', p).replace('{{WA}}', esc(WA_URL)).replace('{{WA_ICON}}', ICON['ig']) \
+    body = body.replace('{{P}}', p).replace('{{WA}}', esc(WA_URL)).replace('{{WA_ICON}}', ICON[WA_ICO_KEY]).replace('{{WA_LABEL}}', WA_LABEL) \
                .replace('{{LOCK}}', ICON['lock']).replace('{{DL}}', ICON['dl']).replace('{{IG}}', INSTAGRAM) \
                .replace('{{LI}}', LINKEDIN).replace('{{WA_DISPLAY}}', WHATSAPP_DISPLAY) \
                .replace('{{ICON_PIN}}', ICON['pin']).replace('{{ICON_CLOCK}}', ICON['clock']) \
@@ -282,7 +290,7 @@ def layout(meta, body, out_path):
       <div>
         <h2>Atendimento</h2>
         <ul>
-          <li><a href="{esc(WA_URL)}" target="_blank" rel="noopener">Direct no Instagram {WHATSAPP_DISPLAY}</a></li>
+          <li><a href="{esc(WA_URL)}" target="_blank" rel="noopener">{WA_LABEL} · {WHATSAPP_DISPLAY}</a></li>
           <li><a href="{p}consultoria-financeira-grande-abc.html">Mauá, Santo André e Grande ABC</a></li>
           <li><a href="{p}contato.html">Online para todo o Brasil</a></li>
         </ul>
@@ -294,9 +302,9 @@ def layout(meta, body, out_path):
     </div>
   </div>
 </footer>
-<a class="wa-float" href="{esc(WA_URL)}" target="_blank" rel="noopener" aria-label="Falar com a BRK no Instagram">{ICON['ig']}</a>
+<a class="wa-float" href="{esc(WA_URL)}" target="_blank" rel="noopener" aria-label="Falar com a BRK">{ICON[WA_ICO_KEY]}</a>
 <div class="mobile-cta">
-  <a href="{esc(WA_URL)}" class="btn btn-wa" target="_blank" rel="noopener">{ICON['ig']} Direct</a>
+  <a href="{esc(WA_URL)}" class="btn btn-wa" target="_blank" rel="noopener">{ICON[WA_ICO_KEY]} {WA_SHORT}</a>
   <a href="{p}piloto.html" class="btn btn-solid">Quero uma vaga</a>
 </div>
 {gate_html(p)}
