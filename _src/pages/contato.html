@@ -1,0 +1,69 @@
+<!--meta
+{
+ "url": "contato.html",
+ "title": "Diagnóstico Financeiro Gratuito | Contato BRK Gestão Financeira",
+ "description": "Agende seu diagnóstico financeiro gratuito com a BRK. Atendimento presencial em Mauá, Santo André e Grande ABC ou online. Fale pelo Instagram ou preencha o formulário.",
+ "priority": "0.8",
+ "breadcrumb": [["Início", ""], ["Contato", "contato.html"]]
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li>Contato</li></ol>
+    <span class="eyebrow">Diagnóstico gratuito</span>
+    <h1>Agende seu diagnóstico financeiro gratuito</h1>
+    <p class="lead">Conte um pouco sobre a sua situação. Respondemos em até um dia útil para combinar o melhor horário — presencial no ABC ou por videochamada.</p>
+  </section>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-box">
+        <form class="form" action="https://formspree.io/f/xaqllykq" method="POST">
+          <input type="hidden" name="_subject" value="Novo pedido de diagnóstico — site BRK">
+          <div class="field">
+            <label for="nome">Nome ou razão social</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Como devemos chamar você?">
+          </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" required placeholder="(11) 90000-0000">
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required placeholder="seu@email.com">
+          </div>
+          <div class="field">
+            <label for="perfil">Você é</label>
+            <select id="perfil" name="perfil" required>
+              <option value="" disabled selected>Selecione</option>
+              <option>Empresa (pequena ou média)</option>
+              <option>MEI ou autônomo</option>
+              <option>Pessoa física / família</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Mauá, Santo André…">
+          </div>
+          <div class="field">
+            <label for="mensagem">Qual é o seu maior desafio hoje?</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Ex.: caixa sempre apertado, dívidas no cartão, não sei quanto a empresa lucra…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid">Solicitar diagnóstico gratuito</button>
+          <p style="font-size:0.78rem;color:var(--text-dim)">Seus dados são usados apenas para retornar o contato e são tratados com sigilo.</p>
+        </form>
+      </div>
+      <div class="contact-side">
+        <span class="eyebrow">Prefere conversar agora?</span>
+        <h2 class="section-title" style="font-size:1.6rem">Fale direto pelo Instagram</h2>
+        <p style="color:var(--text-muted)">É o jeito mais rápido de agendar. Mande uma mensagem contando se é para a sua empresa ou para as suas finanças pessoais.</p>
+        <a href="{{WA}}" class="btn btn-wa" target="_blank" rel="noopener">{{WA_ICON}} {{WA_DISPLAY}}</a>
+        <div class="contact-line">{{ICON_PIN}}<div><b>Região atendida</b><span>Mauá, Santo André e todo o Grande ABC · Online para o Brasil</span></div></div>
+        <div class="contact-line">{{ICON_CLOCK}}<div><b>Horário</b><span>Segunda a sexta, com horários flexíveis para empresários</span></div></div>
+        <div class="contact-line">{{ICON_IG}}<div><b>Instagram</b><a href="{{IG}}" target="_blank" rel="noopener">@brkgestaofinanceira</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>

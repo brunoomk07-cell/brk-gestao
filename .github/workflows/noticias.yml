@@ -1,0 +1,37 @@
+name: Atualizar notícias do Sebrae
+
+on:
+  schedule:
+    - cron: '17 */3 * * *'   # a cada 3 horas
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '_src/news.py'
+      - '.github/workflows/noticias.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: noticias
+  cancel-in-progress: true
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Buscar notícias
+        run: python3 _src/news.py
+      - name: Publicar se mudou
+        run: |
+          if git diff --quiet -- noticias.json; then
+            echo "Sem novidades."
+          else
+            git config user.name "brk-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add noticias.json
+            git commit -m "Atualiza notícias do Sebrae"
+            git push
+          fi

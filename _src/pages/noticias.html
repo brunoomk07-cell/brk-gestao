@@ -1,0 +1,40 @@
+<!--meta
+{
+ "url": "noticias.html",
+ "nav": "noticias.html",
+ "title": "Notícias para Pequenos Negócios (Sebrae) Atualizadas | BRK",
+ "description": "Painel de notícias para empreendedores e pequenos negócios, atualizado automaticamente com as publicações da Agência Sebrae de Notícias.",
+ "priority": "0.7",
+ "scripts": ["news"],
+ "breadcrumb": [["Início", ""], ["Notícias", "noticias.html"]]
+}
+-->
+<div class="container">
+  <section class="page-hero">
+    <ol class="breadcrumb"><li><a href="{{P}}index.html">Início</a></li><li>Notícias</li></ol>
+    <span class="eyebrow">Atualização automática a cada 3 horas</span>
+    <h1>Notícias para pequenos negócios</h1>
+    <p class="lead">As últimas publicações da Agência Sebrae de Notícias sobre economia, tributação, crédito, inovação e empreendedorismo — reunidas em um só lugar para você se manter informado.</p>
+  </section>
+</div>
+
+<section class="section" style="padding-top:36px">
+  <div class="container">
+    <div class="chips" data-news-filters></div>
+    <div class="news-grid" data-news data-limit="24" data-local="{{P}}noticias.json">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </div>
+    <p class="news-status" id="news-status"></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container narrow">
+    <div class="callout">
+      <h3>Notícia boa é notícia aplicada</h3>
+      <p>Mudanças na tributação, novas linhas de crédito ou juros diferentes afetam o caixa da sua empresa. Se tiver dúvida sobre como uma notícia impacta o seu negócio, fale com a gente.</p>
+      <p><a href="{{WA}}" target="_blank" rel="noopener">Perguntar pelo Instagram →</a></p>
+    </div>
+    <p style="font-size:0.78rem;color:var(--text-dim);margin-top:18px">As notícias são de autoria da Agência Sebrae de Notícias e levam ao site original. A BRK Gestão Financeira não tem vínculo com o Sebrae.</p>
+  </div>
+</section>

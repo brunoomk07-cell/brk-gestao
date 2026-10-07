@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brkconsultoriafinanceira.com.br/sitemap.xml
