@@ -26,7 +26,7 @@ if META_PIXEL_ID:
 BASE_URL = 'https://brkconsultoriafinanceira.com.br/'
 BRAND = 'BRK Gestão Financeira'
 # Para ativar o WhatsApp da marca: preencha com DDI+DDD+número, só dígitos (ex.: '5511912345678')
-WHATSAPP = ''
+WHATSAPP = '5511922037905'
 WA_TEXT = 'Olá! Vim pelo site da BRK e quero uma das 3 vagas do Programa Piloto.'
 INSTAGRAM = 'https://instagram.com/brkgestaofinanceira'
 INSTAGRAM_HANDLE = '@brkgestaofinanceira'
@@ -37,7 +37,8 @@ TODAY = datetime.date.today().isoformat()
 import urllib.parse as _up
 if WHATSAPP:
     WA_URL = 'https://wa.me/' + WHATSAPP + '?text=' + _up.quote(WA_TEXT)
-    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'WhatsApp', 'WhatsApp', 'WhatsApp da BRK'
+    WA_LABEL, WA_SHORT = 'WhatsApp', 'WhatsApp'
+    WHATSAPP_DISPLAY = '(%s) %s-%s' % (WHATSAPP[2:4], WHATSAPP[4:9], WHATSAPP[9:])
     WA_ICO_KEY = 'wa'
 else:
     WA_URL = 'https://ig.me/m/brkgestaofinanceira'
@@ -95,6 +96,7 @@ def org_schema():
             {'@type': 'AdministrativeArea', 'name': 'Grande ABC Paulista'},
             {'@type': 'Country', 'name': 'Brasil'}],
         'sameAs': [INSTAGRAM],
+        **({'telephone': '+' + WHATSAPP} if WHATSAPP else {}),
         'knowsAbout': ['Consultoria financeira', 'Fluxo de caixa', 'DRE', 'Precificação', 'Capital de giro',
                        'Ponto de equilíbrio', 'Finanças pessoais', 'Renegociação de dívidas', 'Educação financeira', 'Gestão financeira para MEI'],
         'hasOfferCatalog': {
