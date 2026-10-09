@@ -21,7 +21,7 @@ def clean(s, n=None):
 
 
 def fetch(url):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (BRK Gestao Financeira news bot)'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (BRK Consultoria Financeira news bot)'})
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read()
 

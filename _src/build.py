@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerador do site BRK Gestão Financeira.
+"""Gerador do site BRK Consultoria Financeira.
 
 Cada página fica em _src/pages/*.html ou _src/blog/*.html, com um bloco de
 metadados no topo:  <!--meta { ...json... } -->
@@ -24,7 +24,7 @@ if GA4_ID:
 if META_PIXEL_ID:
     TRACK += f'\n<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","{META_PIXEL_ID}");fbq("track","PageView");</script>'
 BASE_URL = 'https://brkconsultoriafinanceira.com.br/'
-BRAND = 'BRK Gestão Financeira'
+BRAND = 'BRK Consultoria Financeira'
 # Para ativar o WhatsApp da marca: preencha com DDI+DDD+número, só dígitos (ex.: '5511912345678')
 WHATSAPP = '5511922037905'
 WA_TEXT = 'Olá! Vim pelo site da BRK e quero uma das 3 vagas do Programa Piloto.'
@@ -84,7 +84,7 @@ def org_schema():
         '@type': ['ProfessionalService', 'FinancialService'],
         '@id': BASE_URL + '#organizacao',
         'name': BRAND,
-        'alternateName': 'BRK Gestão',
+        'alternateName': 'BRK Consultoria',
         'description': 'Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e em todo o Grande ABC, com atendimento online para todo o Brasil. Fluxo de caixa, DRE, precificação, organização de dívidas e educação financeira.',
         'url': BASE_URL,
         'logo': BASE_URL + 'logo.png',

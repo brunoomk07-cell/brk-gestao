@@ -1,4 +1,4 @@
-/* BRK Gestão Financeira — interações do site */
+/* BRK Consultoria Financeira — interações do site */
 (function () {
     var body = document.body;
     document.documentElement.classList.add('js');

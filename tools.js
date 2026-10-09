@@ -1,4 +1,4 @@
-/* BRK Gestão Financeira — ferramentas interativas e gráficos */
+/* BRK Consultoria Financeira — ferramentas interativas e gráficos */
 (function () {
     'use strict';
     if (!window.Chart) return;
