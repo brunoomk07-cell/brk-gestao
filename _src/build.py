@@ -85,7 +85,7 @@ def org_schema():
         '@id': BASE_URL + '#organizacao',
         'name': BRAND,
         'alternateName': 'Vértice Advisory',
-        'description': 'Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e em todo o Grande ABC, com atendimento online para todo o Brasil. Fluxo de caixa, DRE, precificação, organização de dívidas e educação financeira.',
+        'description': 'Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e em todo o Grande ABC e Litoral, com atendimento online para todo o Brasil. Fluxo de caixa, DRE, precificação, organização de dívidas e educação financeira.',
         'url': BASE_URL,
         'logo': BASE_URL + 'logo.png',
         'image': BASE_URL + 'og-image.png',
@@ -94,6 +94,7 @@ def org_schema():
         'address': {'@type': 'PostalAddress', 'addressLocality': 'Mauá', 'addressRegion': 'SP', 'addressCountry': 'BR'},
         'areaServed': [{'@type': 'City', 'name': c} for c in CITIES] + [
             {'@type': 'AdministrativeArea', 'name': 'Grande ABC Paulista'},
+         {'@type': 'AdministrativeArea', 'name': 'Litoral Paulista'},
             {'@type': 'Country', 'name': 'Brasil'}],
         'sameAs': [INSTAGRAM],
         **({'telephone': '+' + WHATSAPP} if WHATSAPP else {}),
@@ -223,7 +224,7 @@ def layout(meta, body, out_path):
 <link rel="canonical" href="{canonical}">
 <meta name="theme-color" content="#050505">
 <meta name="geo.region" content="BR-SP">
-<meta name="geo.placename" content="Mauá, Santo André, Grande ABC">
+<meta name="geo.placename" content="Mauá, Santo André, Grande ABC e Litoral">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{BRAND}">
@@ -293,14 +294,14 @@ def layout(meta, body, out_path):
         <h2>Atendimento</h2>
         <ul>
           <li><a href="{esc(WA_URL)}" target="_blank" rel="noopener">{WA_LABEL} · {WHATSAPP_DISPLAY}</a></li>
-          <li><a href="{p}consultoria-financeira-grande-abc.html">Mauá, Santo André e Grande ABC</a></li>
+          <li><a href="{p}consultoria-financeira-grande-abc.html">Mauá, Santo André, Grande ABC e Litoral</a></li>
           <li><a href="{p}contato.html">Online para todo o Brasil</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© {datetime.date.today().year} {BRAND.upper()}</span>
-      <span>Consultoria financeira em Mauá, Santo André e Grande ABC · Atendimento online</span>
+      <span>Consultoria financeira em Mauá, Santo André, Grande ABC e Litoral · Atendimento online</span>
     </div>
   </div>
 </footer>
