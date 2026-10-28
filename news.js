@@ -1,4 +1,4 @@
-/* BRK Consultoria Financeira — painel de notícias do Sebrae (atualizado automaticamente a cada 3 horas) */
+/* Vértice Advisory — painel de notícias do Sebrae (atualizado automaticamente a cada 3 horas) */
 (function () {
     'use strict';
     var boxes = document.querySelectorAll('[data-news]');

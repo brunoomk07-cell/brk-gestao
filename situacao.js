@@ -1,4 +1,4 @@
-/* BRK — quiz curto de situação (só mostra o nível de alerta) */
+/* Vértice — quiz curto de situação (só mostra o nível de alerta) */
 (function () {
     var Q = {
         pj: ['O dinheiro da empresa acaba antes do fim do mês, mesmo vendendo bem?', 'Você não sabe dizer quanto a empresa realmente lucra?', 'Contas da empresa e pessoais se misturam?', 'Você usa cheque especial, empréstimo ou cartão para pagar contas do dia a dia?', 'Você é surpreendido por contas que não estavam previstas?'],

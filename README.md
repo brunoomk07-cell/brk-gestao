@@ -1,4 +1,4 @@
-# BRK Consultoria Financeira — site
+# Vértice Advisory — site
 
 As páginas são geradas a partir de `_src/` (conteúdo em `_src/pages` e `_src/blog`).
 Para regenerar: `python3 _src/build.py`

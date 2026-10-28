@@ -1,4 +1,4 @@
-/* BRK Consultoria Financeira — ferramentas interativas e gráficos */
+/* Vértice Advisory — ferramentas interativas e gráficos */
 (function () {
     'use strict';
     if (!window.Chart) return;

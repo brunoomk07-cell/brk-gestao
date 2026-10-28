@@ -1,4 +1,4 @@
-/* BRK Consultoria Financeira — interações do site */
+/* Vértice Advisory — interações do site */
 (function () {
     var body = document.body;
     document.documentElement.classList.add('js');

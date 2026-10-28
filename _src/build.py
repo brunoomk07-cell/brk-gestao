@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerador do site BRK Consultoria Financeira.
+"""Gerador do site Vértice Advisory.
 
 Cada página fica em _src/pages/*.html ou _src/blog/*.html, com um bloco de
 metadados no topo:  <!--meta { ...json... } -->
@@ -24,12 +24,12 @@ if GA4_ID:
 if META_PIXEL_ID:
     TRACK += f'\n<script>!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","{META_PIXEL_ID}");fbq("track","PageView");</script>'
 BASE_URL = 'https://brkconsultoriafinanceira.com.br/'
-BRAND = 'BRK Consultoria Financeira'
+BRAND = 'Vértice Advisory'
 # Para ativar o WhatsApp da marca: preencha com DDI+DDD+número, só dígitos (ex.: '5511912345678')
 WHATSAPP = '5511922037905'
-WA_TEXT = 'Olá! Vim pelo site da BRK e quero uma das 3 vagas do Programa Piloto.'
-INSTAGRAM = 'https://instagram.com/brkgestaofinanceira'
-INSTAGRAM_HANDLE = '@brkgestaofinanceira'
+WA_TEXT = 'Olá! Vim pelo site da Vértice e quero uma das 3 vagas do Programa Piloto.'
+INSTAGRAM = 'https://instagram.com/verticeadvisory'
+INSTAGRAM_HANDLE = '@verticeadvisory'
 LINKEDIN = ''
 CITIES = ['Mauá', 'Santo André', 'São Bernardo do Campo', 'São Caetano do Sul', 'Diadema', 'Ribeirão Pires', 'Rio Grande da Serra']
 TODAY = datetime.date.today().isoformat()
@@ -41,8 +41,8 @@ if WHATSAPP:
     WHATSAPP_DISPLAY = '(%s) %s-%s' % (WHATSAPP[2:4], WHATSAPP[4:9], WHATSAPP[9:])
     WA_ICO_KEY = 'wa'
 else:
-    WA_URL = 'https://ig.me/m/brkgestaofinanceira'
-    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'Direct no Instagram', 'Direct', '@brkgestaofinanceira'
+    WA_URL = 'https://ig.me/m/verticeadvisory'
+    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'Direct no Instagram', 'Direct', '@verticeadvisory'
     WA_ICO_KEY = 'ig'
 
 ICON = {
@@ -84,7 +84,7 @@ def org_schema():
         '@type': ['ProfessionalService', 'FinancialService'],
         '@id': BASE_URL + '#organizacao',
         'name': BRAND,
-        'alternateName': 'BRK Consultoria',
+        'alternateName': 'Vértice Advisory',
         'description': 'Consultoria financeira para pequenas empresas, MEIs e pessoas físicas em Mauá, Santo André e em todo o Grande ABC, com atendimento online para todo o Brasil. Fluxo de caixa, DRE, precificação, organização de dívidas e educação financeira.',
         'url': BASE_URL,
         'logo': BASE_URL + 'logo.png',
@@ -132,9 +132,9 @@ def gate_html(p):
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-hidden="true">
   <div class="gate-panel">
     <button type="button" class="gate-close js-gate-close" aria-label="Fechar">&times;</button>
-    <span class="eyebrow">Biblioteca BRK</span>
+    <span class="eyebrow">Biblioteca Vértice</span>
     <h2 id="gate-title">Libere seus Guias Fundamentais</h2>
-    <p class="gate-intro">Os dois guias são gratuitos. Para liberar o acesso, siga a BRK no Instagram — é onde publicamos conteúdo sobre finanças para empresas e pessoas.</p>
+    <p class="gate-intro">Os dois guias são gratuitos. Para liberar o acesso, siga a Vértice no Instagram — é onde publicamos conteúdo sobre finanças para empresas e pessoas.</p>
     <div class="gate-progress"><span></span></div>
     <p class="gate-count"><span class="js-count">0</span> de 1 etapa concluída</p>
     <a class="gate-step" data-step="instagram" href="{INSTAGRAM}" target="_blank" rel="noopener">
@@ -240,7 +240,7 @@ def layout(meta, body, out_path):
 <link rel="apple-touch-icon" href="{p}apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{p}style.css">
 {ld}{TRACK}
 </head>
@@ -248,7 +248,7 @@ def layout(meta, body, out_path):
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="{p}index.html" class="logo" aria-label="{BRAND} — página inicial"><img src="{p}logo.png" alt="{BRAND}" width="120" height="52"></a>
+    <a href="{p}index.html" class="logo" aria-label="{BRAND} — página inicial"><img src="{p}logo.png" alt="{BRAND}" width="161" height="44"></a>
     <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <nav class="nav" id="menu" aria-label="Menu principal">
       {nav}
@@ -263,10 +263,10 @@ def layout(meta, body, out_path):
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="{p}logo.png" alt="{BRAND}" width="166" height="72" loading="lazy">
+        <img src="{p}logo-claro.png" alt="{BRAND}" width="220" height="60" loading="lazy">
         <p>Consultoria financeira para pequenas empresas, MEIs e famílias. Salvar empresas e dar liberdade financeira às pessoas.</p>
         <div class="socials">
-          <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram da BRK">{ICON['ig']}</a>
+          <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram da Vértice">{ICON['ig']}</a>
         </div>
       </div>
       <div>
@@ -304,7 +304,7 @@ def layout(meta, body, out_path):
     </div>
   </div>
 </footer>
-<a class="wa-float" href="{esc(WA_URL)}" target="_blank" rel="noopener" aria-label="Falar com a BRK">{ICON[WA_ICO_KEY]}</a>
+<a class="wa-float" href="{esc(WA_URL)}" target="_blank" rel="noopener" aria-label="Falar com a Vértice">{ICON[WA_ICO_KEY]}</a>
 <div class="mobile-cta">
   <a href="{esc(WA_URL)}" class="btn btn-wa" target="_blank" rel="noopener">{ICON[WA_ICO_KEY]} {WA_SHORT}</a>
   <a href="{p}piloto.html" class="btn btn-solid">Quero uma vaga</a>

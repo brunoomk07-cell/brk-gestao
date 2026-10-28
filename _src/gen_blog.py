@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera os artigos do blog (_src/blog/*.html) no formato: dor → sinais → consequências → dicas rápidas → solução BRK.
+"""Gera os artigos do blog (_src/blog/*.html) no formato: dor → sinais → consequências → dicas rápidas → solução Vértice.
 A ideia é ajudar o leitor a enxergar o problema e dar algumas dicas, sem entregar o método."""
 import json
 from pathlib import Path
@@ -14,10 +14,10 @@ SERV = {
 POSTS = [
     dict(slug='fluxo-de-caixa-pequena-empresa', order=1, tag='Empresas', serv='pj',
          h1='Empresa vende, mas falta dinheiro no caixa? Os sinais de alerta',
-         title='Empresa Vende mas Falta Dinheiro no Caixa? 6 Sinais de Alerta | BRK',
+         title='Empresa Vende mas Falta Dinheiro no Caixa? 6 Sinais de Alerta | Vértice',
          desc='Sua empresa vende bem, mas o dinheiro nunca sobra? Veja os 6 sinais de que o caixa está em risco, o que acontece se nada mudar e como resolver.',
          excerpt='Vender bem e não ter dinheiro para pagar as contas é mais comum do que parece. Veja os sinais de que o caixa da sua empresa está em risco.',
-         read=5, wa='Olá! Li o artigo sobre caixa no site da BRK. Minha empresa vende, mas falta dinheiro.',
+         read=5, wa='Olá! Li o artigo sobre caixa no site da Vértice. Minha empresa vende, mas falta dinheiro.',
          hook='<p>Existe uma frase que todo empresário deveria conhecer: <strong>empresa não quebra por falta de lucro, quebra por falta de caixa</strong>. Dá para ter lucro no papel e, mesmo assim, não ter dinheiro para pagar a folha na sexta-feira.</p><p>Hoje, mais de 9 milhões de empresas estão com dívidas em atraso no Brasil, segundo a Serasa Experian — e três quartos dessas dívidas são com fornecedores e contas do dia a dia, não com bancos. É o retrato de negócios que perderam o controle do caixa.</p>',
          signals=['Você só descobre que vai faltar dinheiro quando o boleto já venceu.', 'O saldo do banco é o único "relatório" que você olha.', 'Cheque especial e antecipação de recebíveis viraram rotina.', 'As vendas crescem, mas o aperto também.', 'Você adia pagamentos a fornecedores para fechar o mês.', 'Não sabe dizer quanto terá em caixa daqui a 30 dias.'],
          cons='<p>Sem previsão de caixa, as decisões viram reação: empréstimo às pressas, desconto para vender rápido, fornecedor pago com atraso. Cada uma dessas saídas tem um custo — e ele vai se acumulando até consumir o lucro. É assim que empresas rentáveis entram em crise.</p>',
@@ -28,10 +28,10 @@ POSTS = [
 
     dict(slug='separar-financas-pessoais-e-da-empresa', order=2, tag='Empresas', serv='pj',
          h1='Misturar as contas da empresa e as pessoais: o erro que esconde o prejuízo',
-         title='Misturar Contas da Empresa e Pessoais Esconde o Prejuízo | BRK',
+         title='Misturar Contas da Empresa e Pessoais Esconde o Prejuízo | Vértice',
          desc='Paga contas de casa com o dinheiro da empresa? Entenda por que misturar CPF e CNPJ esconde o prejuízo e trava o crescimento — e como a consultoria resolve.',
          excerpt='Pagar o mercado com o cartão da empresa parece inofensivo. Mas é o erro que mais esconde prejuízo nas pequenas empresas.',
-         read=5, wa='Olá! Li o artigo sobre separar as contas no site da BRK e quero organizar isso na minha empresa.',
+         read=5, wa='Olá! Li o artigo sobre separar as contas no site da Vértice e quero organizar isso na minha empresa.',
          hook='<p>Pagar a escola dos filhos com o cartão da empresa. Tirar dinheiro do caixa "só dessa vez". Receber de clientes na conta pessoal. <strong>Misturar o dinheiro do sócio com o do negócio é o erro mais comum das pequenas empresas</strong> — e um dos mais caros.</p><p>O motivo é simples: com as contas misturadas, fica impossível responder à pergunta mais importante de qualquer negócio — <em>a empresa dá lucro ou não?</em></p>',
          signals=['Você não sabe quanto retirou da empresa no último ano.', 'Despesas da casa saem da conta do negócio (ou o contrário).', 'Não existe um valor fixo de retirada.', 'Você acha que a empresa dá lucro, mas o dinheiro nunca sobra.', 'O contador vive pedindo para "separar as coisas".'],
          cons='<p>Uma empresa que dá R$ 5 mil de lucro por mês, com um sócio que retira R$ 12 mil, perde R$ 7 mil de caixa todo mês — e o dono não entende por que precisa de empréstimo. Sem separação, o problema fica invisível até virar dívida.</p>',
@@ -42,10 +42,10 @@ POSTS = [
 
     dict(slug='ponto-de-equilibrio', order=3, tag='Empresas', serv='pj',
          h1='Sua empresa está vendendo o suficiente? O número que quase ninguém sabe',
-         title='Quanto Minha Empresa Precisa Vender Para Não Ter Prejuízo? | BRK',
+         title='Quanto Minha Empresa Precisa Vender Para Não Ter Prejuízo? | Vértice',
          desc='A maioria dos empresários não sabe quanto precisa vender para não ter prejuízo. Entenda o ponto de equilíbrio, os sinais de risco e calcule o seu grátis.',
          excerpt='Se você não sabe quanto precisa vender por mês para não ter prejuízo, está dirigindo sem painel. Veja por que esse número importa.',
-         read=4, wa='Olá! Li o artigo sobre ponto de equilíbrio no site da BRK e quero entender os números da minha empresa.',
+         read=4, wa='Olá! Li o artigo sobre ponto de equilíbrio no site da Vértice e quero entender os números da minha empresa.',
          hook='<p>Se alguém perguntasse agora quanto a sua empresa precisa faturar este mês para não ter prejuízo, você saberia responder? A maioria dos pequenos empresários não sabe — e só descobre que o mês foi ruim quando o dinheiro já acabou.</p><p>Esse número tem nome: <strong>ponto de equilíbrio</strong>. Abaixo dele, cada mês consome caixa. Acima dele, a empresa começa a gerar lucro.</p>',
          signals=['Você nunca calculou quanto precisa vender por mês.', 'Contrata ou aumenta a estrutura sem saber se as vendas aguentam.', 'Dá descontos sem saber quanto sobra de cada venda.', 'Os meses "fracos" sempre terminam no vermelho.', 'Você trabalha cada vez mais e o lucro não acompanha.'],
          cons='<p>Sem conhecer esse número, a empresa toma decisões às cegas: uma contratação que parecia pequena, um aluguel um pouco maior, um desconto para "girar estoque" — e, de repente, o negócio precisa vender muito mais só para empatar.</p>',
@@ -56,10 +56,10 @@ POSTS = [
 
     dict(slug='dre-gerencial', order=4, tag='Empresas', serv='pj',
          h1='Sua empresa dá lucro mesmo? Por que o faturamento engana',
-         title='Minha Empresa Dá Lucro? Por Que o Faturamento Engana | BRK',
+         title='Minha Empresa Dá Lucro? Por Que o Faturamento Engana | Vértice',
          desc='Faturar bem não significa lucrar. Veja os sinais de que sua empresa pode estar dando prejuízo sem você perceber — e como descobrir o lucro real.',
          excerpt='Faturamento alto não é sinônimo de lucro. Veja os sinais de que a sua empresa pode estar dando prejuízo sem você perceber.',
-         read=4, wa='Olá! Li o artigo sobre lucro no site da BRK e quero saber se minha empresa realmente dá lucro.',
+         read=4, wa='Olá! Li o artigo sobre lucro no site da Vértice e quero saber se minha empresa realmente dá lucro.',
          hook='<p>"Faturamos R$ 100 mil este mês." Parece ótimo — até alguém perguntar: <strong>e quanto sobrou?</strong> Depois de mercadoria, impostos, taxas, folha, aluguel e retiradas, o que sobra pode ser pouco. Ou negativo.</p><p>Confundir faturamento com lucro é o primeiro passo para decisões erradas: gastar o que não existe, retirar o que a empresa não gerou e crescer no prejuízo.</p>',
          signals=['Você sabe o faturamento, mas não o lucro do mês.', 'O contador entrega relatórios que ninguém lê.', 'Vende cada vez mais e o dinheiro não aparece.', 'Não sabe quais produtos ou serviços dão mais resultado.', 'Juros e tarifas bancárias pesam cada vez mais.'],
          cons='<p>Sem saber o lucro real, a empresa pode passar meses — ou anos — operando no prejuízo, compensado com empréstimos, atrasos e o dinheiro pessoal dos sócios. Quando a conta chega, já é uma crise.</p>',
@@ -70,10 +70,10 @@ POSTS = [
 
     dict(slug='capital-de-giro', order=5, tag='Empresas', serv='pj',
          h1='Falta de capital de giro: por que falta dinheiro mesmo vendendo bem',
-         title='Falta de Capital de Giro: Por Que Falta Dinheiro Vendendo Bem | BRK',
+         title='Falta de Capital de Giro: Por Que Falta Dinheiro Vendendo Bem | Vértice',
          desc='Sua empresa cresce, mas o caixa aperta cada vez mais? Entenda a falta de capital de giro, os sinais de alerta e como a consultoria resolve.',
          excerpt='Vender mais e ter menos dinheiro no caixa. Parece contraditório, mas é o sintoma clássico da falta de capital de giro.',
-         read=4, wa='Olá! Li o artigo sobre capital de giro no site da BRK. Minha empresa cresce, mas falta caixa.',
+         read=4, wa='Olá! Li o artigo sobre capital de giro no site da Vértice. Minha empresa cresce, mas falta caixa.',
          hook='<p>Mais de três quartos das dívidas em atraso das empresas brasileiras são com fornecedores, prestadores de serviço e contas do dia a dia, segundo a Serasa Experian. Esse é o retrato típico da <strong>falta de capital de giro</strong>: a empresa vende, mas o dinheiro não chega a tempo de pagar as contas.</p>',
          signals=['Você paga fornecedores antes de receber dos clientes.', 'Quanto mais vende a prazo, mais o caixa aperta.', 'Estoque parado ocupa espaço e dinheiro.', 'Antecipação de recebíveis virou rotina.', 'Crescer parece sempre "sufocar" a empresa.'],
          cons='<p>Sem capital de giro, cada venda a prazo precisa ser financiada com dinheiro caro. Os juros comem o lucro, e o crescimento — que deveria ser uma boa notícia — vira o motivo da crise. Muitas empresas quebram justamente quando estão vendendo mais.</p>',
@@ -84,10 +84,10 @@ POSTS = [
 
     dict(slug='indicadores-financeiros-essenciais', order=6, tag='Empresas', serv='pj',
          h1='Você decide no escuro? Os números que todo empresário deveria enxergar',
-         title='Indicadores Financeiros: Os Números que Todo Empresário Deve Ver | BRK',
+         title='Indicadores Financeiros: Os Números que Todo Empresário Deve Ver | Vértice',
          desc='Decidir sem números custa caro. Conheça os indicadores financeiros que todo pequeno empresário deveria acompanhar e os riscos de não olhar para eles.',
          excerpt='Dirigir uma empresa sem indicadores é como dirigir um carro sem painel. Veja quais números você não pode ignorar.',
-         read=4, wa='Olá! Li o artigo sobre indicadores no site da BRK e quero um painel de números para minha empresa.',
+         read=4, wa='Olá! Li o artigo sobre indicadores no site da Vértice e quero um painel de números para minha empresa.',
          hook='<p>Dirigir uma empresa sem indicadores é como dirigir um carro sem painel: você só descobre que o combustível acabou quando o motor para. A maioria das pequenas empresas decide preço, contratação e investimento na base da sensação — e paga caro por isso.</p>',
          signals=['Você não sabe a margem de lucro da empresa.', 'Não sabe quantos dias leva para receber dos clientes.', 'Decide preços "olhando o concorrente".', 'Não tem uma reunião mensal para olhar os números.', 'Descobre os problemas só quando eles viram crise.'],
          cons='<p>Sem indicadores, os problemas aparecem tarde: a margem vai caindo aos poucos, o prazo de recebimento vai esticando, o endividamento vai subindo. Quando tudo isso chega ao caixa, as opções já são poucas — e caras.</p>',
@@ -98,10 +98,10 @@ POSTS = [
 
     dict(slug='governanca-corporativa-pequenas-empresas', order=7, tag='Governança', serv='pj',
          h1='Conflitos entre sócios e família: quando a empresa precisa de governança',
-         title='Governança em Empresa Familiar: Conflitos entre Sócios | BRK',
+         title='Governança em Empresa Familiar: Conflitos entre Sócios | Vértice',
          desc='Discussões entre sócios, parentes sem função definida e decisões no corredor? Veja os sinais de que sua empresa familiar precisa de governança.',
          excerpt='Governança não é coisa de multinacional. É o que evita que conflitos entre sócios e família destruam o negócio.',
-         read=5, wa='Olá! Li o artigo sobre governança no site da BRK e quero organizar a gestão da minha empresa familiar.',
+         read=5, wa='Olá! Li o artigo sobre governança no site da Vértice e quero organizar a gestão da minha empresa familiar.',
          hook='<p>Sócios que discordam sobre retiradas. Parentes que trabalham sem função definida. Decisões importantes tomadas no corredor. Dinheiro da empresa pagando contas da família. <strong>Esses problemas aparecem com força nas pequenas empresas — e principalmente nas familiares.</strong></p><p>Governança é o conjunto de regras que define como a empresa é dirigida, como as decisões são tomadas e como o dinheiro circula. E ela pode, e deve, ser do tamanho do seu negócio.</p>',
          signals=['Os sócios não sabem quanto cada um retirou no ano.', 'Decisões importantes são tomadas sem números.', 'Familiares ocupam cargos sem função ou metas.', 'Ninguém sabe o que acontece se um sócio quiser sair.', 'As mesmas discussões se repetem todo mês.'],
          cons='<p>Sem regras claras, os conflitos crescem, as decisões travam e o caixa vira campo de disputa. Em empresas familiares, o problema ainda atravessa a mesa do jantar. Muitas empresas saudáveis se perdem na sucessão ou na briga entre sócios.</p>',
@@ -112,10 +112,10 @@ POSTS = [
 
     dict(slug='financas-do-mei', order=8, tag='MEI', serv='mei',
          h1='MEI: as armadilhas financeiras que travam o crescimento',
-         title='MEI: 5 Armadilhas Financeiras que Travam o Crescimento (2026) | BRK',
+         title='MEI: 5 Armadilhas Financeiras que Travam o Crescimento (2026) | Vértice',
          desc='Limite de R$ 81 mil, contas misturadas, preço errado: veja as armadilhas financeiras mais comuns do MEI em 2026 e como evitá-las.',
          excerpt='Ser MEI é simples — e é aí que mora o perigo. Veja as armadilhas que fazem muita gente trabalhar anos sem saber se está ganhando.',
-         read=5, wa='Olá! Li o artigo sobre MEI no site da BRK e quero organizar as finanças do meu negócio.',
+         read=5, wa='Olá! Li o artigo sobre MEI no site da Vértice e quero organizar as finanças do meu negócio.',
          hook='<p>Ser MEI é a porta de entrada do empreendedorismo para milhões de brasileiros: pouca burocracia, imposto fixo e baixo custo. Mas essa simplicidade tem um lado perigoso: como tudo é "fácil", muita gente nunca organiza o dinheiro do negócio — e trabalha anos sem saber se está realmente ganhando.</p><p>Em 2026, o limite de faturamento continua em <strong>R$ 81 mil por ano</strong> (média de R$ 6.750 por mês), e o DAS mensal da maioria das atividades fica entre R$ 82 e R$ 87.</p>',
          signals=['O dinheiro das vendas paga as contas de casa.', 'Você não sabe quanto realmente ganha por mês.', 'O preço foi copiado do concorrente.', 'Não acompanha o faturamento acumulado do ano.', 'Não tem nenhuma reserva para os meses fracos.'],
          cons='<p>Sem controle, o MEI trabalha muito e ganha pouco — e ainda corre o risco de estourar o limite sem perceber. Se passar de R$ 97,2 mil (20% acima do teto), o desenquadramento retroage a janeiro, com impostos de microempresa sobre o ano inteiro.</p>',
@@ -126,10 +126,10 @@ POSTS = [
 
     dict(slug='como-sair-das-dividas', order=9, tag='Finanças pessoais', serv='pf',
          h1='Endividado? Por que a dívida não diminui (e o que fazer primeiro)',
-         title='Endividado? Por Que a Dívida Não Diminui e o Que Fazer | BRK',
+         title='Endividado? Por Que a Dívida Não Diminui e o Que Fazer | Vértice',
          desc='Paga todo mês e a dívida não diminui? Entenda por que isso acontece, os sinais de alerta e os primeiros passos para sair das dívidas com ajuda profissional.',
          excerpt='Você paga, paga, e a dívida continua do mesmo tamanho. Entenda por que isso acontece e qual é o primeiro passo para sair.',
-         read=5, wa='Olá! Li o artigo sobre dívidas no site da BRK e preciso de ajuda para sair das dívidas.',
+         read=5, wa='Olá! Li o artigo sobre dívidas no site da Vértice e preciso de ajuda para sair das dívidas.',
          hook='<p>Quase 84 milhões de brasileiros estão com o nome negativado, segundo a Serasa. E um dado assusta ainda mais: <strong>42% de quem está inadimplente hoje também estava há dez anos</strong>. Muita gente consegue "limpar o nome" — e volta para o mesmo lugar.</p><p>Isso acontece porque sair das dívidas tem duas partes: resolver a dívida e resolver o que criou a dívida. A maioria só tenta a primeira.</p>',
          signals=['Você paga todo mês e o saldo não cai.', 'Não sabe exatamente quanto deve, nem a quem.', 'Usa um crédito para pagar outro.', 'Já renegociou e voltou a atrasar.', 'Evita atender ligações de cobrança.'],
          cons='<p>Quando os juros do mês são maiores que a parcela, a dívida cresce mesmo com você pagando em dia. O estresse aumenta, o crédito fica mais caro e as opções ficam piores. Sem um plano, o ciclo se repete.</p>',
@@ -140,10 +140,10 @@ POSTS = [
 
     dict(slug='cartao-de-credito-rotativo', order=10, tag='Finanças pessoais', serv='pf',
          h1='Pagando o mínimo do cartão? Quanto isso realmente custa',
-         title='Pagando o Mínimo do Cartão? Quanto o Rotativo Realmente Custa | BRK',
+         title='Pagando o Mínimo do Cartão? Quanto o Rotativo Realmente Custa | Vértice',
          desc='Pagar o mínimo da fatura parece alívio, mas custa caro. Entenda o rotativo do cartão, o limite legal de juros e os sinais de que você está preso nessa armadilha.',
          excerpt='Pagar o mínimo da fatura dá alívio no mês — e prende você por muitos outros. Veja quanto isso realmente custa.',
-         read=4, wa='Olá! Li o artigo sobre o rotativo do cartão no site da BRK e preciso de ajuda com minha fatura.',
+         read=4, wa='Olá! Li o artigo sobre o rotativo do cartão no site da Vértice e preciso de ajuda com minha fatura.',
          hook='<p>O cartão de crédito aparece em <strong>85% das famílias endividadas</strong> do Brasil, segundo a CNC. O cartão em si não é o problema — ele é prático e seguro. O problema é o rotativo: o crédito automático que entra em ação quando você paga menos que o total da fatura.</p><p>O rotativo está entre os créditos mais caros do país. Desde 2024, a lei limita os juros e encargos a 100% do valor original da dívida — ou seja, você ainda pode pagar o dobro do que comprou.</p>',
          signals=['Você paga o mínimo ou só uma parte da fatura.', 'Parcelou a fatura mais de uma vez.', 'Usa o limite do cartão como extensão do salário.', 'A fatura do mês que vem já está comprometida.', 'Tem mais de um cartão para "rodar" as contas.'],
          cons='<p>A dívida no rotativo cresce mais rápido do que a maioria das pessoas consegue pagar. Somada às novas compras, vira uma bola de neve que consome o salário antes mesmo de ele cair. Cada mês de atraso torna a saída mais cara.</p>',
@@ -154,10 +154,10 @@ POSTS = [
 
     dict(slug='orcamento-familiar-50-30-20', order=11, tag='Finanças pessoais', serv='pf',
          h1='O salário acaba antes do mês? As causas mais comuns',
-         title='Salário Acaba Antes do Mês? As Causas Mais Comuns | BRK',
+         title='Salário Acaba Antes do Mês? As Causas Mais Comuns | Vértice',
          desc='O dinheiro some antes do fim do mês? Veja as causas mais comuns, os sinais de alerta no orçamento familiar e como a consultoria pessoal resolve.',
          excerpt='Se o salário some antes do dia 30, o problema raramente é só a renda. Veja as causas mais comuns — e o que elas dizem sobre o seu orçamento.',
-         read=4, wa='Olá! Li o artigo sobre orçamento no site da BRK. Meu salário acaba antes do mês e quero ajuda.',
+         read=4, wa='Olá! Li o artigo sobre orçamento no site da Vértice. Meu salário acaba antes do mês e quero ajuda.',
          hook='<p>Hoje, <strong>82% das famílias brasileiras têm algum tipo de dívida</strong>, segundo a CNC, e quase 3 em cada 10 estão com contas em atraso. Na maioria das vezes, o problema não é só quanto se ganha — é para onde o dinheiro vai sem que ninguém perceba.</p>',
          signals=['Você não sabe quanto gastou no mês passado.', 'Delivery, assinaturas e compras pequenas somam muito.', 'Parcelas antigas comprometem o salário novo.', 'Nada é guardado no início do mês.', 'Cada aumento de salário vira aumento de gastos.'],
          cons='<p>Quando o salário acaba antes do mês, o cartão e o cheque especial passam a cobrir a diferença. Os juros entram, a próxima renda já chega comprometida, e o aperto vira rotina — mesmo para quem ganha bem.</p>',
@@ -168,10 +168,10 @@ POSTS = [
 
     dict(slug='reserva-de-emergencia', order=12, tag='Finanças pessoais', serv='pf',
          h1='Sem reserva de emergência: o risco que transforma imprevisto em dívida',
-         title='Sem Reserva de Emergência? O Risco que Vira Dívida | BRK',
+         title='Sem Reserva de Emergência? O Risco que Vira Dívida | Vértice',
          desc='Sem reserva, todo imprevisto vira dívida cara. Entenda o risco de viver sem proteção financeira e descubra quanto você precisa com a nossa calculadora grátis.',
          excerpt='O carro quebra, a renda cai, alguém adoece. Sem reserva, cada imprevisto vira dívida. Veja o tamanho do seu risco.',
-         read=4, wa='Olá! Li o artigo sobre reserva de emergência no site da BRK e quero montar a minha.',
+         read=4, wa='Olá! Li o artigo sobre reserva de emergência no site da Vértice e quero montar a minha.',
          hook='<p>O carro quebra. O celular cai na água. Alguém da família precisa de um remédio caro. A empresa corta vagas. Imprevistos acontecem com todo mundo — a diferença é que, para quem tem reserva, eles são um susto. <strong>Para quem não tem, viram dívida.</strong></p>',
          signals=['Você não aguentaria um mês sem renda.', 'O último imprevisto foi parar no cartão.', 'Nunca sobra para guardar.', 'A "reserva" fica na conta corrente e se mistura com o dia a dia.', 'Sua renda é variável e você não tem colchão.'],
          cons='<p>Sem proteção, cada imprevisto empurra a família para o crédito caro — e um mês ruim desorganiza os seguintes. Para autônomos e MEIs, com renda variável, o risco é ainda maior.</p>',
@@ -198,7 +198,7 @@ def build(p):
     <ol class="breadcrumb"><li><a href="{{{{P}}}}index.html">Início</a></li><li><a href="{{{{P}}}}blog/">Blog</a></li><li>{p['tag']}</li></ol>
     <span class="eyebrow">{p['tag']}</span>
     <h1>{p['h1']}</h1>
-    <p class="meta"><span>BRK Consultoria Financeira</span><span>Leitura de {p['read']} minutos</span></p>
+    <p class="meta"><span>Vértice Advisory</span><span>Leitura de {p['read']} minutos</span></p>
   </section>
 </div>
 
@@ -215,7 +215,7 @@ def build(p):
       <h2>Por que é tão difícil resolver sozinho</h2>
       {p['hard']}
       <div class="tool-cta">
-        <b>Como a BRK resolve</b>
+        <b>Como a Vértice resolve</b>
         <p>Na <a href="{{{{P}}}}{serv_url}">{serv_name.lower()}</a>, entramos na sua realidade, encontramos a raiz do problema e construímos a solução junto com você. O resultado:</p>
         <ul class="outcomes" style="border:none;background:none;padding:0 0 10px">{sol}</ul>
         <div class="btn-row">

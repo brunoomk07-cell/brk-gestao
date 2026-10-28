@@ -1,4 +1,4 @@
-/* BRK Consultoria Financeira — estilo global */
+/* Vértice Advisory — estilo global */
 :root {
     --bg-body: #050505;
     --bg-card: #0d0d0d;
@@ -57,7 +57,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 .header-inner { height: var(--header-h); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .logo { display: flex; align-items: center; }
-.logo img { height: 52px; width: auto; }
+.logo img { height: 44px; width: auto; }
 .nav { display: flex; align-items: center; gap: 34px; }
 .nav a {
     text-decoration: none; color: var(--text-muted); font-size: 0.78rem;
@@ -816,3 +816,68 @@ a.card:hover,.tool-card:hover,.post-card:hover,.news-card:hover{box-shadow:none}
 .btn-wa{background:transparent;color:var(--gold-primary);border:1px solid var(--gold-line-strong)}
 .btn-wa:hover{background:rgba(212,175,55,.08);color:#F7E7A8;border-color:var(--gold-primary)}
 .wa-float{background:linear-gradient(135deg,#F7E7A8,#E6C45E 50%,#D4AF37);color:#0a0a0a;box-shadow:none}
+
+/* ===== Vértice Advisory — tema claro (preto, dourado, branco) ===== */
+:root{
+ --bg-body:#FFFFFF;--bg-card:#FFFFFF;--bg-raised:#F6F4EF;
+ --gold-primary:#8A6217;--gold-secondary:#9A6F1B;
+ --gold-grad:linear-gradient(135deg,#9A6F1B 0%,#D4A535 55%,#F0CF72 100%);
+ --gold-line:rgba(14,14,14,0.10);--gold-line-strong:rgba(154,111,27,0.5);
+ --text-main:#1F1F1F;--text-muted:#4F4F4F;--text-dim:#6E6E6E;--white:#0E0E0E;
+}
+body{background:#fff;color:#1F1F1F;font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+h1,h2,h3,h4,.section-title,.page-hero h1,.hero h1,.sit-q h2,.sit-res h2,.logo,.card h3,.ebook-cover h3{font-family:'Outfit','Inter',sans-serif!important}
+.hero h1,.page-hero h1{background:none;-webkit-text-fill-color:#0E0E0E;color:#0E0E0E;font-weight:700}
+em{font-style:normal;color:var(--gold-primary)}
+.site-header,header.site-header{background:rgba(255,255,255,0.94);border-bottom:1px solid rgba(14,14,14,0.08)}
+.site-header a,.nav a{color:#1F1F1F}
+.nav a:hover,.nav a.active,.nav a[aria-current]{color:var(--gold-primary)}
+.btn{font-family:'Outfit',sans-serif}
+.btn-solid,.btn-solid:hover{background:var(--gold-grad);color:#0E0E0E;border-color:transparent}
+.btn{color:#0E0E0E;border-color:rgba(14,14,14,0.25)}
+.btn:hover{border-color:var(--gold-primary);color:var(--gold-primary)}
+.btn-wa{background:#0E0E0E;color:#fff;border:1px solid #0E0E0E}
+.btn-wa:hover{background:#2a2a2a;color:#F0CF72;border-color:#2a2a2a}
+.wa-float{background:#0E0E0E;color:#F0CF72}
+.hero-bleed{background:linear-gradient(180deg,#fff 0%,#F6F4EF 100%);border-bottom:1px solid var(--gold-line)}
+.hero-bleed::before,.hero-bleed::after{display:none}
+.hero-photo{position:relative;justify-self:end;width:100%;max-width:420px;border-radius:2px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(14,14,14,.45)}
+.hero-photo img{width:100%;height:auto;aspect-ratio:830/900;object-fit:cover;object-position:top}
+.hero-tag{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(0deg,rgba(14,14,14,.85),rgba(14,14,14,0));color:#F0CF72;font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+@media (max-width:900px){.hero-photo{justify-self:center;max-width:340px;order:2}}
+.eyebrow{color:var(--gold-primary)}
+.section-alt{background:#F6F4EF}
+.card,.tool-card,.post-card,.news-card,.ebook,.stat,.kpi,.dash-card,.result,.pain-card,.outcomes,.tool-cta,.sit,.ebook-question,.case,.verdict,.flash{background:#fff!important;border-color:rgba(14,14,14,.12);box-shadow:0 1px 2px rgba(14,14,14,.04)}
+.ebook-cover{background:#0E0E0E;color:#fff}
+.ebook-cover h3,.ebook-cover .ebook-badge{color:#F0CF72}
+.cta-band{background:#0E0E0E;color:#E8E8E8}
+.cta-band h2{color:#fff}.cta-band p{color:#C9C9C9}
+.cta-band em{color:#F0CF72}
+.cta-band .btn-wa{background:transparent;border-color:rgba(240,207,114,.6);color:#F0CF72}
+.cta-band .btn-wa:hover{background:rgba(240,207,114,.1)}
+.site-footer{background:#0E0E0E;color:#C9C9C9;border-top:3px solid #D4A535;--text-main:#E8E8E8;--text-muted:#B5B5B5;--text-dim:#8F8F8F;--white:#fff;--gold-primary:#F0CF72;--gold-line:rgba(255,255,255,.12)}
+.site-footer a{color:#D8D8D8}.site-footer a:hover{color:#F0CF72}
+.skeleton{background:linear-gradient(90deg,#f1efe9,#faf8f3,#f1efe9);background-size:200% 100%}
+.sit-opts button{color:#1F1F1F}
+.sit-bar{background:rgba(14,14,14,.08)}
+.statement{color:#0E0E0E}.statement .gold,.gold{color:var(--gold-primary)}
+.journey{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:32px 0}
+.journey li{background:#fff;border:1px solid rgba(14,14,14,.12);border-top:3px solid #D4A535;padding:22px 18px}
+.journey .j-n{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.6rem;color:var(--gold-primary);display:block;margin-bottom:8px}
+.journey h3{font-size:1rem;line-height:1.3;margin-bottom:10px;color:#0E0E0E}
+.journey p{font-size:.88rem;color:var(--text-muted);line-height:1.55}
+.questions{list-style:none;counter-reset:q;max-width:760px;margin:28px auto}
+.questions li{counter-increment:q;display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(14,14,14,.12);font-size:1.08rem;color:#0E0E0E}
+.questions li::before{content:counter(q);flex:none;width:38px;height:38px;border-radius:50%;background:#0E0E0E;color:#F0CF72;font-family:'Outfit',sans-serif;font-weight:700;display:grid;place-items:center}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.benefits div{background:#0E0E0E;color:#fff;padding:22px;border-left:3px solid #D4A535}
+.benefits b{display:block;font-family:'Outfit',sans-serif;color:#F0CF72;margin-bottom:6px}
+.benefits span{color:#C9C9C9;font-size:.92rem}
+@media (max-width:1000px){.journey{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.journey,.benefits{grid-template-columns:1fr}}
+@media (max-width:900px){.nav,.site-nav{background:rgba(255,255,255,.98)!important}}
+.statement,.section-title,.stat-num,.card-num{font-family:'Outfit','Inter',sans-serif!important}
+.statement{font-weight:500}
+em,.statement .gold,.gold{color:#A97A1E}
+.cta-band .eyebrow,.site-footer .eyebrow{color:#F0CF72}
+.cta-band em{color:#F0CF72}
