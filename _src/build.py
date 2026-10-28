@@ -28,8 +28,8 @@ BRAND = 'Vértice Advisory'
 # Para ativar o WhatsApp da marca: preencha com DDI+DDD+número, só dígitos (ex.: '5511912345678')
 WHATSAPP = '5511922037905'
 WA_TEXT = 'Olá! Vim pelo site da Vértice e quero uma das 3 vagas do Programa Piloto.'
-INSTAGRAM = 'https://instagram.com/verticeadvisory'
-INSTAGRAM_HANDLE = '@verticeadvisory'
+INSTAGRAM = 'https://instagram.com/verticeadvisorybr'
+INSTAGRAM_HANDLE = '@verticeadvisorybr'
 LINKEDIN = ''
 CITIES = ['Mauá', 'Santo André', 'São Bernardo do Campo', 'São Caetano do Sul', 'Diadema', 'Ribeirão Pires', 'Rio Grande da Serra']
 TODAY = datetime.date.today().isoformat()
@@ -41,8 +41,8 @@ if WHATSAPP:
     WHATSAPP_DISPLAY = '(%s) %s-%s' % (WHATSAPP[2:4], WHATSAPP[4:9], WHATSAPP[9:])
     WA_ICO_KEY = 'wa'
 else:
-    WA_URL = 'https://ig.me/m/verticeadvisory'
-    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'Direct no Instagram', 'Direct', '@verticeadvisory'
+    WA_URL = 'https://ig.me/m/verticeadvisorybr'
+    WA_LABEL, WA_SHORT, WHATSAPP_DISPLAY = 'Direct no Instagram', 'Direct', '@verticeadvisorybr'
     WA_ICO_KEY = 'ig'
 
 ICON = {
